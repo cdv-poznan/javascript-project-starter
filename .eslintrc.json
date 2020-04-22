@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["airbnb-base", "prettier"],
+  "parser": "babel-eslint",
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": 1,
+    "import/prefer-default-export": 0,
+    "no-param-reassign": 0,
+    "no-console": 0,
+    "no-unused-vars": 1,
+    "no-empty-function": 1,
+    "default-case": 1,
+    "prefer-template": 0,
+    "func-names": 0,
+    "object-shorthand": 0
+  }
+}
