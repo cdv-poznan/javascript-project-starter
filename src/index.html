@@ -8,9 +8,35 @@
   <body>
     <div id="app">
       <div class="container view" id="camelcase">
-        <input type="text" id="myinput" />
-        <button type="button" id="convert">convert</button>
-        <input type="text" readonly id="myoutput" />
+        <h1>CamelCase</h1>
+        <div class="row">
+          <div class="col">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="myiput">Input</span>
+              </div>
+              <input
+                class="form-control"
+                type="text"
+                id="myinput"
+                placeholder="Input text…"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="myiput">Output</span>
+              </div>
+              <input class="form-control" type="text" id="myoutput" readonly />
+            </div>
+          </div>
+        </div>
+        <div class="input-group button-wrapper">
+          <button class="btn btn-primary btn-lg" type="button" id="convert">
+            convert
+          </button>
+        </div>
       </div>
     </div>
   </body>
