@@ -32,6 +32,9 @@ const config = {
           },
           {
             loader: 'eslint-loader',
+            options: {
+              fix: true,
+            },
           },
           {
             loader: 'prettier-loader',

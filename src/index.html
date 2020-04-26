@@ -50,6 +50,29 @@
       </div>
       <div class="container view hidden" id="todo">
         <h1>Todo</h1>
+
+        <div class="todo-list-wrapper">
+          <ul id="todos" class="list-group"></ul>
+        </div>
+
+        <form id="todo-form">
+          <div class="input-group">
+            <input
+              class="form-control"
+              name="todo-text"
+              id="todo-text"
+              placeholder="New todo text…"
+            />
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-outline-primary">
+                Add new todo
+              </button>
+              <button type="reset" class="btn btn-outline-secondary">
+                Clear todo text
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </body>

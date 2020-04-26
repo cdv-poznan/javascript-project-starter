@@ -1,6 +1,7 @@
 // import { camelCase } from 'lodash';
 import $ from 'jquery';
 import { camelCaseView } from './views/camelcase';
+import { todoView } from './views/todo';
 
 function enableRouting() {
   function setRoute() {
@@ -18,5 +19,7 @@ function enableRouting() {
 
 document.addEventListener('DOMContentLoaded', () => {
   camelCaseView();
+  todoView();
+
   enableRouting();
 });
