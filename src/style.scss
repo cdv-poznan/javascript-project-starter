@@ -33,3 +33,27 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+
+$bgColor: #e9e7dc;
+$txtColor: rgb(71, 51, 51);
+$fontFamily: 'Arial';
+
+body {
+    background-color: $bgColor;
+}
+
+#app {
+    h1 {
+        color: $txtColor;
+        font-family: $fontFamily;
+    }
+
+    p {
+        color: $txtColor;
+    }
+
+    ul {
+        font-family: $fontFamily;
+    }
+}

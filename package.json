@@ -1,6 +1,6 @@
 {
   "name": "javascript-project-starter",
-  "description": "Starter for JavaScript project",
+  "description": "Projekt na zajęciach CDV 2020-04-26",
   "version": "1.0.0",
   "scripts": {
     "start": "webpack-dev-server",

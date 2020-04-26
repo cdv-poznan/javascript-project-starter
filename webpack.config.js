@@ -72,7 +72,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve(__dirname, './src/index.html'),
-      excludeAssets: [/style.js/],
+      // excludeAssets: [/style.js/],
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
