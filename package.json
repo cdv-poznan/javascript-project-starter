@@ -41,7 +41,10 @@
     "webpack-dev-server": "^3.10.3",
     "webpackbar": "^4.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.5.0",
+    "lodash": "^4.17.15"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Juszczak/cdv-project-starter.git"
