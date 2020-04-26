@@ -2,6 +2,7 @@
 import $ from 'jquery';
 import { camelCaseView } from './views/camelcase';
 import { todoView } from './views/todo';
+import { chartsView } from './views/charts';
 
 function enableRouting() {
   function setRoute() {
@@ -20,6 +21,7 @@ function enableRouting() {
 document.addEventListener('DOMContentLoaded', () => {
   camelCaseView();
   todoView();
+  chartsView();
 
   enableRouting();
 });

@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "chart.js": "^2.9.3",
     "jquery": "^3.5.0",
     "lodash": "^4.17.15",
     "popper.js": "^1.16.1",
