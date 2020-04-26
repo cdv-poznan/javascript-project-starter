@@ -7,7 +7,17 @@
   </head>
   <body>
     <div id="app">
-      <div class="container view" id="camelcase">
+      <nav class="navbar navbar-light bg-light">
+        <a href="#">Home</a>
+        <a href="#camelcase">Camel Case</a>
+        <a href="#todo">Todo</a>
+      </nav>
+
+      <div class="container view hidden" id="home">
+        <h1>Hello!</h1>
+      </div>
+
+      <div class="container view hidden" id="camelcase">
         <h1>CamelCase</h1>
         <div class="row">
           <div class="col">
@@ -37,6 +47,9 @@
             convert
           </button>
         </div>
+      </div>
+      <div class="container view hidden" id="todo">
+        <h1>Todo</h1>
       </div>
     </div>
   </body>
