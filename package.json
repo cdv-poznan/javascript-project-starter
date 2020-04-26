@@ -7,7 +7,7 @@
     "production": "webpack --mode=production"
   },
   "keywords": [],
-  "author": "Adrian Juszczak <adrian.juszczak@cdv.pl>",
+  "author": "Michał Gierszewski <mgierszewski@cdv.pl>",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -44,11 +44,11 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Juszczak/cdv-project-starter.git"
+    "url": "git+https://github.com/michooPL/cdv-project-starter.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Juszczak/cdv-project-starter/issues"
+    "url": "https://github.com/michooPL/cdv-project-starter/issues"
   },
-  "homepage": "https://github.com/Juszczak/cdv-project-starter#readme"
+  "homepage": "https://github.com/michooPL/cdv-project-starter#readme"
 }
