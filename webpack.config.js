@@ -57,7 +57,7 @@ const config = {
         ],
       },
       {
-        test: /\.(svg|eot|woff|woff2|ttf)$/,
+        test: /\.(svg|eot|woff|woff2|ttf|jpg)$/,
         loaders: [
           {
             loader: 'file-loader',

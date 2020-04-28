@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Drum machine</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drum machine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+  <div id="techno" class="view techno">
+    <button class="btn btn-outline-secondary style-changer" id="styleChanger">Change style</button>
+    <ul class="styles hidden" id="styles">
+      <li>Techno</li>
+      <li>Dubstep</li>
+      <li>Country</li>
+    </ul>
     <div id="app" class="app">
       <div class="container main">
         <!-- grid -->
-        <div class="drum-grid" id="grid">
+        <div class="drum-grid technoInterface" id="grid">
           <div class="hihat">
             <div class="legend">Hi-hat</div>
             <div class="square"></div>
@@ -49,7 +59,7 @@
             <div class="square"></div>
           </div>
           <div class="kick">
-            <div class="legend">Kick</div>
+            <div class="legend" id="technoKick">Kick</div>
             <div class="square"></div>
             <div class="square"></div>
             <div class="square"></div>
@@ -89,5 +99,7 @@
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
