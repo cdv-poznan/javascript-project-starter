@@ -1,3 +1,6 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./assets/_variables.scss";
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -32,4 +35,39 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.app {
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.drum-grid {
+  width: 40%;
+  margin: auto;
+}
+
+.hihat, .kick, .snare, .shaker {
+  display: flex;
+  justify-content: space-between;
+  .legend {
+    width: 100px;
+  }
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+  border: 1px $darkblue solid;
+  border-radius: 3px;
+}
+
+.checked {
+  background-color: $sandy;
 }

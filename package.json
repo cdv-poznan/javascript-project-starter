@@ -41,7 +41,12 @@
     "webpack-dev-server": "^3.10.3",
     "webpackbar": "^4.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.5.0",
+    "lodash": "^4.17.15",
+    "popper.js": "^1.16.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KrystianDerdzinski/javascript-project-starter"
