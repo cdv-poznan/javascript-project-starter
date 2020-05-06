@@ -6,6 +6,92 @@
     <title>CDV</title>
   </head>
   <body>
-    <div id="app"></div>
+    <!-- <div id="app">
+      <div class="container view">
+        <div class="row">
+          <div class="col">
+            <div class="input-group">
+              <input type="text" id="myinput" />
+            </div>
+            </div>
+          <div class="col">
+            <button id="convert" class="btn btn-primary">convert</button>
+          </div>
+          <div class="col"><input type="text" readonly id="myoutput" /></div>
+        </div>
+      </div>
+    </div> -->
+
+    <div id="app">
+      <nav class="navbar navbar-light">
+        <a href="#">Home</a>
+        <a href="#camelcase">CamelCase</a>
+        <a href="#todo">ToDo</a>
+        <a href="#charts">Charts</a>
+      </nav>
+      <div class="container view hidden" id="home">
+        <h1>Start</h1>
+      </div>
+      <div class="container view hidden" id="camelcase">
+        <h1>camelCase</h1>
+        <div class="row">
+          <div class="col">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="myiput">Input</span>
+              </div>
+              <input
+                class="form-control"
+                type="text"
+                id="myinput"
+                placeholder="Input text…"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="myiput">Output</span>
+              </div>
+              <input class="form-control" type="text" id="myoutput" readonly />
+            </div>
+          </div>
+        </div>
+        <div class="input-group button-wrapper">
+          <button class="btn btn-primary btn-lg" type="button" id="convert">
+            convert
+          </button>
+        </div>
+      </div>
+      <div class="container view hidden" id="todo">
+        <h1>toDo</h1>
+        <div class="todo-list-wrapper">
+          <ul id="todos" class="list-group"></ul>
+        </div>
+
+        <form id="todo-form">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              id="todo-text"
+              placeholder="New todo text"
+            />
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-outline-primary">
+                Add new todo
+              </button>
+              <button type="reset" class="btn btn-outline-secondary">
+                Clear todo text
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="container view hidden" id="charts">
+        <h1>Charts</h1>
+        <canvas id="chart-canvas"></canvas>
+      </div>
+    </div>
   </body>
 </html>
