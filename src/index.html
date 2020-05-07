@@ -1,11 +1,155 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CDV</title>
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchannge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <div class="logo-item logo-item-1">Curr</div>
+                <div class="logo-item logo-item-2">&euro;</div>
+                <div class="logo-item logo-item-3">ncies</div>
+                <div class="logo-item logo-item-4">online</div>
+            </div>
+            <div class="menu"></div>
+        </div>
+    </header>
+    <div class="converterWrapper">
+
+        <div class="converter">
+            <h2>Currency converter</h2>
+            <div id="converter" class="test">
+                <div id="currencyFrom" class="currencyFrom">
+                    <div id="currencyFromWrapper" class="currencyWrapper">
+                        <div class="flag">
+                            <img src="./assets/img/Poland.png" alt="Polish flag">
+                        </div>
+                        <div class="code">PLN</div>
+                        <div class="currency">Polish Zloty</div>
+                    </div>
+                    <div id="searchFrom" class="search" contenteditable="true"></div>
+                    <div id="currenciesList" class="currenciesList"></div>
+                </div>
+                <div id="changePosition" class="changePosition">&#8644;</div>
+                <div id="currencyTo" class="currencyTo">
+                    <div id="currencyToWrapper" class="currencyWrapper">
+                        <div class="flag">
+                            <img src="/assets/img/United_States.png" alt="United_States_flag">
+                        </div>
+                        <div class="code">USD</div>
+                        <div class="currency">US Dollar</div>
+                    </div>
+                    <div id="searchTo" class="search" contenteditable="true"></div>
+                    <div id="currenciesToList" class="currenciesList"></div>
+                </div>
+                <div id="ammount" class="ammount" contenteditable="true">100</div>
+                <div id="convert" class="convert">&gt;</div>
+                <div id="yourExchange" class="exchange"></div>
+                <div id="rate" class="rate"></div>
+            </div>
+        </div>
+    </div>
+    <div class="light">
+        <div class="converterTable">
+            <div class="convertTable table-item item-0">
+                <div id="change-button" class="change-button">Change</div>
+            </div>
+
+            <div class="convertTable table-item item-1">
+                <div class="img">
+                    <img src="/assets/img/Germany.png" alt="EU's flag">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/Euro" target="_blank">EUR</a>
+                </div>
+            </div>
+
+            <div class="convertTable table-item item-2">
+                <div class="img">
+                    <img src="/assets/img/United_States.png" alt="US's flag">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/United_States_dollar" target="_blank">USD</a>
+                </div>
+            </div>
+
+            <div class="convertTable table-item item-3">
+                <div class="img">
+                    <img src="/assets/img/United_Kingdom.png" alt="UK's flag">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/Pound_sterling" target="_blank">GBP</a>
+                </div>
+            </div>
+
+            <div class="convertTable table-item item-4">
+                <div class="img">
+                    <img src="/assets/img/Switzerland.png" alt="">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/Swiss_franc" target="_blank">CHF</a>
+                </div>
+            </div>
+
+            <div class="convertTable table-item item-5">
+                <div class="img">
+                    <img src="/assets/img/Czech_Republic.png" alt="Czech's flag">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/Czech_koruna" target="_blank">CZK</a>
+                </div>
+            </div>
+            <div class="convertTable table-item item-6">
+                <div class="img">
+                    <img src="/assets/img/Poland.png" alt="Polish flag">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/Polish_z%C5%82oty" target="_blank">1 PLN</a>
+                </div>
+            </div>
+            <div class="convertTable table-item item-7">
+                <div id="plnEur"></div>
+            </div>
+            <div class="convertTable table-item item-8">
+                <div id="plnUsd"></div>
+            </div>
+            <div class="convertTable table-item item-9">
+                <div id="plnGbp"></div>
+            </div>
+            <div class="convertTable table-item item-10">
+                <div id="plnChf"></div>
+            </div>
+            <div class="convertTable table-item item-11">
+                <div id="plnCzk"></div>
+            </div>
+        </div>
+        <div id="demo"></div>
+
+        <div id="newConverterTable" class="converterTable">
+            <div class="convertTable table-item item-0">
+                <div id="newCurrency">
+                    <div id="addCurrency" class="addButton">Dodaj</div>
+                    <div id="newCurrencyListSearch" class="search" contenteditable="true" ></div>
+                    <div id="newCurrencyList"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="midnightblue">
+        <h2>Avaiable currencies</h2>
+        <div id="availableCurrencies" class="allCurrencies"></div>
+    </div>
+    <footer>
+        &copy; 2020
+    </footer>
+
+</body>
+
 </html>
