@@ -1,0 +1,12 @@
+header {
+    background-color: lightblue;
+    box-shadow: 0 3px 12px 2px lightgray;
+    
+    .page-title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 2.5rem;
+        animation: animate__slideInDown;
+        animation-duration: 2s;
+    }
+}

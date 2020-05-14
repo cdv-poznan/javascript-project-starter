@@ -1,0 +1,26 @@
+main {
+    display: flex;
+    border: 1px solid green;
+    // justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 15px auto;
+    .flex-container {
+        display: flex;
+        .item {
+            width: 50%;
+            border: 2px solid black;
+        }
+    }
+    .flex-item {
+        .poke-list ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            li {
+                border: 1px solid brown;
+                margin: 10px;
+            }
+        }
+    }
+}

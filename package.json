@@ -41,5 +41,7 @@
     "webpack-dev-server": "^3.10.3",
     "webpackbar": "^4.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "animate.css": "^4.1.0"
+  }
 }
