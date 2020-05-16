@@ -1,0 +1,14 @@
+@import "./store.scss";
+
+.footer {
+    background-color: $main-color;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    p {
+        text-align: center;
+        line-height: 40px;
+        color: $secondary-color;
+    }
+}
