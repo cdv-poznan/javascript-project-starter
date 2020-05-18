@@ -1,0 +1,22 @@
+.poke-photo {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        height: 300px;
+    }
+}
+.poke-describe {
+    .poke-name {
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+ @media (max-width: 860px) {
+     .poke-photo img {
+         height: 200px;
+     }
+ } 
