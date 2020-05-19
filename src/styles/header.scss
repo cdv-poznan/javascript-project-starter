@@ -3,7 +3,7 @@
 header {
     background-color: $main-color;
     box-shadow: 0 3px 12px 2px lightgray;
-    
+    min-width: 300px;
     .page-title {
         color: $secondary-color;
         text-align: center;

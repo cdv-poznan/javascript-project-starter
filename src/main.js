@@ -3,8 +3,9 @@ const pokemonList = document.querySelector('.list');
 const selectType = document.querySelector('select');
 const pokePhoto = document.querySelector('.poke-photo');
 const pokeName = document.querySelector('.poke-name');
+const pokeType = document.querySelector('.type-span');
 
-console.log(pokeName);
+console.log(pokeType);
 
 const number = 50;
 const type = 18;
@@ -41,6 +42,13 @@ for (let i = 0; i < poke.length; i++) {
       .then((res) => res.json())
       .then((res) => {
         pokeName.textContent = res.name;
+        console.log(res);
+        const typeArr = res.types;
+        if (typeArr.length === 2) {
+          pokeType.textContent = `${typeArr[0].type.name} / ${typeArr[1].type.name}`;
+        } else {
+          pokeType.textContent = typeArr[0].type.name;
+        }
       });
   });
 }

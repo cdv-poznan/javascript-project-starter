@@ -13,6 +13,14 @@
         font-weight: bold;
         text-align: center;
     }
+    .poke-details {
+        border: 1px solid black;
+        margin: 25px;
+        .type-span {
+            font-weight: bold;
+        }
+    }
+    
 }
 
  @media (max-width: 860px) {

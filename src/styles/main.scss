@@ -6,6 +6,7 @@ main {
     flex-direction: column;
     width: 80%;
     margin: 10px auto;
+    min-width: 300px;
     .flex-container {
         display: flex;
         justify-content: space-between;
@@ -35,8 +36,14 @@ main {
             box-shadow: 1px 4px 12px 2px lightgray;
             margin: 15px auto;
             li {
-                border: 1px solid brown;
+                // border: 1px solid brown;
                 margin: 10px;
+                border-radius: 15px;
+                transition: 0.3s;
+            }
+            li:hover {
+                box-shadow: 1px 4px 12px 2px lightgray;
+                transform: scale(1.05);
             }
         }
     }
