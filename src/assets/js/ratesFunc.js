@@ -1,27 +1,15 @@
 const searchFrom = document.querySelector('#searchFrom');
-const searchTo = document.querySelector('#searchTo');
-const currenciesToList = document.querySelector('#currenciesToList');
-const currenciesList = document.querySelector('#currenciesList');
-const currencyToWrapper = document.querySelector('#currencyToWrapper');
-const currencyWrapper = document.querySelectorAll('.currencyWrapper');
-const changePosition = document.querySelector('.changePosition');
-const ammount = document.querySelector('#ammount');
-const convert = document.querySelector('#convert');
-const rate = document.querySelector('#rate');
-const yourExchange = document.querySelector('#yourExchange');
 const changeButton = document.querySelector('#change-button');
-const newCurrency = document.querySelector('#newCurrency');
 const addCurrency = document.querySelector('#addCurrency');
-const newCurrenciesList = document.querySelector('#newCurrenciesList');
 const newCurrencyList = document.querySelector('#newCurrencyList');
 const newCurrencyListSearch = document.querySelector('#newCurrencyListSearch');
-const newConverterTable = document.querySelector('#newConverterTable');
 const demo = document.querySelector('#demo');
 
 function exchangePlnEur() {
   fetch('./assets/js/countries.json')
     .then((response) => response.json())
     .then((response) => {
+      console.log(response);
       const req = fetch('https://api.exchangerate-api.com/v4/latest/pln');
       const currenciesLength = response.currencies.length;
       req
@@ -29,40 +17,37 @@ function exchangePlnEur() {
           return res.json();
         })
         .then(function (body) {
-          // console.log(body.rates.EUR);
           const plnEur = document.getElementById('plnEur');
           const plnUsd = document.getElementById('plnUsd');
           const plnGbp = document.getElementById('plnGbp');
           const plnChf = document.getElementById('plnChf');
-          const plnCzk = document.getElementById('plnCzk');
-          plnEur.innerHTML = '1 PLN = ' + body.rates.EUR.toFixed(2) + ' EUR';
-          plnUsd.innerHTML = '1 PLN = ' + body.rates.USD.toFixed(2) + ' USD';
-          plnGbp.innerHTML = '1 PLN = ' + body.rates.GBP.toFixed(2) + ' GBP';
-          plnChf.innerHTML = '1 PLN = ' + body.rates.CHF.toFixed(2) + ' CHF';
-          plnCzk.innerHTML = '1 PLN = ' + body.rates.CZK.toFixed(2) + ' CZK';
+          const plnPln = document.getElementById('plnPln');
+          plnEur.innerHTML = body.rates.EUR.toFixed(2) + ' EUR';
+          plnUsd.innerHTML = body.rates.USD.toFixed(2) + ' USD';
+          plnGbp.innerHTML = body.rates.GBP.toFixed(2) + ' GBP';
+          plnChf.innerHTML = body.rates.CHF.toFixed(2) + ' CHF';
+          plnPln.innerHTML = body.rates.PLN;
 
           let counter = 0;
           changeButton.addEventListener('click', function () {
             counter += 1;
-            // console.log(body.rates);
             if (parseInt(counter % 2, 10) === 0) {
-              plnEur.innerHTML = '1 PLN = ' + body.rates.EUR.toFixed(2) + ' EUR';
-              plnUsd.innerHTML = '1 PLN = ' + body.rates.USD.toFixed(2) + ' USD';
-              plnGbp.innerHTML = '1 PLN = ' + body.rates.GBP.toFixed(2) + ' GBP';
-              plnChf.innerHTML = '1 PLN = ' + body.rates.CHF.toFixed(2) + ' CHF';
-              plnCzk.innerHTML = '1 PLN = ' + body.rates.CZK.toFixed(2) + ' CZK';
+              plnEur.innerHTML = body.rates.EUR.toFixed(2) + ' EUR';
+              plnUsd.innerHTML = body.rates.USD.toFixed(2) + ' USD';
+              plnGbp.innerHTML = body.rates.GBP.toFixed(2) + ' GBP';
+              plnChf.innerHTML = body.rates.CHF.toFixed(2) + ' CHF';
+              plnPln.innerHTML = body.rates.PLN;
             } else {
-              plnEur.innerHTML = '1 EUR = ' + (body.rates.PLN / body.rates.EUR).toFixed(2) + ' PLN';
-              plnUsd.innerHTML = '1 USD = ' + (body.rates.PLN / body.rates.USD).toFixed(2) + '  PLN';
-              plnGbp.innerHTML = '1 GBP = ' + (body.rates.PLN / body.rates.GBP).toFixed(2) + '  PLN';
-              plnChf.innerHTML = '1 CHF = ' + (body.rates.PLN / body.rates.CHF).toFixed(2) + '  PLN';
-              plnCzk.innerHTML = '1 CZK = ' + (body.rates.PLN / body.rates.CZK).toFixed(2) + ' PLN';
+              plnEur.innerHTML = (body.rates.PLN / body.rates.EUR).toFixed(2) + ' PLN';
+              plnUsd.innerHTML = (body.rates.PLN / body.rates.USD).toFixed(2) + '  PLN';
+              plnGbp.innerHTML = (body.rates.PLN / body.rates.GBP).toFixed(2) + '  PLN';
+              plnChf.innerHTML = (body.rates.PLN / body.rates.CHF).toFixed(2) + '  PLN';
+              plnPln.innerHTML = body.rates.PLN;
             }
           });
 
           // DISPLAY CURRENCY YOU WANT ADD TO NEW CONVERT TABLE
           addCurrency.addEventListener('click', function () {
-            console.log('dodaj walutę');
             newCurrencyListSearch.classList.add('show');
             // searchFrom.focus();
             // searchFrom.innerHTML = '';
@@ -82,30 +67,71 @@ function exchangePlnEur() {
           });
 
           // CHOOSE CURRENCY YOU WANT TO ADD TO "NEW CONVERTER TABLE"
-          let newCurrencyQnt = 0;
+          let newCurrencyQnt;
+          if (localStorage.getItem('newCurrencyQnt') === null) {
+            newCurrencyQnt = 0;
+          } else {
+            newCurrencyQnt = parseInt(localStorage.getItem('newCurrencyQnt'), 10);
+          }
+          // REMOVE CURRENCY FROM "NEW CONVERTER TABLE"
+          demo.addEventListener('click', (e) => {
+            console.log(newCurrencyQnt);
+            if (e.target.classList.contains('close')) {
+              e.target.parentElement.parentElement.remove();
+              localStorage.removeItem(e.target.parentElement.parentElement.id);
+              newCurrencyQnt -= 1;
+              localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
+              console.log(newCurrencyQnt);
+            }
+          });
+
           newCurrencyList.addEventListener('click', function (event) {
-            searchFrom.classList.remove('show'); // remove displaying of search input
-            const div = document.createElement('DIV');
-            const cells = `
+            let getCurrencyCode;
+            if (event.target.tagName === 'IMG') {
+              getCurrencyCode = event.target.parentElement.parentElement.id;
+            } else {
+              getCurrencyCode = event.target.parentElement.id;
+            }
+            // const code = event.target.parentElement.id;
+            console.log('https://api.exchangerate-api.com/v4/latest/' + getCurrencyCode);
+
+            fetch('https://api.exchangerate-api.com/v4/latest/' + getCurrencyCode)
+              .then((respo) => respo.json())
+              .then((respo) => {
+                // console.log(respo);
+                searchFrom.classList.remove('show'); // remove displaying of search input
+                // const div = document.createElement('DIV');
+
+                const cells = `
                       <div class="convertTable table-item">
-                        <div id="rate-${newCurrencyQnt}-EUR">1</div>
+                        <div id="rate-${newCurrencyQnt}-EUR" class="currentRate">1 ${getCurrencyCode} = ${respo.rates.EUR.toFixed(
+                  2,
+                )} EUR</div>
                       </div>
                       <div class="convertTable table-item">
-                        <div id="rate-${newCurrencyQnt}-USD">2</div>
+                        <div id="rate-${newCurrencyQnt}-USD" class="currentRate">1 ${getCurrencyCode} = ${respo.rates.USD.toFixed(
+                  2,
+                )} USD</div>
                       </div>
                       <div class="convertTable table-item">
-                        <div id="rate-${newCurrencyQnt}-GBP">3</div>
+                        <div id="rate-${newCurrencyQnt}-GBP" class="currentRate">1 ${getCurrencyCode} = ${respo.rates.GBP.toFixed(
+                  2,
+                )} GBP</div>
                       </div>
                       <div class="convertTable table-item">
-                        <div id="rate-${newCurrencyQnt}-CHF">4</div>
+                        <div id="rate-${newCurrencyQnt}-CHF" class="currentRate">1 ${getCurrencyCode} = ${respo.rates.CHF.toFixed(
+                  2,
+                )} CHF</div>
                       </div>
                       <div class="convertTable table-item">
-                        <div id="rate-${newCurrencyQnt}-PLN">5</div>
+                        <div id="rate-${newCurrencyQnt}-PLN" class="currentRate">1 ${getCurrencyCode} = ${respo.rates.PLN.toFixed(
+                  2,
+                )} PLN</div>
                       </div>
                       `;
 
-            if (event.target.tagName === 'IMG') {
-              demo.innerHTML += `
+                if (event.target.tagName === 'IMG') {
+                  demo.innerHTML += `
                         <div id="wrapper-${newCurrencyQnt}" class="converterTable">
                           <div>
                             <span class="close">x</span>
@@ -114,18 +140,18 @@ function exchangePlnEur() {
                           ${cells}
                         </div>
                       `;
-              newCurrencyListSearch.classList.remove('show');
-              newCurrencyList.innerHTML = '';
-              // local storage
-              localStorage.setItem(
-                `wrapper-${newCurrencyQnt}`,
-                `<div id="wrapper-${newCurrencyQnt}"class="converterTable"><div><span class="close">x</span>${event.target.parentNode.parentNode.innerHTML}</div>${cells}</div>`,
-              );
-              newCurrencyQnt += 1;
-              localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
-            } else {
-              // div.innerHTML = event.target.parentNode.innerHTML;
-              demo.innerHTML += `
+                  newCurrencyListSearch.classList.remove('show');
+                  newCurrencyList.innerHTML = '';
+                  // local storage
+                  localStorage.setItem(
+                    `wrapper-${newCurrencyQnt}`,
+                    `<div id="wrapper-${newCurrencyQnt}"class="converterTable"><div><span class="close">x</span>${event.target.parentNode.parentNode.innerHTML}</div>${cells}</div>`,
+                  );
+                  newCurrencyQnt += 1;
+                  localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
+                } else {
+                  // div.innerHTML = event.target.parentNode.innerHTML;
+                  demo.innerHTML += `
                       <div id="wrapper-${newCurrencyQnt}" class="converterTable">
                         <div>
                           <span class="close">x</span>
@@ -135,16 +161,35 @@ function exchangePlnEur() {
                       </div>
                     `;
 
-              newCurrencyListSearch.classList.remove('show');
-              newCurrencyList.innerHTML = '';
-              // local storage
-              localStorage.setItem(`wrapper-${newCurrencyQnt}`, `<ntNode.innerHTML}</div>${cells}</=>`);
-              newCurrencyQnt += 1;
+                  newCurrencyListSearch.classList.remove('show');
+                  newCurrencyList.innerHTML = '';
+                  // local storage
+                  localStorage.setItem(
+                    `wrapper-${newCurrencyQnt}`,
+                    `<div id="wrapper-${newCurrencyQnt}"class="converterTable"><div><span class="close">x</span>${event.target.parentNode.innerHTML}</div>${cells}</div>`,
+                  );
+                  newCurrencyQnt += 1;
 
-              localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
-            }
+                  localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
+                }
+              });
           });
+
+          // const changer = document.querySelector('#change-button');
+
+          // changer.addEventListener('click', function () {
+          //   const fromLS = document.querySelector('.converterTable');
+
+          //   for (let i = 0; i < localStorage.length; i += 1) {
+          //     console.log(localStorage.getItem(localStorage.key(i)));
+          //     if (localStorage.key === 'wrapper' + i) {
+          //       console.log(localStorage.getItem(localStorage.key(i).slice(1, 2)));
+          //     }
+          //   }
+          //   // console.log(localStorage.getItem('tesciu', JSON.stringify()));
+          // });
         });
+      // REMOVE ITEM FROM NEW CONVERTER TABLE
     });
 }
 

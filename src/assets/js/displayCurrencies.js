@@ -4,7 +4,7 @@ const searchFrom = document.querySelector('#searchFrom');
 const searchTo = document.querySelector('#searchTo');
 const currenciesToList = document.querySelector('#currenciesToList');
 const currenciesList = document.querySelector('#currenciesList');
-const converter = document.querySelector('#converter');
+// const converter = document.querySelector('#converter');
 const currencyToWrapper = document.querySelector('#currencyToWrapper');
 
 function displayCurrencies() {
