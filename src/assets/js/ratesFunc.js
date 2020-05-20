@@ -9,7 +9,6 @@ function exchangePlnEur() {
   fetch('./assets/js/countries.json')
     .then((response) => response.json())
     .then((response) => {
-      console.log(response);
       const req = fetch('https://api.exchangerate-api.com/v4/latest/pln');
       const currenciesLength = response.currencies.length;
       req
