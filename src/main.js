@@ -42,6 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
+      let newCurrencyQnt;
+      if (localStorage.getItem('newCurrencyQnt') === null) {
+        newCurrencyQnt = 0;
+      } else {
+        newCurrencyQnt = parseInt(localStorage.getItem('newCurrencyQnt'), 10);
+      }
+      // REMOVE CURRENCY FROM "NEW CONVERTER TABLE"
+      newConverterTable.addEventListener('click', (e) => {
+        console.log(newCurrencyQnt);
+        if (e.target.classList.contains('close')) {
+          e.target.parentElement.parentElement.remove();
+          localStorage.removeItem(e.target.parentElement.parentElement.id);
+          newCurrencyQnt -= 1;
+          localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
+          console.log(newCurrencyQnt);
+        }
+      });
+
       // your currencies stuff
       changeButton.addEventListener('click', yourCurrencies);
     })
