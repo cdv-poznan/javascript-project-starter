@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((response) => response.json())
     .then(() => {
       const convert = document.querySelector('#convert');
-      const demo = document.querySelector('#demo');
+      const newConverterTable = document.querySelector('#newConverterTable');
       const changeButton = document.querySelector('#change-button');
 
       // ADD ALL AVAILABLE CURRENCIES TO "AVAILABLE CURRENCIES" SECTION
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // GET CONTENT FROM LOCAL STORAGE
       for (let x = 0; x < localStorage.length; x += 1) {
         if (localStorage.getItem('wrapper-' + x)) {
-          demo.innerHTML += localStorage.getItem('wrapper-' + x);
+          newConverterTable.innerHTML += localStorage.getItem('wrapper-' + x);
         }
       }
 

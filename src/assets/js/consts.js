@@ -17,6 +17,6 @@
 // const newCurrencyList = document.querySelector('#newCurrencyList');
 // const newCurrencyListSearch = document.querySelector('#newCurrencyListSearch');
 // const newConverterTable = document.querySelector('#newConverterTable');
-// const demo = document.querySelector('#demo');
+// const newConverterTable = document.querySelector('#newConverterTable');
 
 // export {currencyFromWrapper}

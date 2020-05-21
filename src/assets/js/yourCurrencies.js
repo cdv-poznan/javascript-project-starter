@@ -1,13 +1,13 @@
-const demo = document.querySelector('#demo');
+const newConverterTable = document.querySelector('#newConverterTable');
 
 let clickCounter = 0;
 function yourCurrencies() {
-  const currCode = document.querySelectorAll('#demo .code');
+  const currCode = document.querySelectorAll('#newConverterTable .code');
   // const currentRate = document.querySelectorAll('.currentRate');
   clickCounter += 1;
   console.log(clickCounter);
   //   console.log(clickCounter);
-  demo.innerHTML = '';
+  newConverterTable.innerHTML = '';
   // get currencies code from table and push it into array
   const url = [];
   for (let i = 0; i < currCode.length; i += 1) {
@@ -18,7 +18,7 @@ function yourCurrencies() {
       .then((rr) => rr.json())
       .then((rr) => {
         if (parseInt(getClickCounter % 2, 10) === 0) {
-          demo.innerHTML += `<div class="converterTable">
+          newConverterTable.innerHTML += `<div class="converterTable">
                           <div>
                               <span class="close">x</span>
                               <div class="flag" >
@@ -43,7 +43,7 @@ function yourCurrencies() {
                           </div>
                       </div>`;
         } else {
-          demo.innerHTML += `<div class="converterTable">
+          newConverterTable.innerHTML += `<div class="converterTable">
             <div>
                 <span class="close">x</span>
                 <div class="flag" >
@@ -71,103 +71,23 @@ function yourCurrencies() {
       });
   }
 
-  //   url.forEach(function (code) {
-  //     const currentRate = document.querySelectorAll('.currentRate');
-  //     console.log('https:api.exchangerate-api.com/v4/latest/' + code);
-  //     fetch('https://api.exchangerate-api.com/v4/latest/' + code)
-  //       .then((re) => re.json())
-  //       .then((body) => {
-  //         console.log(body);
-
-  //         const demo = document.querySelector('#demo');
-  //         demo.innerHTML = '';
-  //         demo.innerHTML += `<div class="converterTable">
-  //                         <div>
-  //                             <span class="close">x</span>
-  //                             <div class="flag" id="flag_of_Emirates">
-  //                                 <img src="/assets/img/Emirates.png">
-  //                             </div>
-  //                             <div class="code">${code}</div>
-  //                         </div>
-  //                         <div class="convertTable table-item">
-  //                             <div id="rate-1-EUR" class="currentRate">${body.rates.EUR.toFixed(2) + ' EUR'}</div>
-  //                         </div>
-  //                         <div class="convertTable table-item">
-  //                             <div id="rate-1-USD" class="currentRate">1 AED = 0.27 USD</div>
-  //                         </div>
-  //                         <div class="convertTable table-item">
-  //                             <div id="rate-1-GBP" class="currentRate">1 AED = 0.22 GBP</div>
-  //                         </div>
-  //                         <div class="convertTable table-item">
-  //                             <div id="rate-1-CHF" class="currentRate">1 AED = 0.27 CHF</div>
-  //                         </div>
-  //                         <div class="convertTable table-item">
-  //                             <div id="rate-1-PLN" class="currentRate">1 AED = 1.14 PLN</div>
-  //                         </div>
-  //                     </div>`;
-  //         console.log(demo);
-
-  // // for (let i = 0; i < 5; i += 1) {
-  // if (parseInt(clickCounter % 2, 10) === 0) {
-  //   currentRate[0].innerHTML = body.rates.EUR.toFixed(2) + ' EUR';
-  //   currentRate[1].innerHTML = body.rates.USD.toFixed(2) + ' USD';
-  //   currentRate[2].innerHTML = body.rates.GBP.toFixed(2) + ' GBP';
-  //   currentRate[3].innerHTML = body.rates.CHF.toFixed(2) + ' CHF';
-  //   currentRate[4].innerHTML = body.rates.PLN.toFixed(2) + ' PLN';
-  // } else {
-  //   currentRate[0].innerHTML = (1 / body.rates.EUR).toFixed(2) + ' EUR';
-  //   currentRate[1].innerHTML = (1 / body.rates.USD).toFixed(2) + ' USD';
-  //   currentRate[2].innerHTML = (1 / body.rates.GBP).toFixed(2) + ' GBP';
-  //   currentRate[3].innerHTML = (1 / body.rates.CHF).toFixed(2) + ' CHF';
-  //   currentRate[4].innerHTML = (1 / body.rates.PLN).toFixed(2) + ' PLN';
-  // }
-  // // }
-  //   });
-  //   });
-
-  // fetch('https://api.exchangerate-api.com/v4/latest/' + currCode[0].innerHTML)
-  //   .then((re) => re.json())
-  //   .then((re) => {
-  //     console.log(RE);
-  //   });
-
-  // fetch('https://api.exchangerate-api.com/v4/latest/' + currCode)
-  //   .then((re) => re.json())
-  //   .then((re) => {
-  //     console.log(re);
-  // if (parseInt(counter % 2, 10) === 0) {
-  //   currentRate[i].innerHTML = body.rates.EUR.toFixed(2) + ' EUR';
-  //   currentRate[i].innerHTML = body.rates.USD.toFixed(2) + ' USD';
-  //   currentRate[i].innerHTML = body.rates.GBP.toFixed(2) + ' GBP';
-  //   currentRate[i].innerHTML = body.rates.CHF.toFixed(2) + ' CHF';
-  //   currentRate[i].innerHTML = body.rates.PLN;
-  // } else {
-  //   plnEur.innerHTML = (body.rates.PLN / body.rates.EUR).toFixed(2) + ' PLN';
-  //   plnUsd.innerHTML = (body.rates.PLN / body.rates.USD).toFixed(2) + '  PLN';
-  //   plnGbp.innerHTML = (body.rates.PLN / body.rates.GBP).toFixed(2) + '  PLN';
-  //   plnChf.innerHTML = (body.rates.PLN / body.rates.CHF).toFixed(2) + '  PLN';
-  //   plnPln.innerHTML = body.rates.PLN;
-  // }
+  // CHOOSE CURRENCY YOU WANT TO ADD TO "NEW CONVERTER TABLE"
+  let newCurrencyQnt;
+  if (localStorage.getItem('newCurrencyQnt') === null) {
+    newCurrencyQnt = 0;
+  } else {
+    newCurrencyQnt = parseInt(localStorage.getItem('newCurrencyQnt'), 10);
+  }
+  newConverterTable.addEventListener('click', (e) => {
+    console.log(newCurrencyQnt);
+    if (e.target.classList.contains('close')) {
+      e.target.parentElement.parentElement.remove();
+      localStorage.removeItem(e.target.parentElement.parentElement.id);
+      newCurrencyQnt -= 1;
+      localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
+      console.log(newCurrencyQnt);
+    }
+  });
 }
-
-// fetch('https://api.exchangerate-api.com/v4/latest/' + currCode)
-//   .then((resp) => respo.json())
-//   .then((resp) => {});
-
-// const currentRate = document.querySelectorAll('.currentRate');
-// clickCounter += 1;
-// console.log(clickCounter);
-// for (let i = 0; i < currentRate.length; i += 1) {
-//   console.log(currentRate[i].textContent);
-//   if (clickCounter === 1) {
-//     currentRate[i].textContent = parseFloat(1 / currentRate[i].textContent.slice(8, 12), 10).toFixed(2);
-//     // console.log(1 / currentRate[i].textContent.slice(8, 12));
-//   } else if (parseInt(clickCounter % 2, 10) === 0) {
-//     currentRate[i].textContent = parseFloat(1 / currentRate[i].textContent.slice(0, 3), 10).toFixed(2);
-//   } else {
-//     currentRate[i].textContent = parseFloat(1 / currentRate[i].textContent.slice(0, 4)).toFixed(2);
-//   }
-// }
-// });
 
 export { yourCurrencies };

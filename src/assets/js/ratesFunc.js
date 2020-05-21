@@ -3,13 +3,13 @@ const changeButton = document.querySelector('#change-button');
 const addCurrency = document.querySelector('#addCurrency');
 const newCurrencyList = document.querySelector('#newCurrencyList');
 const newCurrencyListSearch = document.querySelector('#newCurrencyListSearch');
-const demo = document.querySelector('#demo');
+const newConverterTable = document.querySelector('#newConverterTable');
 
 function exchangePlnEur() {
   fetch('./assets/js/countries.json')
     .then((response) => response.json())
     .then((response) => {
-      const req = fetch('https://api.exchangerate-api.com/v4/latest/pln');
+      constreq = fetch('https://api.exchangerate-api.com/v4/latest/pln');
       const currenciesLength = response.currencies.length;
       req
         .then(function (res) {
@@ -65,25 +65,7 @@ function exchangePlnEur() {
             }
           });
 
-          // CHOOSE CURRENCY YOU WANT TO ADD TO "NEW CONVERTER TABLE"
           let newCurrencyQnt;
-          if (localStorage.getItem('newCurrencyQnt') === null) {
-            newCurrencyQnt = 0;
-          } else {
-            newCurrencyQnt = parseInt(localStorage.getItem('newCurrencyQnt'), 10);
-          }
-          // REMOVE CURRENCY FROM "NEW CONVERTER TABLE"
-          demo.addEventListener('click', (e) => {
-            console.log(newCurrencyQnt);
-            if (e.target.classList.contains('close')) {
-              e.target.parentElement.parentElement.remove();
-              localStorage.removeItem(e.target.parentElement.parentElement.id);
-              newCurrencyQnt -= 1;
-              localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
-              console.log(newCurrencyQnt);
-            }
-          });
-
           newCurrencyList.addEventListener('click', function (event) {
             let getCurrencyCode;
             if (event.target.tagName === 'IMG') {
@@ -130,7 +112,7 @@ function exchangePlnEur() {
                       `;
 
                 if (event.target.tagName === 'IMG') {
-                  demo.innerHTML += `
+                  dnewConverterTableinnerHTML += `
                         <div id="wrapper-${newCurrencyQnt}" class="converterTable">
                           <div>
                             <span class="close">x</span>
@@ -150,7 +132,7 @@ function exchangePlnEur() {
                   localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
                 } else {
                   // div.innerHTML = event.target.parentNode.innerHTML;
-                  demo.innerHTML += `
+                  dnewConverterTableinnerHTML += `
                       <div id="wrapper-${newCurrencyQnt}" class="converterTable">
                         <div>
                           <span class="close">x</span>
@@ -173,20 +155,6 @@ function exchangePlnEur() {
                 }
               });
           });
-
-          // const changer = document.querySelector('#change-button');
-
-          // changer.addEventListener('click', function () {
-          //   const fromLS = document.querySelector('.converterTable');
-
-          //   for (let i = 0; i < localStorage.length; i += 1) {
-          //     console.log(localStorage.getItem(localStorage.key(i)));
-          //     if (localStorage.key === 'wrapper' + i) {
-          //       console.log(localStorage.getItem(localStorage.key(i).slice(1, 2)));
-          //     }
-          //   }
-          //   // console.log(localStorage.getItem('tesciu', JSON.stringify()));
-          // });
         });
       // REMOVE ITEM FROM NEW CONVERTER TABLE
     });

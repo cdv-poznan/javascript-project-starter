@@ -18,15 +18,14 @@ ol, ul {
   src: url(/assets/fonts/Roboto-Regular.ttf);
 }
 body{
-  /* background-color: rgb(86, 100, 182); */
   color: snow;
   font-family: Roboto-Regular;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top:0;
-  margin-bottom: 0;
-  padding: 0;
+  // margin-top:0;
+  // margin-bottom: 0;
+  // padding: 0;
 }
 
 .nav{
@@ -84,7 +83,7 @@ body{
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
   }
 }
-
+// CONVERTER
 .converterWrapper{
   background-image: linear-gradient( rgb(5, 53, 126), rgb(8, 105, 250));
 }
@@ -124,6 +123,7 @@ body{
   color: midnightblue;
 }
 .currency{
+  color: midnightblue;
   grid-column: 3;
   grid-row: 1 / span 3;
   display: grid;
@@ -186,7 +186,9 @@ body{
   right: 0;
   z-index: 1;  
   margin: 0 10px;
-}
+  border: 1px solid midnightblue;
+  border-top: none;
+} 
 .search{
   background-color: snow;
   color: midnightblue;
@@ -253,6 +255,34 @@ body{
   padding: 0 10px;
   // border-bottom: 3px solid orange;
 }
+#newConverterTable .code{
+  justify-content: center;
+}
+.convertTableButton{
+  background-color: orangered;
+}
+
+///////////////////////////////////////////////////
+#newCurrency{
+  width: 100%;
+  position: relative;
+}
+#newCurrencyList{
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: absolute;
+  left:-10px;
+  right: 0;
+  z-index: 1;  
+  margin: 0 10px;
+  border: 1px solid midnightblue;
+  border-top: none;
+}
+// #newCurrencyList .newCurrencyWrapper{
+//   width: 100%;
+// }
 a {
   text-decoration: none;
   color: midnightblue;
@@ -295,6 +325,7 @@ footer{
   cursor: pointer;
 }
 .addButton{
+  margin: 5px 0;
   background-color:  rgb(68, 68, 70);
   color: snow;
   letter-spacing: 1px;
@@ -349,7 +380,9 @@ footer{
   }
   .code{
       grid-row: 1 / span 2;
+      padding: 10px 0 0 0;
       justify-content: start;
+  
   }
   .currency{
       grid-column: 2;
@@ -418,7 +451,7 @@ footer{
   }
 
   .converterTable{
-      padding:30px;
+      padding: 5px 30px;
       display: grid;
       /* grid-template-columns: repeat(6, 1fr); */
       /* grid-template-rows: repeat(2, 1fr); */
