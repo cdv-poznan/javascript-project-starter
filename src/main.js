@@ -36,28 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
       changeCurrencyPosition();
 
       // GET CONTENT FROM LOCAL STORAGE
-      for (let x = 0; x < localStorage.length; x += 1) {
-        if (localStorage.getItem('wrapper-' + x)) {
-          newConverterTable.innerHTML += localStorage.getItem('wrapper-' + x);
-        }
-      }
-
-      let newCurrencyQnt;
-      if (localStorage.getItem('newCurrencyQnt') === null) {
-        newCurrencyQnt = 0;
-      } else {
-        newCurrencyQnt = parseInt(localStorage.getItem('newCurrencyQnt'), 10);
-      }
+      newConverterTable.innerHTML = localStorage.getItem('table');
 
       // REMOVE CURRENCY FROM "NEW CONVERTER TABLE"
       newConverterTable.addEventListener('click', (e) => {
-        console.log(newCurrencyQnt);
         if (e.target.classList.contains('close')) {
           e.target.parentElement.parentElement.remove();
-          localStorage.removeItem(e.target.parentElement.parentElement.id);
-          newCurrencyQnt -= 1;
-          localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
-          console.log(newCurrencyQnt);
+          localStorage.setItem('table', newConverterTable.innerHTML);
         }
       });
 

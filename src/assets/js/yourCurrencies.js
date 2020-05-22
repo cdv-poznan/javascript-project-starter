@@ -3,23 +3,22 @@ const newConverterTable = document.querySelector('#newConverterTable');
 let clickCounter = 0;
 function yourCurrencies() {
   const currCode = document.querySelectorAll('#newConverterTable .code');
-  const classNew = document.querySelectorAll('#newConverterTable .converterTable');
 
   clickCounter += 1;
-  console.log(clickCounter);
 
   newConverterTable.innerHTML = '';
+
   // get currencies code from table and push it into array
   const url = [];
+
   for (let i = 0; i < currCode.length; i += 1) {
     const getClickCounter = clickCounter;
     url.push(currCode[i].innerHTML);
-    // console.log(url);
     fetch('https://api.exchangerate-api.com/v4/latest/' + url[i])
       .then((rr) => rr.json())
       .then((rr) => {
         if (parseInt(getClickCounter % 2, 10) === 0) {
-          newConverterTable.innerHTML += `<div id="wrapper-${i}" class="converterTable new">
+          newConverterTable.innerHTML += `<div id="wrapper-${i}" class="converterTable">
                           <div>
                               <span class="close">x</span>
                               <div class="flag" >
@@ -44,7 +43,7 @@ function yourCurrencies() {
                           </div>
                       </div>`;
         } else {
-          newConverterTable.innerHTML += `<div id="wrapper-${i}" class="converterTable new">
+          newConverterTable.innerHTML += `<div id="wrapper-${i}" class="converterTable">
             <div>
                 <span class="close">x</span>
                 <div class="flag" >
@@ -70,26 +69,7 @@ function yourCurrencies() {
         </div>`;
         }
       });
-    console.log(classNew);
   }
-
-  //   REMOVE CURRENCY FROM "NEW CONVERTER TABLE"
-  //   let newCurrencyQnt;
-  //   if (localStorage.getItem('newCurrencyQnt') === null) {
-  //     newCurrencyQnt = 0;
-  //   } else {
-  //     newCurrencyQnt = parseInt(localStorage.getItem('newCurrencyQnt'), 10);
-  //   }
-  //   newConverterTable.addEventListener('click', (e) => {
-  //     console.log(newCurrencyQnt);
-  //     if (e.target.classList.contains('close')) {
-  //       e.target.parentElement.parentElement.remove();
-  //       localStorage.removeItem(e.target.parentElement.parentElement.id);
-  //       newCurrencyQnt -= 1;
-  //       localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
-  //       console.log(newCurrencyQnt);
-  //     }
-  //   });
 }
 
 export { yourCurrencies };
