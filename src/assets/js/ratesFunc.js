@@ -12,6 +12,7 @@ function exchangePlnEur() {
       console.log(response);
       const req = fetch('https://api.exchangerate-api.com/v4/latest/pln');
       const currenciesLength = response.currencies.length;
+
       req
         .then(function (res) {
           return res.json();
@@ -93,7 +94,7 @@ function exchangePlnEur() {
               getCurrencyCode = event.target.parentElement.id;
             }
             // const code = event.target.parentElement.id;
-            console.log('https://api.exchangerate-api.com/v4/latest/' + getCurrencyCode);
+            // console.log('https://api.exchangerate-api.com/v4/latest/' + getCurrencyCode);
 
             fetch('https://api.exchangerate-api.com/v4/latest/' + getCurrencyCode)
               .then((respo) => respo.json())
@@ -132,7 +133,7 @@ function exchangePlnEur() {
 
                 if (event.target.tagName === 'IMG') {
                   newConverterTable.innerHTML += `
-                        <div id="wrapper-${newCurrencyQnt}" class="converterTable">
+                        <div id="wrapper-${newCurrencyQnt}" class="converterTable new">
                           <div>
                             <span class="close">x</span>
                             ${event.target.parentNode.parentNode.innerHTML}
@@ -145,14 +146,14 @@ function exchangePlnEur() {
                   // local storage
                   localStorage.setItem(
                     `wrapper-${newCurrencyQnt}`,
-                    `<div id="wrapper-${newCurrencyQnt}"class="converterTable"><div><span class="close">x</span>${event.target.parentNode.parentNode.innerHTML}</div>${cells}</div>`,
+                    `<div id="wrapper-${newCurrencyQnt}" class="converterTable new"><div><span class="close">x</span>${event.target.parentNode.parentNode.innerHTML}</div>${cells}</div>`,
                   );
                   newCurrencyQnt += 1;
                   localStorage.setItem('newCurrencyQnt', newCurrencyQnt);
                 } else {
                   // div.innerHTML = event.target.parentNode.innerHTML;
                   newConverterTable.innerHTML += `
-                      <div id="wrapper-${newCurrencyQnt}" class="converterTable">
+                      <div id="wrapper-${newCurrencyQnt}" class="converterTable new">
                         <div>
                           <span class="close">x</span>
                           ${event.target.parentNode.innerHTML}
@@ -166,7 +167,7 @@ function exchangePlnEur() {
                   // local storage
                   localStorage.setItem(
                     `wrapper-${newCurrencyQnt}`,
-                    `<div id="wrapper-${newCurrencyQnt}"class="converterTable"><div><span class="close">x</span>${event.target.parentNode.innerHTML}</div>${cells}</div>`,
+                    `<div id="wrapper-${newCurrencyQnt}" class="converterTable new"><div><span class="close">x</span>${event.target.parentNode.innerHTML}</div>${cells}</div>`,
                   );
                   newCurrencyQnt += 1;
 
