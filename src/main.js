@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         newCurrencyQnt = parseInt(localStorage.getItem('newCurrencyQnt'), 10);
       }
+
       // REMOVE CURRENCY FROM "NEW CONVERTER TABLE"
       newConverterTable.addEventListener('click', (e) => {
         console.log(newCurrencyQnt);

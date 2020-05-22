@@ -3,10 +3,11 @@ const newConverterTable = document.querySelector('#newConverterTable');
 let clickCounter = 0;
 function yourCurrencies() {
   const currCode = document.querySelectorAll('#newConverterTable .code');
-  // const currentRate = document.querySelectorAll('.currentRate');
+  const classNew = document.querySelectorAll('#newConverterTable .converterTable');
+
   clickCounter += 1;
   console.log(clickCounter);
-  //   console.log(clickCounter);
+
   newConverterTable.innerHTML = '';
   // get currencies code from table and push it into array
   const url = [];
@@ -18,7 +19,7 @@ function yourCurrencies() {
       .then((rr) => rr.json())
       .then((rr) => {
         if (parseInt(getClickCounter % 2, 10) === 0) {
-          newConverterTable.innerHTML += `<div class="converterTable">
+          newConverterTable.innerHTML += `<div id="wrapper-${i}" class="converterTable new">
                           <div>
                               <span class="close">x</span>
                               <div class="flag" >
@@ -43,7 +44,7 @@ function yourCurrencies() {
                           </div>
                       </div>`;
         } else {
-          newConverterTable.innerHTML += `<div class="converterTable">
+          newConverterTable.innerHTML += `<div id="wrapper-${i}" class="converterTable new">
             <div>
                 <span class="close">x</span>
                 <div class="flag" >
@@ -69,9 +70,10 @@ function yourCurrencies() {
         </div>`;
         }
       });
+    console.log(classNew);
   }
 
-  // CHOOSE CURRENCY YOU WANT TO ADD TO "NEW CONVERTER TABLE"
+  //   REMOVE CURRENCY FROM "NEW CONVERTER TABLE"
   //   let newCurrencyQnt;
   //   if (localStorage.getItem('newCurrencyQnt') === null) {
   //     newCurrencyQnt = 0;
