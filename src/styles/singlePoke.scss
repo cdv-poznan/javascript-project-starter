@@ -14,13 +14,51 @@
         text-align: center;
     }
     .poke-details {
-        border: 1px solid black;
-        margin: 25px;
-        .type-span {
-            font-weight: bold;
-        }
+        .pokemon-type {
+            display: flex;
+            // border: 1px solid black;
+            padding: 10px;
+            p {
+                width: 20%;
+            }
+            .type-span {
+                font-weight: bold;
+                // width: 80%;
+                align-self: center;
+                margin-left: 30px;
+                // border: 1px solid red;
+            }
+        }  
     }
     
+}
+
+.poke-statistic {
+    margin: 10px auto;
+    padding: 10px;
+    .simple-stat {
+        display: flex;
+        align-items: center;
+        // border: 1px black solid;
+        p {
+            width: 20%;
+            // border: 1px solid black;
+        }
+        .bar {
+            width: 80%;
+            border: 1px solid lightgray;
+            margin-left: 30px;
+            .progress-bar {
+                background-color: red;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .simple-stat .bar {
+        width: 65% !important;
+    }
 }
 
  @media (max-width: 860px) {
