@@ -1,4 +1,5 @@
 import Router from 'vanilla-router';
+import 'bootstrap';
 
 const homeTemplate = require('./templates/homeTemplate.handlebars');
 
