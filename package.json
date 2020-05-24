@@ -41,7 +41,11 @@
     "webpack-dev-server": "^3.10.3",
     "webpackbar": "^4.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "handlebars": "^4.7.6",
+    "handlebars-loader": "^1.7.1",
+    "vanilla-router": "^1.2.8"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Juszczak/cdv-project-starter.git"

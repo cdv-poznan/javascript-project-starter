@@ -10,8 +10,12 @@ const config = {
     main: ['@babel/polyfill', resolve(__dirname, './src/main.js'), resolve(__dirname, './src/style.scss')],
   },
   output: {
+    publicPath: '/',
     path: resolve(__dirname, './dist'),
     filename: 'main.js',
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.js', '.html', '.scss'],
@@ -67,6 +71,7 @@ const config = {
           },
         ],
       },
+      { test: /\.handlebars$/, loader: 'handlebars-loader' },
     ],
   },
   plugins: [
