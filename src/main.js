@@ -1,12 +1,20 @@
 import Router from 'vanilla-router';
+import { config } from './apiConfig';
+import renderHomePage from './js/homePage';
+import 'normalize.css';
 import 'bootstrap';
 
+const Handlebars = require('handlebars');
 const homeTemplate = require('./templates/homeTemplate.handlebars');
+const movieTemplate = require('./templates/movieTemplate.handlebars');
+
+const { apiKey, apiUrl, apiImageUrl } = config;
 
 window.addEventListener('load', () => {
   const el = document.querySelector('#app');
   el.innerHTML = homeTemplate({ doesWhat: 'rocks' });
-
+  // Register Handlebars Partial
+  Handlebars.registerPartial('Carousel', '{{prefix}}');
   // Router Declaration
   const router = new Router({
     mode: 'history',
@@ -16,11 +24,15 @@ window.addEventListener('load', () => {
   });
 
   router.add('/', () => {
-    el.innerHTML = homeTemplate({ where: 'Home' });
+    renderHomePage();
   });
 
   router.add('/popular', () => {
-    el.innerHTML = homeTemplate({ where: 'Popular' });
+    fetch(`${apiUrl}movie/808?api_key=${apiKey}&language=en-US`)
+      .then((response) => response.json())
+      .then((data) => {
+        el.innerHTML = movieTemplate({ ...data, apiImageUrl });
+      });
   });
 
   // Navigate app to current url
