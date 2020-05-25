@@ -13,13 +13,6 @@ function displayCurrencies() {
     .then((response) => {
       const currenciesLength = response.currencies.length;
 
-      //   converter.addEventListener('click', function (e) {
-      //     if (e.target.id === 'currencyFrom') {
-      //       console.log('converter');
-      //     }
-      //     console.log(e.target.id);
-      //   });
-
       currencyFromWrapper.addEventListener('click', function () {
         // DISPLAY SEARCH INPUT
         searchFrom.classList.add('show');
@@ -31,7 +24,7 @@ function displayCurrencies() {
         for (let i = 0; i < currenciesLength; i += 1) {
           currenciesList.innerHTML += `
                         <div class="newCurrencyWrapper" id="${response.currencies[i].currencyCode}">
-                            <div class="flag" id="flag_of_${response.currencies[i].country}"><img src="/assets/img/${response.currencies[i].country}.png"></div>
+                            <div class="flag" id="flag_of_${response.currencies[i].country}"><img src="/assets/img/${response.currencies[i].currencyCode}.png"></div>
                             <div class="code">${response.currencies[i].currencyCode}</div>
                             <div class="currency">${response.currencies[i].currencyName}</div>
                         </div>
@@ -51,7 +44,7 @@ function displayCurrencies() {
         for (let i = 0; i < response.currencies.length; i += 1) {
           currenciesToList.innerHTML += `
             <div class="newCurrencyWrapper" id="${response.currencies[i].currencyCode}">
-                <div class="flag" id="flag_of_${response.currencies[i].country}"><img src="/assets/img/${response.currencies[i].country}.png"></div>
+                <div class="flag" id="flag_of_${response.currencies[i].country}"><img src="/assets/img/${response.currencies[i].currencyCode}.png"></div>
                 <div class="code">${response.currencies[i].currencyCode}</div>
                 <div class="currency">${response.currencies[i].currencyName}</div>
             </div>`;

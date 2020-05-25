@@ -13,7 +13,7 @@ function addAvailableCurrencies() {
         const description = document.createElement('DIV');
         const viki = document.createElement('A');
 
-        img.src = `/assets/img/${response.currencies[i].country}.png`;
+        img.src = `/assets/img/${response.currencies[i].currencyCode}.png`;
         viki.setAttribute('target', '_blank');
         viki.href = `https://en.wikipedia.org/wiki/${response.currencies[i].currencyName}`;
 

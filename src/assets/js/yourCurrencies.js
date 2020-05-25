@@ -68,6 +68,7 @@ function yourCurrencies() {
             </div>
         </div>`;
         }
+        console.log(url);
       });
   }
 }

@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exchannge</title>
     <link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'
+        integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
+    <script src="https://kit.fontawesome.com/6c38cd2cdc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <h1>master</h1>
+    <h1>oop</h1>
     <header>
         <div class="nav">
             <div class="logo">
@@ -30,7 +33,7 @@
                 <div id="currencyFrom" class="currencyFrom">
                     <div id="currencyFromWrapper" class="currencyWrapper">
                         <div class="flag">
-                            <img src="./assets/img/Poland.png" alt="Polish flag">
+                            <img src="./assets/img/PLN.png" alt="Polish flag">
                         </div>
                         <div class="code">PLN</div>
                         <div class="currency">Polish Zloty</div>
@@ -42,7 +45,7 @@
                 <div id="currencyTo" class="currencyTo">
                     <div id="currencyToWrapper" class="currencyWrapper">
                         <div class="flag">
-                            <img src="/assets/img/United_States.png" alt="United_States_flag">
+                            <img src="/assets/img/USD.png" alt="United_States_flag">
                         </div>
                         <div class="code">USD</div>
                         <div class="currency">US Dollar</div>
@@ -56,16 +59,16 @@
                 <div id="rate" class="rate"></div>
             </div>
         </div>
-    </div>
-    <div class="light">
+    <!-- </div> -->
+    <!-- <div class="light"> -->
         <div class="converterTable">
             <div class="convertTable table-item item-0">
-                <div id="change-button" class="change-button">Change</div>
+                <div id="change-button" class="change-button"><i class="fas fa-exchange-alt"></i></div>
             </div>
 
             <div class="convertTable table-item item-1">
                 <div class="img">
-                    <img src="/assets/img/Germany.png" alt="EU's flag">
+                    <img src="/assets/img/EUR.png" alt="EU's flag">
                 </div>
                 <div class="link-code">
                     <a href="https://en.wikipedia.org/wiki/Euro" target="_blank">EUR</a>
@@ -74,7 +77,7 @@
 
             <div class="convertTable table-item item-2">
                 <div class="img">
-                    <img src="/assets/img/United_States.png" alt="US's flag">
+                    <img src="/assets/img/USD.png" alt="US's flag">
                 </div>
                 <div class="link-code">
                     <a href="https://en.wikipedia.org/wiki/United_States_dollar" target="_blank">USD</a>
@@ -83,7 +86,7 @@
 
             <div class="convertTable table-item item-3">
                 <div class="img">
-                    <img src="/assets/img/United_Kingdom.png" alt="UK's flag">
+                    <img src="/assets/img/GBP.png" alt="UK's flag">
                 </div>
                 <div class="link-code">
                     <a href="https://en.wikipedia.org/wiki/Pound_sterling" target="_blank">GBP</a>
@@ -92,7 +95,7 @@
 
             <div class="convertTable table-item item-4">
                 <div class="img">
-                    <img src="/assets/img/Switzerland.png" alt="">
+                    <img src="/assets/img/CHF.png" alt="">
                 </div>
                 <div class="link-code">
                     <a href="https://en.wikipedia.org/wiki/Swiss_franc" target="_blank">CHF</a>
@@ -101,7 +104,7 @@
 
             <div class="convertTable table-item item-5">
                 <div class="img">
-                    <img src="/assets/img/Poland.png" alt="Poland flag">
+                    <img src="/assets/img/PLN.png" alt="Poland flag">
                 </div>
                 <div class="link-code">
                     <a href="https://en.wikipedia.org/wiki/Polish_z%C5%82oty" target="_blank">PLN</a>
@@ -109,7 +112,7 @@
             </div>
             <div class="convertTable table-item item-6">
                 <div class="img">
-                    <img src="/assets/img/Poland.png" alt="Polish flag">
+                    <img src="/assets/img/PLN.png" alt="Polish flag">
                 </div>
                 <div class="link-code">
                     <a href="https://en.wikipedia.org/wiki/Polish_z%C5%82oty" target="_blank">1 PLN</a>
@@ -137,13 +140,53 @@
         <div class="converterTable convertTableButton ">
             <div class="convertTable table-item item-0">
                 <div id="newCurrency">
-                    <div id="addCurrency" class="addButton">ADD </div>
+                    <div id="addCurrency" class="addButton"><i class="fas fa-plus-circle"></i> ADD</div>
                     <div id="newCurrencyListSearch" class="search" contenteditable="true"></div>
                     <div id="newCurrencyList"></div>
                 </div>
             </div>
         </div>
 
+    </div>
+
+    <div id="about" class="about">
+        <div id="info" class="about-item">
+            <h2><span><i class="fas fa-users"></i></span></h2>
+            <h3>Who we are</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque ut error soluta quas accusamus, dolorem
+                facere deserunt temporibus enim similique exercitationem ex maiores cumque officia animi recusandae
+                totam quam placeat.</p>
+        </div>
+        <div id="profile" class="about-item">
+            <h2><span><i class="fas fa-cogs"></i></span></h2>
+            <h3>What we do</h3>
+            <ul>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li>Neque ut error soluta quas accusamus.</li>
+                <li>Dolorem facere deserunt temporibus enim similique exercitationem ex maiores cumque officia animi
+                    recusandae totam quam placeat.</li>
+            </ul>
+        </div>
+        <div id="security" class="about-item">
+            <h2><span><i class="fas fa-shield-alt"></i></span></h2>
+            <h3>Security</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque ut error soluta quas accusamus, dolorem
+                facere deserunt temporibus enim similique exercitationem ex maiores cumque officia animi recusandae
+                totam quam placeat.</p>
+        </div>
+        <div id="contact" class="about-item">
+            <h2><span><i class="far fa-envelope-open"></i></span></h2>
+            <h3>Contact</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque ut error soluta quas accusamus, dolorem
+                facere deserunt temporibus enim similique exercitationem ex maiores cumque officia animi recusandae
+                totam quam placeat.</p>
+            <ul>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li>Neque ut error soluta quas accusamus.</li>
+                <li>Dolorem facere deserunt temporibus enim similique exercitationem ex maiores cumque officia animi
+                    recusandae totam quam placeat.</li>
+            </ul>
+        </div>
     </div>
     <div class="midnightblue">
         <h2>Avaiable currencies</h2>

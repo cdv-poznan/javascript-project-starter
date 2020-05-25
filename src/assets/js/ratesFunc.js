@@ -60,11 +60,12 @@ function exchangePlnEur() {
               newCurrencyList.innerHTML += `
                             <div class="newCurrencyWrapper" id="${response.currencies[i].currencyCode}">
                                 <div class="flag" id="flag_of_${response.currencies[i].country}">
-                                  <img src="/assets/img/${response.currencies[i].country}.png">
+                                  <img src="/assets/img/${response.currencies[i].currencyCode}.png">
                                 </div>
                                 <div class="code">${response.currencies[i].currencyCode}</div>
                             </div>
                         `;
+              console.log(response.currencies[i].currencyCode);
             }
           });
 
