@@ -4,12 +4,9 @@ const { apiKey, apiUrl, apiImagesUrl } = config;
 
 const apiCall = async (query) => {
   const response = await fetch(`${apiUrl}/${query}?api_key=${apiKey}&language=en-US`);
-  const data = await response.json();
-  const { results } = await data;
-  await results.forEach((el) => {
-    el.poster_path = apiImagesUrl + el.poster_path;
-  });
-  return results;
+  const responseJson = await response.json();
+  const data = { ...responseJson, apiImagesUrl };
+  return data;
 };
 
 export default apiCall;

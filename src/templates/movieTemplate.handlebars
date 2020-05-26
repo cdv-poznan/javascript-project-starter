@@ -1,8 +1,22 @@
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="https://image.tmdb.org/t/p/w500/{{{poster_path}}}" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
-        <p class="card-text">{{overview}}</p>
-        <a href="{{homepage}}" class="btn btn-primary">Website</a>
+<div class="jumbotron jumbotron-fluid movie__header"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{apiImagesUrl}}/original{{backdrop_path}});">
+
+    <div class="container movie__header__heading ">
+        <div class="row">
+            <div class="col-3">
+                <img src="{{apiImagesUrl}}/w500{{poster_path}}" class="card-img-top movie__header__poster"
+                    alt="{{title}} poster">
+            </div>
+            <div class="col">
+                <h1 class="display-4 movie__header__heading__title">{{title}}</h1>
+                <p class="mb-3">{{runtime}} min | {{#each genres}}{{#if @index}},
+                    {{this.name}}{{else}}{{this.name}}{{/if}}{{/each}}
+                </p>
+                <p class="lead">{{overview}}</p>
+            </div>
+        </div>
+
     </div>
+</div>
+<div class="movie container mx-auto">
 </div>

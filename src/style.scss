@@ -1,6 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
 html {
   box-sizing: border-box;
@@ -26,14 +27,40 @@ ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
+  font-family: "Montserrat", sans-serif;
 }
 
 ol,
 ul {
   list-style: none;
 }
+hr {
+  border-color: inherit;
+}
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+.movie__header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: linear-gradient(rgba(48, 57, 96, 0.7), rgba(48, 57, 96, 0.7));
+
+  color: white;
+}
+.movie__header__heading {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+.movie__header__heading__title {
+  font-weight: 700;
+}
+.movie__card {
+  border: none;
+}
+.movie__header__poster {
+  border-radius: 10px;
 }

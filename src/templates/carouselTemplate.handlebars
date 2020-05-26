@@ -1,14 +1,15 @@
 <div class="glide" id="{{type}}">
     <div data-glide-el="track" class="glide__track">
-
         <ul class="glide__slides">
-            {{#each results}}
-            <li class="glide__slide"><img src={{this.poster_path}}><br>{{this.title}}</li>
+            {{#each data.results}}
+            <li class="glide__slide"><a href="/movie/{{{this.id}}}"><img
+                        src="{{../data.apiImagesUrl}}/w342{{this.poster_path}}"><br>{{this.title}}
+                </a></li>
             {{/each}}
         </ul>
 
     </div>
-    <div class="glide__arrows" data-glide-el="controls">
+    <div class=" glide__arrows" data-glide-el="controls">
         <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
         <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
     </div>
