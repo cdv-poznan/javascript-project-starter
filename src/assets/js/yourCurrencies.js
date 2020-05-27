@@ -19,7 +19,7 @@ function yourCurrencies() {
       .then((rr) => {
         if (parseInt(getClickCounter % 2, 10) === 0) {
           newConverterTable.innerHTML += `<div id="wrapper-${i}" class="converterTable">
-                          <div>
+                          <div class="newCurr">
                               <span class="close">x</span>
                               <div class="flag" >
                                   <img src="/assets/img/${url[i]}.png">
@@ -44,7 +44,7 @@ function yourCurrencies() {
                       </div>`;
         } else {
           newConverterTable.innerHTML += `<div id="wrapper-${i}" class="converterTable">
-            <div>
+            <div class="newCurr">
                 <span class="close">x</span>
                 <div class="flag" >
                     <img src="/assets/img/${url[i]}.png">
@@ -68,7 +68,6 @@ function yourCurrencies() {
             </div>
         </div>`;
         }
-        console.log(url);
       });
   }
 }

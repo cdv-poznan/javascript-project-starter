@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -10,9 +11,7 @@ body, h1, h2, h3,h4,h5,h6,p,ol,ul {
   padding: 0;
   font-weight: normal;
 }
-// ol, ul {
-//   list-style: none;
-// }
+
 @font-face {
   font-family: Roboto-Regular;
   src: url(/assets/fonts/Roboto-Regular.ttf);
@@ -21,21 +20,16 @@ body{
   color: snow;
   font-family: Roboto-Regular;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  // margin-top:0;
-  // margin-bottom: 0;
-  // padding: 0;
 }
 
 .nav{
   background-image: linear-gradient(rgb(8, 3, 56), rgb(5, 53, 126));
-  color: snow;
   padding-bottom: 50px;
 }
+// LOGO
 .logo{
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(11, 1fr);
   grid-template-rows: 1fr 1fr 1fr;
   letter-spacing: 10px;
   text-transform: uppercase;
@@ -83,6 +77,26 @@ body{
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
   }
 }
+// MENU
+.menu{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+.menu div {
+  text-align: center;
+}
+.menu a{
+  color: snow;
+  padding: 5px;
+}
+.menu a:hover{
+  color: lightblue;
+}
 // CONVERTER
 .converterWrapper{
   background-image: linear-gradient( rgb(5, 53, 126), rgb(8, 105, 250));
@@ -92,7 +106,6 @@ body{
   background-color: midnightblue;
   padding: 10px;
   border-radius: 15px 15px 0 0;
-  // border-bottom: 3px solid orange;
 }
 .currencyWrapper{   
   background-color: seashell;
@@ -106,6 +119,7 @@ body{
   box-sizing: border-box;
   font-size: 1.2rem;
   cursor: pointer;
+  width:100%;
 }
 .flag{
   display: grid;
@@ -186,7 +200,7 @@ body{
   left:0;
   right: 0;
   z-index: 1;  
-  margin: 0 10px;
+  // margin: 0 10px;
   border: 1px solid midnightblue;
   border-top: none;
 } 
@@ -251,20 +265,15 @@ body{
   color: midnightblue;
   display:grid;
   grid-template-columns: repeat(6, 1fr);
-  // grid-template-rows: repeat(2, 3fr) 1fr;
   column-gap: 1px;
-  padding: 10px;
-  // border-bottom: 3px solid orange;
-}
-.item-0, .item-1, .item-2, .item-3, .item-4, .item-5{
-  padding: 50px 0 10px 0;
-}
+  padding-top: 10px;
+ }
+// .item-0, .item-1, .item-2, .item-3, .item-4, .item-5{
+//   padding: 50px 0 10px 0;
+// }
 #newConverterTable .code{
   justify-content: center;
 }
-// .convertTableButton{
-//   background-color: orangered;
-// }
 #newCurrency{
   width: 100%;
   position: relative;
@@ -279,20 +288,38 @@ body{
   right: 0;
   z-index: 1;  
   margin: 0 10px;
-  border: 1px solid midnightblue;
   border-top: none;
 }
+#newCurrencyList .small img{
+  width: 30px;
+  height: auto;
+}
+#newCurrencyList .code{
+  font-size: 0.9rem;
+  padding: 0 4px;
+  grid-row: 1;
+  width:100%;
+  justify-content: left;
+}
 
+#newCurrencyList .flag{
+  grid-row: 1;
+}
+#newCurrencyList .newCurrencyWrapper{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 2fr;
+  // padding: 3px 0;
+  height: 35px;
+  justify-content: center;
+}
 a {
   text-decoration: none;
   color: midnightblue;
 }
 .table-item{
-  // background-color: midnightblue;
   text-align: center; 
   align-self: center;
-  // border: 1px solid black;
-  // height: 100px;
 }
 .light{
   background-image: linear-gradient(rgb(8, 105, 250), rgb(149, 189, 250));
@@ -313,14 +340,12 @@ h3{
   color:midnightblue;
   display: grid;
   gap: 30px;
-  
 }
 .about-item{
   display: grid;
   justify-self: center; 
   align-self: start;
   padding: 0 50px;
-
 }
 .about-item h3{
   margin-bottom: 20px;
@@ -336,44 +361,76 @@ h3{
 }
 .about h2 {
   font-size: 75px;
-  // padding: 20px;
   text-align: center;
 }
 footer{
-  background-color: midnightblue;
+  background-color:rgb(8, 3, 56);
   color: snow;
-  text-align: center;
   padding: 50px;
+  border-top: 3px solid white;
+}
+footer h2{
+  margin-bottom: 7px;
+}
+footer div{
+  text-align: center;
+  padding: 20px;
+}
+footer a{
+  color: snow;
+}
+footer span {
+  margin-right: 10px;
+  // padding: 10px;
+  font-size: 2rem;
+  // border: 1px solid white;
+  // border-radius: 50%;
+  width: 350px;
+  height: 350px;
+}
+.scrollBtn{
+  background-color: transparent;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  font-size: 50px;
+  padding: 5px 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  display: none;
+}
+.scrollBtn:hover{
+  color: rgb(21, 21, 136);
 }
 .change-button{
   color:  midnightblue;
   cursor: pointer;
 }
+.change-button:hover{
+  color:  rgb(36, 36, 167);
+}
 .change-button i{
   font-size: 2rem;
 }
 .addButton{
-  margin: 5px 0;
-  // background-color:  rgb(68, 68, 70);
+  margin: 10px;
   color: orange;
-  // color: snow;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border: 2px solid orange;
-  border-radius: 15px;
+  border: 1px solid orange;
+  border-radius: 10px;
   padding: 7px 10px;
   cursor: pointer;
 }
 .addButton i {
-  padding-right: 10px;
+  padding-right: 4px;
 }
 .addButton:hover{
-  background-color: orange;
-  color: snow;
+  border: 1px solid rgb(255, 115, 0);
+  color: rgb(255, 115, 0);
+  background-color: white;
 }
-// .change-button:hover{
-//   background-color: rgb(46, 46, 221);
-// }
 .converter h2 {
   padding: 20px 10px;
   letter-spacing: 1px;
@@ -387,9 +444,7 @@ footer{
 .close{
   color: rgb(133, 128, 128);
   font-size: 1rem;
-  // border: 1px solid midnightblue;
   padding: 1px 7px;
-  // border-radius: 15px;
   margin-left: 70%;
   position: relative;
   top: 10px;
@@ -398,13 +453,13 @@ footer{
 
 /* MEDIA QUERY */
 @media only screen and (min-width: 1000px){
+
   .converter{
     width: 75%;
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
   }
-
   .test{
       display: grid;
       grid-template-columns: 4fr 1fr 4fr 4fr 2fr;
@@ -420,7 +475,6 @@ footer{
       grid-row: 1 / span 2;
       padding: 10px 0 0 0;
       justify-content: start;
-  
   }
   .currency{
       grid-column: 2;
@@ -432,7 +486,6 @@ footer{
   .newCurrencyWrapper{
       grid-template-columns: 1fr 9fr;
       grid-template-rows: 1fr 1fr 1fr;
-
   }
   .newCurrencyWrapper:hover{
       background-color: silver;
@@ -450,7 +503,6 @@ footer{
   }
   .search{
       background-color: snow;
-      /* width: 98%; */
       position: relative;
       left: 0;
       right: 0;
@@ -473,7 +525,6 @@ footer{
       width: 100%;
       padding: 0;
       margin-right: 0;
-      
   }
   .rate, .exchange{
       padding: 20px;
@@ -489,12 +540,7 @@ footer{
   }
 
   .converterTable{
-      // padding: 30px;
       display: grid;
-      /* grid-template-columns: repeat(6, 1fr); */
-      /* grid-template-rows: repeat(2, 1fr); */
-      /* column-gap: 3px; */
-      /* height: 275px; */
       width: 75%;
       margin-left: auto;
       margin-right: auto;
@@ -511,9 +557,9 @@ footer{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    border-bottom: 3px solid rgb(2, 2, 22);
   }
   .about-item:nth-child(even){
     border-left: 1px solid midnightblue;
-
   }
 }

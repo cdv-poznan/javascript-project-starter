@@ -4,7 +4,7 @@ const searchFrom = document.querySelector('#searchFrom');
 const searchTo = document.querySelector('#searchTo');
 const currenciesToList = document.querySelector('#currenciesToList');
 const currenciesList = document.querySelector('#currenciesList');
-// const converter = document.querySelector('#converter');
+const newCurrencyList = document.querySelector('#newCurrencyList');
 const currencyToWrapper = document.querySelector('#currencyToWrapper');
 
 function displayCurrencies() {
@@ -19,6 +19,7 @@ function displayCurrencies() {
         searchFrom.focus();
         searchFrom.innerHTML = '';
         currenciesToList.innerHTML = '';
+        newCurrencyList.innerHTML = '';
         searchTo.classList.remove('show');
         // ADD ALL CURRENCIES TO "FROM" SECTION
         for (let i = 0; i < currenciesLength; i += 1) {
@@ -38,6 +39,7 @@ function displayCurrencies() {
         searchTo.focus();
         searchTo.innerHTML = '';
         currenciesList.innerHTML = '';
+        newCurrencyList.innerHTML = '';
         searchFrom.classList.remove('show');
 
         // ADD ALL CURRENCIES TO "FROM" SECTION
@@ -48,6 +50,27 @@ function displayCurrencies() {
                 <div class="code">${response.currencies[i].currencyCode}</div>
                 <div class="currency">${response.currencies[i].currencyName}</div>
             </div>`;
+        }
+      });
+
+      window.addEventListener('click', (ev) => {
+        console.log(ev.target.className);
+        if (
+          ev.target.className !== 'code' &&
+          ev.target.className !== 'currency' &&
+          ev.target.className !== 'fas fa-plus-circle' &&
+          ev.target.className !== 'addButton' &&
+          ev.target.className !== 'search show' &&
+          ev.target.tagName !== 'IMG'
+        ) {
+          console.log('nie równa sie');
+          searchTo.innerHTML = '';
+          searchFrom.innerHTML = '';
+          currenciesList.innerHTML = '';
+          currenciesToList.innerHTML = '';
+          newCurrencyList.innerHTML = '';
+          searchFrom.classList.remove('show');
+          searchTo.classList.remove('show');
         }
       });
     });

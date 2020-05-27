@@ -12,7 +12,6 @@
 </head>
 
 <body>
-    <h1>oop</h1>
     <header>
         <div class="nav">
             <div class="logo">
@@ -21,11 +20,17 @@
                 <div class="logo-item logo-item-3">ncies</div>
                 <div class="logo-item logo-item-4">online</div>
             </div>
-
+            <div class="menu">
+                <div><a href="#converter">Converter</a></div>
+                <div><a href="#rates">Rates</a></div>
+                <div><a href="#about">About</a></div>
+                <div><a href="#currencies">Currencies</a></div>
+            </div>
         </div>
+
     </header>
 
-    <div class="converterWrapper">
+    <div id="converter" class="converterWrapper">
 
         <div class="converter">
             <h2>Currency converter</h2>
@@ -59,9 +64,7 @@
                 <div id="rate" class="rate"></div>
             </div>
         </div>
-    <!-- </div> -->
-    <!-- <div class="light"> -->
-        <div class="converterTable">
+        <div id="rates" class="converterTable">
             <div class="convertTable table-item item-0">
                 <div id="change-button" class="change-button"><i class="fas fa-exchange-alt"></i></div>
             </div>
@@ -135,13 +138,12 @@
             </div>
         </div>
 
-        <div id="newConverterTable"></div>
+        <div id="newConverterTable"> <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque quidem, dignissimos animi repellendus cupiditate rem. Hic cum, quia saepe voluptas vero dignissimos, sint facilis porro corporis itaque perferendis ea corrupti?</span></div>
 
         <div class="converterTable convertTableButton ">
             <div class="convertTable table-item item-0">
                 <div id="newCurrency">
                     <div id="addCurrency" class="addButton"><i class="fas fa-plus-circle"></i> ADD</div>
-                    <div id="newCurrencyListSearch" class="search" contenteditable="true"></div>
                     <div id="newCurrencyList"></div>
                 </div>
             </div>
@@ -188,14 +190,26 @@
             </ul>
         </div>
     </div>
-    <div class="midnightblue">
+    <div id ="currencies" class="midnightblue">
         <h2>Avaiable currencies</h2>
         <div id="availableCurrencies" class="allCurrencies"></div>
     </div>
     <footer>
-        &copy; 2020
-    </footer>
+   
+            <h2>Connect with us:</h2>
+            <span><i class="fab fa-facebook-square"></i></span>
+            <span><i class="fab fa-linkedin"></i></span>
+            <span><i class="fab fa-twitter-square"></i></span>
+<!-- >
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum exercitationem hic animi eaque fugiat quod odio necessitatibus recusandae debitis reiciendis. Accusantium asperiores aliquam dolorum error unde ipsa amet possimus odio?</p> -->
 
+        <div>
+            <h3><a href="https://cdv.pl/studia-podyplomowe/poznan/biznesowe/it/frontend-developer/" target="_blank">Collegium Da Vinci - Frontend Developer</a>
+            </h3>
+            <p>&copy; 2020 Krzysztof Fechner</p>
+        </div>
+    </footer>
+    <button id="scrollToTop" class="scrollBtn"><i class="fas fa-angle-double-up"></i></button>
 </body>
 
 </html>

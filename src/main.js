@@ -6,6 +6,7 @@ import { exchange } from './assets/js/convertFunc';
 import { exchangePlnEur } from './assets/js/ratesFunc';
 import { changeCurrencyPosition } from './assets/js/changePosition';
 import { yourCurrencies } from './assets/js/yourCurrencies';
+import { goToTop, scrollFunction } from './assets/js/scroll';
 
 document.addEventListener('DOMContentLoaded', () => {
   // GET DATA FROM JSON FILE
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const convert = document.querySelector('#convert');
       const newConverterTable = document.querySelector('#newConverterTable');
       const changeButton = document.querySelector('#change-button');
+      const scrollBtn = document.querySelector('#scrollToTop');
 
       // ADD ALL AVAILABLE CURRENCIES TO "AVAILABLE CURRENCIES" SECTION
       addAvailableCurrencies();
@@ -48,6 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // your currencies stuff
       changeButton.addEventListener('click', yourCurrencies);
+
+      // SCROLL
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      scrollBtn.addEventListener('click', goToTop);
     })
     .catch((error) => console.log('Błąd: ', error));
 });
