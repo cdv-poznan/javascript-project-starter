@@ -1,4 +1,3 @@
-// convert function
 const currencyFromWrapper = document.querySelector('#currencyFromWrapper');
 const searchFrom = document.querySelector('#searchFrom');
 const searchTo = document.querySelector('#searchTo');

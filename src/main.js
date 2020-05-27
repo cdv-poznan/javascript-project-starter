@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // your currencies stuff
+      // YOUR CURRENCIES TABLE
       changeButton.addEventListener('click', yourCurrencies);
 
       // SCROLL

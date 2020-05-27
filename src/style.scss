@@ -108,7 +108,7 @@ body{
   border-radius: 15px 15px 0 0;
 }
 .currencyWrapper{   
-  background-color: seashell;
+  background-color: snow;
   color: midnightblue;
   display: grid;
   padding: 2px;
@@ -173,7 +173,7 @@ body{
   background-color: rgb(248, 179, 51);
 }
 .ammount{
-  background-color: seashell;
+  background-color: snow;
 }
 .newCurrencyWrapper{
   background-color: rgb(245, 242, 240);
@@ -200,7 +200,6 @@ body{
   left:0;
   right: 0;
   z-index: 1;  
-  // margin: 0 10px;
   border: 1px solid midnightblue;
   border-top: none;
 } 
@@ -268,9 +267,6 @@ body{
   column-gap: 1px;
   padding-top: 10px;
  }
-// .item-0, .item-1, .item-2, .item-3, .item-4, .item-5{
-//   padding: 50px 0 10px 0;
-// }
 #newConverterTable .code{
   justify-content: center;
 }
@@ -301,7 +297,6 @@ body{
   width:100%;
   justify-content: left;
 }
-
 #newCurrencyList .flag{
   grid-row: 1;
 }
@@ -309,7 +304,6 @@ body{
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 2fr;
-  // padding: 3px 0;
   height: 35px;
   justify-content: center;
 }
@@ -378,13 +372,11 @@ footer div{
 }
 footer a{
   color: snow;
+  padding: 10px;
 }
 footer span {
   margin-right: 10px;
-  // padding: 10px;
   font-size: 2rem;
-  // border: 1px solid white;
-  // border-radius: 50%;
   width: 350px;
   height: 350px;
 }

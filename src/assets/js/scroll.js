@@ -1,4 +1,3 @@
-// SCROLL
 const scrollBtn = document.querySelector('#scrollToTop');
 
 function scrollFunction() {

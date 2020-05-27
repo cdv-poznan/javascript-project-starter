@@ -1,9 +1,7 @@
 import { exchange } from './convertFunc';
 
 const currencyFromWrapper = document.querySelector('#currencyFromWrapper');
-
 const currencyToWrapper = document.querySelector('#currencyToWrapper');
-// const currencyWrapper = document.querySelectorAll('.currencyWrapper');
 const changePosition = document.querySelector('.changePosition');
 
 function changeCurrencyPosition() {

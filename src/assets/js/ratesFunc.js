@@ -2,7 +2,6 @@ const searchFrom = document.querySelector('#searchFrom');
 const changeButton = document.querySelector('#change-button');
 const addCurrency = document.querySelector('#addCurrency');
 const newCurrencyList = document.querySelector('#newCurrencyList');
-// const newCurrencyListSearch = document.querySelector('#newCurrencyListSearch');
 const newConverterTable = document.querySelector('#newConverterTable');
 const currenciesToList = document.querySelector('#currenciesToList');
 const currenciesList = document.querySelector('#currenciesList');
