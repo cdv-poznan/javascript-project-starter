@@ -16,6 +16,8 @@ const config = {
   },
   devServer: {
     historyApiFallback: true,
+    hot: false,
+    inline: false,
   },
   resolve: {
     extensions: ['.js', '.html', '.scss'],

@@ -1,44 +1,48 @@
 import Router from 'vanilla-router';
 import renderHomePage from './js/homePage';
 import renderMoviePage from './js/moviePage';
+
 import 'normalize.css';
 import 'bootstrap';
 
-const Handlebars = require('handlebars');
-const homeTemplate = require('./templates/homeTemplate.handlebars');
-
 window.addEventListener('load', () => {
-  const el = document.querySelector('#app');
-  el.innerHTML = homeTemplate({ doesWhat: 'rocks' });
-  // Register Handlebars Partial
-  Handlebars.registerPartial('Carousel', '{{prefix}}');
   // Router Declaration
   const router = new Router({
     mode: 'history',
-    page404: () => {
-      el.innerHTML = homeTemplate({ where: '404 Not Found' });
-    },
+    page404: () => {},
   });
 
+  // Attach routing function to all links
+  const attachLinks = () => {
+    const binLinks = (e) => {
+      // Block browser page load
+      e.preventDefault();
+      // Navigate to clicked url
+      const href = e.target.parentElement.getAttribute('href');
+      router.navigateTo(href);
+    };
+    const addEventListenerList = (list, e, fn) => {
+      console.log('adEventListenerList', 'e', e, 'fn', fn, 'list', list);
+      for (let i = 0, len = list.length; i < len; i += 1) {
+        list[i].addEventListener(e, fn, false);
+      }
+    };
+    const links = document.querySelectorAll('.link');
+    addEventListenerList(links, 'click', binLinks);
+  };
+
   router.add('/', () => {
-    renderHomePage();
+    renderHomePage().then(() => {
+      attachLinks();
+    });
   });
 
   router.add('/movie/{id}', (id) => {
-    renderMoviePage(id);
+    renderMoviePage(id).then(() => {
+      attachLinks();
+    });
   });
-
+  router.addUriListener();
   // Navigate app to current url
   router.navigateTo(window.location.pathname);
-
-  document.querySelector('a').addEventListener('click', (event) => {
-    // Block browser page load
-    event.preventDefault();
-    console.log('prevent reload');
-
-    // Navigate to clicked url
-    const href = event.target.getAttribute('href');
-    const path = href.substr(href.lastIndexOf('/'));
-    router.navigateTo(path);
-  });
 });

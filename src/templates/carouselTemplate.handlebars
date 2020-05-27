@@ -2,8 +2,9 @@
     <div data-glide-el="track" class="glide__track">
         <ul class="glide__slides">
             {{#each data.results}}
-            <li class="glide__slide"><a href="/movie/{{{this.id}}}"><img
-                        src="{{../data.apiImagesUrl}}/w342{{this.poster_path}}"><br>{{this.title}}
+            <li class="glide__slide"><a href="/movie/{{{this.id}}}" class="link"><img
+                        src="{{../data.apiImagesUrl}}/w342{{this.poster_path}}">
+                    <p>{{this.title}}</p>
                 </a></li>
             {{/each}}
         </ul>

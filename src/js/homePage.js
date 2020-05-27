@@ -8,13 +8,13 @@ const queryTopRated = 'movie/top_rated';
 const queryNowPlaying = 'movie/now_playing';
 
 const el = document.querySelector('#app');
-const renderHomePage = async () => {
+const renderHomePage = async (navigateTo) => {
   const responsePopular = await apiCall(queryPopular);
   const responseTopRated = await apiCall(queryTopRated);
   const responseNowPlaying = await apiCall(queryNowPlaying);
   console.log(responseNowPlaying);
   el.innerHTML = homeTemplate({
-    popularCarouselContext: { type: 'popular', data: responsePopular },
+    popularCarouselContext: { type: 'popular', navigateTo, data: responsePopular },
     topRatedCarouselContext: { type: 'top_rated', data: responseTopRated },
     nowPlayingCarouselContext: { type: 'now_playing', data: responseNowPlaying },
   });
