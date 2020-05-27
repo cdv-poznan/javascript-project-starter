@@ -1,22 +1,38 @@
 <div class="jumbotron jumbotron-fluid movie__header"
-    style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{apiImagesUrl}}/original{{backdrop_path}});">
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{resultsMovie.apiImagesUrl}}/original{{resultsMovie.backdrop_path}});">
 
     <div class="container movie__header__heading ">
         <div class="row">
             <div class="col-3">
-                <img src="{{apiImagesUrl}}/w500{{poster_path}}" class="card-img-top movie__header__poster"
-                    alt="{{title}} poster">
+                <img src="{{resultsMovie.apiImagesUrl}}/w500{{resultsMovie.poster_path}}"
+                    class="card-img-top movie__header__poster" alt="{{resultsMovie.title}} poster">
             </div>
             <div class="col">
-                <h1 class="display-4 movie__header__heading__title">{{title}}</h1>
-                <p class="mb-3">{{runtime}} min | {{#each genres}}{{#if @index}},
+                <h1 class="display-4 movie__header__heading__title">{{resultsMovie.title}}</h1>
+                <p class="mb-3">{{resultsMovie.runtime}} min | {{#each resultsMovie.genres}}{{#if @index}},
                     {{this.name}}{{else}}{{this.name}}{{/if}}{{/each}}
                 </p>
-                <p class="lead">{{overview}}</p>
+                <p class="lead">{{resultsMovie.overview}}</p>
             </div>
         </div>
 
     </div>
 </div>
 <div class="movie container mx-auto">
+    <div class="row">
+        <div class="col-3 ">
+            <h2 class="my-2 ">Details</h2>
+            <p>Budget: ${{resultsMovie.budget}}</p>
+            <p>Revenue: ${{resultsMovie.revenue}}</p>
+            <p>Users rating: {{resultsMovie.vote_average}}</p>
+
+        </div>
+        <div class="col-9">
+            <h2 class="mt-2">Cast</h2>
+            {{> ./carouselPeopleTemplate.handlebars castCarouselContext }}
+            <h2 class="mt-4">Similar movies</h2>
+            {{> ./carouselTemplate.handlebars similarCarouselContext }}
+        </div>
+    </div>
+
 </div>

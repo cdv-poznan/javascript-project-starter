@@ -8,19 +8,20 @@ const queryTopRated = 'movie/top_rated';
 const queryNowPlaying = 'movie/now_playing';
 
 const el = document.querySelector('#app');
-const renderHomePage = async (navigateTo) => {
+const renderHomePage = async () => {
   const responsePopular = await apiCall(queryPopular);
   const responseTopRated = await apiCall(queryTopRated);
   const responseNowPlaying = await apiCall(queryNowPlaying);
   console.log(responseNowPlaying);
   el.innerHTML = homeTemplate({
-    popularCarouselContext: { type: 'popular', navigateTo, data: responsePopular },
+    popularCarouselContext: { type: 'popular', data: responsePopular },
     topRatedCarouselContext: { type: 'top_rated', data: responseTopRated },
     nowPlayingCarouselContext: { type: 'now_playing', data: responseNowPlaying },
   });
   new Glide('#popular', {
     type: 'carousel',
     perView: 5,
+    gap: 30,
     breakpoints: {
       992: {
         perView: 4,
@@ -36,6 +37,7 @@ const renderHomePage = async (navigateTo) => {
   new Glide('#top_rated', {
     type: 'carousel',
     perView: 5,
+    gap: 30,
     breakpoints: {
       992: {
         perView: 4,
@@ -51,6 +53,8 @@ const renderHomePage = async (navigateTo) => {
   new Glide('#now_playing', {
     type: 'carousel',
     perView: 5,
+    gap: 30,
+    autoheight: true,
     breakpoints: {
       992: {
         perView: 4,
