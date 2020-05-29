@@ -12,7 +12,6 @@ const renderHomePage = async () => {
   const responsePopular = await apiCall(queryPopular);
   const responseTopRated = await apiCall(queryTopRated);
   const responseNowPlaying = await apiCall(queryNowPlaying);
-  console.log(responseNowPlaying);
   el.innerHTML = homeTemplate({
     popularCarouselContext: { type: 'popular', data: responsePopular },
     topRatedCarouselContext: { type: 'top_rated', data: responseTopRated },

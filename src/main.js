@@ -1,6 +1,7 @@
 import Router from 'vanilla-router';
 import renderHomePage from './js/homePage';
 import renderMoviePage from './js/moviePage';
+import renderPersonPage from './js/personPage';
 
 import 'normalize.css';
 import 'bootstrap';
@@ -22,7 +23,6 @@ window.addEventListener('load', () => {
       router.navigateTo(href);
     };
     const addEventListenerList = (list, e, fn) => {
-      console.log('adEventListenerList', 'e', e, 'fn', fn, 'list', list);
       for (let i = 0, len = list.length; i < len; i += 1) {
         list[i].addEventListener(e, fn, false);
       }
@@ -42,6 +42,13 @@ window.addEventListener('load', () => {
       attachLinks();
     });
   });
+
+  router.add('/person/{id}', (id) => {
+    renderPersonPage(id).then(() => {
+      attachLinks();
+    });
+  });
+
   router.addUriListener();
   // Navigate app to current url
   router.navigateTo(window.location.pathname);

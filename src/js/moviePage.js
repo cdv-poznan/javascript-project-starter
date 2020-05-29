@@ -14,7 +14,7 @@ const renderMoviePage = async (movieId) => {
   const resultsSimilar = { ...resultsSimilarRaw, results: resultsSimilarRaw.results.slice(0, 7) };
 
   const resultsCrewRaw = await apiCall(queryCrew);
-  const resultsCrew = { ...resultsCrewRaw, results: resultsCrewRaw.cast.slice(0, 10) };
+  const resultsCrew = { ...resultsCrewRaw, results: resultsCrewRaw.cast.slice(0, 10), total_results: resultsCrewRaw.cast.length };
 
   el.innerHTML = movieTemplate({
     resultsMovie,
