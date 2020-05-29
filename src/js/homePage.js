@@ -9,6 +9,10 @@ const queryNowPlaying = 'movie/now_playing';
 
 const el = document.querySelector('#app');
 const renderHomePage = async () => {
+  const pageTitle = 'Filmeo - home page';
+  if (document.title !== pageTitle) {
+    document.title = pageTitle;
+  }
   const region = 'PL';
   const responsePopular = await apiCall(queryPopular, region);
   const responseTopRated = await apiCall(queryTopRated, region);

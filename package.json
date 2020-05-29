@@ -42,6 +42,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "@glidejs/glide": "^3.4.1",
     "bootstrap": "^4.5.0",
     "handlebars": "^4.7.6",
@@ -49,8 +50,8 @@
     "jquery": "^3.5.1",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.16.1",
-    "vanilla-router": "^1.2.8",
-    "@fortawesome/fontawesome-free": "^5.13.0"
+    "shave": "^2.5.9",
+    "vanilla-router": "^1.2.8"
   },
   "repository": {
     "type": "git",

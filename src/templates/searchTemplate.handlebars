@@ -1,0 +1,106 @@
+<div class="container mt-5">
+    <h1>Search results - {{query}}</h1>
+    <ul class="nav nav-pills my-3 " id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="pills-movie-tab" data-toggle="pill" href="#pills-movie" role="tab"
+                aria-controls="pills-movie" aria-selected="true">Movies</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-people-tab" data-toggle="pill" href="#pills-people" role="tab"
+                aria-controls="pills-people" aria-selected="false">People</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-tv-tab" data-toggle="pill" href="#pills-tv" role="tab"
+                aria-controls="pills-tv" aria-selected="false">Tv shows</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-movie" role="tabpanel" aria-labelledby="pills-movie-tab">
+            {{#if movies}}{{#each movies}}
+            <div class="card mb-3 mt-4">
+                <div class=" row no-gutters">
+                    <div class="col-4 col-sm-auto">
+                        <a href="/movie/{{{this.id}}}" class="link">
+                            <img src="{{../apiImagesUrl}}/w185{{this.poster_path}}" class="card-img-top"
+                                alt="{{name}} poster"></a>
+                    </div>
+                    <div class="col d-flex flex-column">
+                        <div class=" px-4 py-3 d-flex flex-column ">
+                            <a href="/movie/{{{this.id}}}" class="link">
+                                <h5 class="card-title">{{this.title}}</h5>
+                            </a>
+
+                            <small>
+                                <p class="card-text text-left search__overview">
+                                    {{overview}}
+                                </p>
+                            </small>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <p>No results</p>
+            {{/if}}
+        </div>
+        <div class="tab-pane fade " id="pills-people" role="tabpanel" aria-labelledby="pills-people-tab">
+            {{#if people}}{{#each people}}
+            <div class="card mb-3 mt-4">
+                <div class=" row no-gutters">
+                    <div class="col-4 col-sm-auto">
+                        <a href="/person/{{{this.id}}}" class="link">
+                            <img src="{{../apiImagesUrl}}/w185{{this.profile_path}}" class="card-img-top"
+                                alt="{{name}} "></a>
+                    </div>
+                    <div class="col d-flex flex-column">
+                        <div class=" px-4 py-3 d-flex flex-column ">
+                            <a href="/person/{{{this.id}}}" class="link">
+                                <h5 class="card-title">{{this.name}}</h5>
+                            </a>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <p>No results</p>
+            {{/if}}
+        </div>
+        <div class="tab-pane fade " id="pills-tv" role="tabpanel" aria-labelledby="pills-tv-tab">
+            {{#if tv}}
+            {{#each tv}}
+            <div class="card mb-3 mt-4">
+                <div class=" row no-gutters">
+                    <div class="col-4 col-sm-auto">
+
+                        <img src="{{../apiImagesUrl}}/w185{{this.poster_path}}" class="card-img-top" alt="{{name}} ">
+                    </div>
+                    <div class="col d-flex flex-column">
+                        <div class=" px-4 py-3 d-flex flex-column ">
+
+                            <h5 class="card-title">{{this.name}}</h5>
+
+                            <small>
+                                <p class="card-text text-left search__overview">
+                                    {{overview}}
+                                </p>
+                            </small>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <p>No results</p>
+            {{/if}}
+
+        </div>
+
+    </div>
+
+</div>
