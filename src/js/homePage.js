@@ -9,8 +9,9 @@ const queryNowPlaying = 'movie/now_playing';
 
 const el = document.querySelector('#app');
 const renderHomePage = async () => {
-  const responsePopular = await apiCall(queryPopular);
-  const responseTopRated = await apiCall(queryTopRated);
+  const region = 'PL';
+  const responsePopular = await apiCall(queryPopular, region);
+  const responseTopRated = await apiCall(queryTopRated, region);
   const responseNowPlaying = await apiCall(queryNowPlaying);
   el.innerHTML = homeTemplate({
     popularCarouselContext: { type: 'popular', data: responsePopular },

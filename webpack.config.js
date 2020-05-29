@@ -63,6 +63,10 @@ const config = {
         ],
       },
       {
+        test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        loader: 'file-loader?name=[name].[ext]', // <-- retain original file name
+      },
+      {
         test: /\.(svg|eot|woff|woff2|ttf)$/,
         loaders: [
           {
@@ -79,6 +83,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve(__dirname, './src/index.html'),
+      favicon: './src/favicon.ico',
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css',

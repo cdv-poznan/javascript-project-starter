@@ -3,11 +3,11 @@
 
     <div class="container movie__header__heading ">
         <div class="row">
-            <div class="col-3">
+            <div class="col-12 col-md-5 col-lg-3 px-5 px-md-0 text-center">
                 <img src="{{resultsMovie.apiImagesUrl}}/w500{{resultsMovie.poster_path}}"
                     class="card-img-top movie__header__poster" alt="{{resultsMovie.title}} poster">
             </div>
-            <div class="col">
+            <div class="col-12 col-md mt-3 mt-md-0 ">
                 <h1 class="display-4 movie__header__heading__title">{{resultsMovie.title}}</h1>
                 <p class="mb-3">{{resultsMovie.runtime}} min | {{#each resultsMovie.genres}}{{#if @index}},
                     {{this.name}}{{else}}{{this.name}}{{/if}}{{/each}}
@@ -20,15 +20,15 @@
 </div>
 <div class="movie container mx-auto">
     <div class="row">
-        <div class="col-3 ">
+        <div class="col-12 col-lg-3">
             <h2 class="my-2 ">Details</h2>
-            <p>Budget: ${{resultsMovie.budget}}</p>
-            <p>Revenue: ${{resultsMovie.revenue}}</p>
-            <p>Users rating: {{resultsMovie.vote_average}}</p>
+            <p><b>Budget:</b> ${{resultsMovie.budget}}</p>
+            <p><b>Revenue:</b> ${{resultsMovie.revenue}}</p>
+            <p><b>Users rating:</b> {{resultsMovie.vote_average}}/10</p>
 
         </div>
-        <div class="col-9">
-            <h2 class="mt-2">Cast</h2>
+        <div class="col mt-4">
+            <h2>Cast</h2>
             {{> ./carouselPeopleTemplate.handlebars castCarouselContext }}
             <h2 class="mt-4">Similar movies</h2>
             {{> ./carouselTemplate.handlebars similarCarouselContext }}

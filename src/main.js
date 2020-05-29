@@ -2,9 +2,13 @@ import Router from 'vanilla-router';
 import renderHomePage from './js/homePage';
 import renderMoviePage from './js/moviePage';
 import renderPersonPage from './js/personPage';
+import '@fortawesome/fontawesome-free/js/fontawesome';
+import '@fortawesome/fontawesome-free/js/solid';
 
 import 'normalize.css';
 import 'bootstrap';
+
+require('./favicon.ico');
 
 window.addEventListener('load', () => {
   // Router Declaration

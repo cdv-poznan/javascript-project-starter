@@ -10,6 +10,11 @@ const renderPersonPage = async (personId) => {
 
   const resultsPerson = await apiCall(queryPerson);
 
+  const pageTitle = resultsPerson.name + ' - Filmeo';
+  if (document.title !== pageTitle) {
+    document.title = pageTitle;
+  }
+
   const resultsFilmographyRaw = await apiCall(queryFilmography);
   const resultsFilmography = {
     ...resultsFilmographyRaw,

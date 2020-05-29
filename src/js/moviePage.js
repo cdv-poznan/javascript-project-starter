@@ -10,6 +10,10 @@ const renderMoviePage = async (movieId) => {
   const queryCrew = queryMovie + '/credits';
 
   const resultsMovie = await apiCall(queryMovie);
+  const pageTitle = resultsMovie.title + ' - Filmeo';
+  if (document.title !== pageTitle) {
+    document.title = pageTitle;
+  }
   const resultsSimilarRaw = await apiCall(querySimilar);
   const resultsSimilar = { ...resultsSimilarRaw, results: resultsSimilarRaw.results.slice(0, 7) };
 
