@@ -1,38 +1,45 @@
 <div class="container mt-5">
     <h1>Search results - {{query}}</h1>
     <ul class="nav nav-pills my-3 " id="pills-tab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="pills-movie-tab" data-toggle="pill" href="#pills-movie" role="tab"
-                aria-controls="pills-movie" aria-selected="true">Movies</a>
+        <li class="nav-item" href="/search/multi&query={{{query}}}&page=1">
+            <a class="nav-link link {{#if type.multi}}active{{/if}}"
+                href="/search/multi&query={{{query}}}&page=1">All</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-people-tab" data-toggle="pill" href="#pills-people" role="tab"
-                aria-controls="pills-people" aria-selected="false">People</a>
+        <li class="nav-item" href="/search/movie&query={{{query}}}&page=1">
+            <a class="nav-link link {{#if type.movie}}active{{/if}}"
+                href="/search/movie&query={{{query}}}&page=1">Movies</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-tv-tab" data-toggle="pill" href="#pills-tv" role="tab"
-                aria-controls="pills-tv" aria-selected="false">Tv shows</a>
+        <li class="nav-item" href="/search/person&query={{{query}}}&page=1">
+            <a class="nav-link link {{#if type.person}}active{{/if}}"
+                href="/search/person&query={{{query}}}&page=1">People</a>
+        </li>
+        <li class="nav-item" href="/search/tv&query={{{query}}}&page=1">
+            <a class="nav-link link {{#if type.tv}}active{{/if}}" href="/search/tv&query={{{query}}}&page=1">Tv
+                shows</a>
         </li>
     </ul>
-    <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-movie" role="tabpanel" aria-labelledby="pills-movie-tab">
-            {{#if movies}}{{#each movies}}
+    <div>
+        <div>
+            <p>Total results: {{allResultsLength}}</p>
+            {{#if allResults}}{{#each allResults}}
             <div class="card mb-3 mt-4">
                 <div class=" row no-gutters">
                     <div class="col-4 col-sm-auto">
-                        <a href="/movie/{{{this.id}}}" class="link">
-                            <img src="{{../apiImagesUrl}}/w185{{this.poster_path}}" class="card-img-top"
-                                alt="{{name}} poster"></a>
+                        <a href="/{{{this.media_type}}}/{{{this.id}}}" class="link">
+                            <img src={{#neither this.poster_path this.profile_path }} "https://fakeimg.pl/185x278/?text=No%20poster"
+                                {{/neither}}
+                                {{#or this.poster_path this.profile_path}} "{{../apiImagesUrl}}/w185{{this.poster_path}}{{this.profile_path}}"
+                                {{/or}} class="card-img-top" alt="{{this.name}}{{this.title}}"></a>
                     </div>
                     <div class="col d-flex flex-column">
                         <div class=" px-4 py-3 d-flex flex-column ">
-                            <a href="/movie/{{{this.id}}}" class="link">
-                                <h5 class="card-title">{{this.title}}</h5>
+                            <a href="/{{{this.media_type}}}/{{{this.id}}}" class="link">
+                                <h5 class="card-title">{{this.title}}{{this.name}}</h5>
                             </a>
 
                             <small>
                                 <p class="card-text text-left search__overview">
-                                    {{overview}}
+                                    {{this.overview}}
                                 </p>
                             </small>
 
@@ -41,65 +48,28 @@
                 </div>
             </div>
             {{/each}}
-            {{else}}
-            <p>No results</p>
+            <p class="ml-auto">Page {{page}} of {{{totalPages}}}</p>
+            <nav aria-label="search pagination d-flex">
+                <ul class="pagination flex-wrap justify-content-end">
+
+                    {{#if pagination.isPrev}}
+                    <li class="page-item">
+                        <a class="page-link"
+                            href="/search/{{{mediaType}}}&query={{query}}&page={{pagination.prevPage}}">Previous</a>
+                    </li>
+                    {{/if}}
+
+                    {{#if pagination.isNext}}
+                    <li class="page-item">
+                        <a class="page-link"
+                            href="/search/{{{mediaType}}}&query={{query}}&page={{pagination.nextPage}}">Next</a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </nav>
             {{/if}}
         </div>
-        <div class="tab-pane fade " id="pills-people" role="tabpanel" aria-labelledby="pills-people-tab">
-            {{#if people}}{{#each people}}
-            <div class="card mb-3 mt-4">
-                <div class=" row no-gutters">
-                    <div class="col-4 col-sm-auto">
-                        <a href="/person/{{{this.id}}}" class="link">
-                            <img src="{{../apiImagesUrl}}/w185{{this.profile_path}}" class="card-img-top"
-                                alt="{{name}} "></a>
-                    </div>
-                    <div class="col d-flex flex-column">
-                        <div class=" px-4 py-3 d-flex flex-column ">
-                            <a href="/person/{{{this.id}}}" class="link">
-                                <h5 class="card-title">{{this.name}}</h5>
-                            </a>
 
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{/each}}
-            {{else}}
-            <p>No results</p>
-            {{/if}}
-        </div>
-        <div class="tab-pane fade " id="pills-tv" role="tabpanel" aria-labelledby="pills-tv-tab">
-            {{#if tv}}
-            {{#each tv}}
-            <div class="card mb-3 mt-4">
-                <div class=" row no-gutters">
-                    <div class="col-4 col-sm-auto">
-<a href="/tv-show/{{{this.id}}}" class="link">
-                        <img src="{{../apiImagesUrl}}/w185{{this.poster_path}}" class="card-img-top" alt="{{name}} "></a>
-                    </div>
-                    <div class="col d-flex flex-column">
-                        <div class=" px-4 py-3 d-flex flex-column ">
-<a href="/tv-show/{{{this.id}}}" class="link">
-                            <h5 class="card-title">{{this.name}}</h5></a>
-
-                            <small>
-                                <p class="card-text text-left search__overview">
-                                    {{overview}}
-                                </p>
-                            </small>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{/each}}
-            {{else}}
-            <p>No results</p>
-            {{/if}}
-
-        </div>
 
     </div>
 

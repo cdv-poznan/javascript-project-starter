@@ -10,7 +10,7 @@ const renderTvShowPage = async (tvShowId) => {
 
   const resultsTvShow = await apiCall(queryTvShow);
 
-  const pageTitle = resultsTvShow.title + ' - Filmeo';
+  const pageTitle = resultsTvShow.name + ' - Filmeo';
   if (document.title !== pageTitle) {
     document.title = pageTitle;
   }

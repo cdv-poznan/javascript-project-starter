@@ -22,20 +22,20 @@ const renderTvShowsPage = async () => {
   const responsePopular = await apiCall(queryPopular, region);
   const responseTopRatedRaw = await apiCall(queryTopRated, region);
 
-  //Filter result to cut off Japan tv series
+  // Filter result to cut off Japan tv series
   const responseTopRatedResults = responseTopRatedRaw.results.filter((result) => {
     return result.origin_country[0] !== 'JP';
   });
-  console.log(responseTopRatedResults);
+
   const responseTopRated = { ...responseTopRatedRaw, results: responseTopRatedResults };
 
   const responseNowPlaying = await apiCall(queryNowPlaying);
 
   // Inject templates to the DOM
   el.innerHTML = overviewTemplate({
-    popularCarouselContext: { type: 'popular', media: 'tv-show', data: responsePopular },
-    topRatedCarouselContext: { type: 'top_rated', media: 'tv-show', data: responseTopRated },
-    nowPlayingCarouselContext: { type: 'now_playing', media: 'tv-show', data: responseNowPlaying },
+    popularCarouselContext: { type: 'popular', media: 'tv', data: responsePopular },
+    topRatedCarouselContext: { type: 'top_rated', media: 'tv', data: responseTopRated },
+    nowPlayingCarouselContext: { type: 'now_playing', media: 'tv', data: responseNowPlaying },
   });
 
   // Create instances of Glide carousels

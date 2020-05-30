@@ -25,6 +25,7 @@ const renderMoviePage = async (movieId) => {
     resultsMovie,
     similarCarouselContext: {
       type: 'similar_movies',
+      media: 'movie',
       data: resultsSimilar,
     },
     castCarouselContext: {

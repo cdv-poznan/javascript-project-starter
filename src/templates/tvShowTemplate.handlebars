@@ -3,7 +3,8 @@
   <div class="container movie__header__heading">
     <div class="row">
       <div class="col-12 col-md-5 col-lg-3 px-5 px-md-0 text-center">
-        <img src="{{resultsTvShow.apiImagesUrl}}/w500{{resultsTvShow.poster_path}}"
+        <img
+          src="{{#if resultsTvShow.poster_path}}{{resultsTvShow.apiImagesUrl}}/w500{{resultsTvShow.poster_path}}{{else}}https://fakeimg.pl/500x750/?text=No%20poster{{/if}}"
           class="card-img-top movie__header__poster" alt="{{resultsTvShow.title}} poster" />
       </div>
       <div class="col-12 col-md mt-3 mt-md-0">

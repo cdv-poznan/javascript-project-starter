@@ -18,7 +18,6 @@ export const carouselPeopleConfig = {
   type: 'carousel',
   perView: 6,
   gap: 30,
-  autoheight: true,
   breakpoints: {
     992: {
       perView: 4,

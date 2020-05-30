@@ -65,21 +65,24 @@ window.addEventListener('load', () => {
       attachLinks();
     });
   });
-  router.add('/tv-show/{id}', (id) => {
+  router.add('/tv/{id}', (id) => {
     renderTvShowPage(id).then(() => {
       attachLinks();
     });
   });
-  router.add('/search/{query}', (query) => {
-    renderSearchPage(query).then(() => {
+
+  router.add('/search/{mediaType}&query={query}&page={page}', (mediaType, query, page) => {
+    console.log('hello from route', 'media:', mediaType, 'query', query, 'page', page);
+    renderSearchPage(mediaType, query, page).then(() => {
       attachLinks();
     });
   });
 
+  // Handle search form
   const form = document.querySelector('#nav-search');
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    router.navigateTo(`/search/${event.target.searchQuery.value}`);
+    router.navigateTo(`/search/multi&query=${event.target.searchQuery.value}&page=1`);
     event.target.reset();
   });
 

@@ -4,10 +4,10 @@
     <div class="container movie__header__heading ">
         <div class="row">
             <div class="col-12 col-md-5 col-lg-3 px-5 px-md-0 text-center">
-                <img src="{{resultsMovie.apiImagesUrl}}/w500{{resultsMovie.poster_path}}"
+                <img src="{{#if resultsMovie.poster_path}}{{resultsMovie.apiImagesUrl}}/w500{{resultsMovie.poster_path}}{{else}}https://fakeimg.pl/500x750/?text=No%20poster{{/if}}"
                     class="card-img-top movie__header__poster" alt="{{resultsMovie.title}} poster">
             </div>
-            <div class="col-12 col-md mt-3 mt-md-0 ">
+            <div class="col-12 col-md mt-3 mt-md-0 pl-5 ">
                 <h1 class="display-4 movie__header__heading__title">{{resultsMovie.title}}</h1>
                 <p class="mb-3">{{resultsMovie.runtime}} min | {{#each resultsMovie.genres}}{{#if @index}},
                     {{this.name}}{{else}}{{this.name}}{{/if}}{{/each}}

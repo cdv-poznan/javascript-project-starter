@@ -25,11 +25,12 @@ const renderPersonPage = async (personId) => {
   el.innerHTML = personTemplate({
     resultsPerson,
     filmographyCarouselContext: {
+      media: 'movie',
       type: 'filmography',
       data: resultsFilmography,
     },
   });
-
+  console.log(resultsFilmography);
   new Glide('#filmography', carouselConfig).mount();
 };
 

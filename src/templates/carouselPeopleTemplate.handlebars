@@ -4,7 +4,7 @@
         <ul class="glide__slides">
             {{#each data.results}}
             <li class="glide__slide"><a href="/person/{{{this.id}}}" class="link"><img class="carousel__image"
-                        src="{{../data.apiImagesUrl}}/w185{{this.profile_path}}">
+                        src="{{#if this.profile_path}}{{../data.apiImagesUrl}}/w185{{this.profile_path}}{{else}}https://fakeimg.pl/185x278/?text=No%20photo{{/if}}">
                     <p class="carousel__title mt-2">{{this.name}}</p>
                 </a></li>
             {{/each}}
