@@ -1,6 +1,6 @@
 {
-  "name": "javascript-project-starter",
-  "description": "Starter for JavaScript project",
+  "name": "filmeo",
+  "description": "Filmeo",
   "version": "1.0.0",
   "scripts": {
     "start": "webpack-dev-server",

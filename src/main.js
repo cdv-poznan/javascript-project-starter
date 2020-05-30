@@ -3,6 +3,7 @@ import renderHomePage from './js/homePage';
 import renderMoviePage from './js/moviePage';
 import renderPersonPage from './js/personPage';
 import renderSearchPage from './js/searchPage';
+import renderTvShowPage from './js/tvShowPage';
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 
@@ -50,6 +51,11 @@ window.addEventListener('load', () => {
 
   router.add('/person/{id}', (id) => {
     renderPersonPage(id).then(() => {
+      attachLinks();
+    });
+  });
+  router.add('/tv-show/{id}', (id) => {
+    renderTvShowPage(id).then(() => {
       attachLinks();
     });
   });
