@@ -3,9 +3,16 @@
     <div data-glide-el="track" class="glide__track">
         <ul class="glide__slides">
             {{#each data.results}}
-            <li class="glide__slide"><a href="/movie/{{{this.id}}}" class="link"><img class="carousel__image"
+            <li class="glide__slide"><a href="/{{../media}}/{{{this.id}}}" class="link"><img class="carousel__image"
                         src="{{../data.apiImagesUrl}}/w342{{this.poster_path}}">
-                    <p class="carousel__title mt-2">{{this.title}}</p>
+                    <p class="carousel__title mt-2">
+                        {{#if this.title}}
+                        {{this.title}}
+                        {{/if}}
+                        {{#if this.name}}
+                        {{this.name}}
+                        {{/if}}
+                    </p>
                 </a></li>
             {{/each}}
         </ul>

@@ -1,9 +1,10 @@
 import Router from 'vanilla-router';
-import renderHomePage from './js/homePage';
+import renderMoviesPage from './js/moviesPage';
 import renderMoviePage from './js/moviePage';
 import renderPersonPage from './js/personPage';
 import renderSearchPage from './js/searchPage';
 import renderTvShowPage from './js/tvShowPage';
+import renderTvShowsPage from './js/tvShowsPage';
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 
@@ -38,7 +39,7 @@ window.addEventListener('load', () => {
   };
 
   router.add('/', () => {
-    renderHomePage().then(() => {
+    renderMoviesPage().then(() => {
       attachLinks();
     });
   });
@@ -48,9 +49,19 @@ window.addEventListener('load', () => {
       attachLinks();
     });
   });
+  router.add('/movies', () => {
+    renderMoviesPage().then(() => {
+      attachLinks();
+    });
+  });
 
   router.add('/person/{id}', (id) => {
     renderPersonPage(id).then(() => {
+      attachLinks();
+    });
+  });
+  router.add('/tv-shows', () => {
+    renderTvShowsPage().then(() => {
       attachLinks();
     });
   });
