@@ -20,7 +20,15 @@ const renderTvShowsPage = async () => {
 
   // Calls to The Movie Database API
   const responsePopular = await apiCall(queryPopular, region);
-  const responseTopRated = await apiCall(queryTopRated, region);
+  const responseTopRatedRaw = await apiCall(queryTopRated, region);
+
+  //Filter result to cut off Japan tv series
+  const responseTopRatedResults = responseTopRatedRaw.results.filter((result) => {
+    return result.origin_country[0] !== 'JP';
+  });
+  console.log(responseTopRatedResults);
+  const responseTopRated = { ...responseTopRatedRaw, results: responseTopRatedResults };
+
   const responseNowPlaying = await apiCall(queryNowPlaying);
 
   // Inject templates to the DOM

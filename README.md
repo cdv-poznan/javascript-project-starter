@@ -1,19 +1,8 @@
-# JavaScript Project
+# Filmeo
 
+Movies and Tv shows database based on [The Movie Database API][ext1].
 
-## Instalacja zależności
-```bash
-npm install
-```
+See [live demo][ext1].
 
-
-## Uruchomienie serwera deweloperskiego
-```bash
-npm start
-```
-
-
-## Budowa aplikacji produkcyjnej
-```bash
-npm run production
-```
+[ext0]: https://www.themoviedb.org/
+[ext1]: https://filmeo-cdv.web.app/
