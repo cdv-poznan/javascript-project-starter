@@ -1,3 +1,4 @@
+$primary: #ffc200;
 @import "~bootstrap/scss/bootstrap";
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
@@ -109,7 +110,7 @@ footer {
   width: 3rem;
   top: 38%;
   font-size: 1.6rem;
-  color: #ffc200;
+  color: $primary;
   background-color: rgba(0, 0, 0, 0.8);
   margin: auto 0;
   text-align: center;
@@ -122,4 +123,10 @@ footer {
   &--right {
     right: 0.25rem;
   }
+}
+
+.nav-pills .nav-link {
+  border: solid 1px $primary;
+  border-radius: 0;
+  margin-left: -1px;
 }

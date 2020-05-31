@@ -4,9 +4,11 @@ import searchTemplate from '../templates/searchTemplate.handlebars';
 
 const renderSearchPage = async (mediaType = 'multi', query, page) => {
   const el = document.querySelector('#app');
-  console.log('media type', mediaType, 'query', query, 'page', page);
+  el.innerHTML = '';
   const querySearch = `search/${mediaType}`;
-  const resultsSearch = await apiCall(querySearch, null, query, page);
+  const decodedQuery = decodeURI(query);
+  console.log(query, decodedQuery);
+  const resultsSearch = await apiCall(querySearch, null, decodedQuery, page);
 
   const pageTitle = query + ' - Filmeo';
   if (document.title !== pageTitle) {

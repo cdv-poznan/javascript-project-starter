@@ -10,6 +10,7 @@ const renderTvShowsPage = async () => {
 
   // Select the spp root element
   const el = document.querySelector('#app');
+  el.innerHTML = '';
 
   // Set the page title
   const pageTitle = 'Filmeo - TV Shows';

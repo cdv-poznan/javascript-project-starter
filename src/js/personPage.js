@@ -5,6 +5,7 @@ import personTemplate from '../templates/personTemplate.handlebars';
 
 const renderPersonPage = async (personId) => {
   const el = document.querySelector('#app');
+  el.innerHTML = '';
   const queryPerson = `person/${personId}`;
   const queryFilmography = queryPerson + '/movie_credits';
 

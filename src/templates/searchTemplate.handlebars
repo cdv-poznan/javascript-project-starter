@@ -1,19 +1,19 @@
 <div class="container mt-5">
     <h1>Search results - {{query}}</h1>
-    <ul class="nav nav-pills my-3 " id="pills-tab" role="tablist">
-        <li class="nav-item" href="/search/multi&query={{{query}}}&page=1">
+    <ul class="nav nav-pills my-3 flex-column flex-sm-row" id="pills-tab" role="tablist">
+        <li class="flex-sm-fill text-sm-center nav-item" href="/search/multi&query={{{query}}}&page=1">
             <a class="nav-link link {{#if type.multi}}active{{/if}}"
                 href="/search/multi&query={{{query}}}&page=1">All</a>
         </li>
-        <li class="nav-item" href="/search/movie&query={{{query}}}&page=1">
+        <li class="flex-sm-fill text-sm-center nav-item" href="/search/movie&query={{{query}}}&page=1">
             <a class="nav-link link {{#if type.movie}}active{{/if}}"
                 href="/search/movie&query={{{query}}}&page=1">Movies</a>
         </li>
-        <li class="nav-item" href="/search/person&query={{{query}}}&page=1">
+        <li class="flex-sm-fill text-sm-center nav-item" href="/search/person&query={{{query}}}&page=1">
             <a class="nav-link link {{#if type.person}}active{{/if}}"
                 href="/search/person&query={{{query}}}&page=1">People</a>
         </li>
-        <li class="nav-item" href="/search/tv&query={{{query}}}&page=1">
+        <li class="flex-sm-fill text-sm-center nav-item" href="/search/tv&query={{{query}}}&page=1">
             <a class="nav-link link {{#if type.tv}}active{{/if}}" href="/search/tv&query={{{query}}}&page=1">Tv
                 shows</a>
         </li>
@@ -32,7 +32,7 @@
                                 {{/or}} class="card-img-top" alt="{{this.name}}{{this.title}}"></a>
                     </div>
                     <div class="col d-flex flex-column">
-                        <div class=" px-4 py-3 d-flex flex-column ">
+                        <div class=" px-2 px-sm-4 py-2 py-sm-3 d-flex flex-column ">
                             <a href="/{{{this.media_type}}}/{{{this.id}}}" class="link">
                                 <h5 class="card-title">{{this.title}}{{this.name}}</h5>
                             </a>
@@ -48,7 +48,7 @@
                 </div>
             </div>
             {{/each}}
-            <p class="ml-auto">Page {{page}} of {{{totalPages}}}</p>
+            <p class="text-right mb-2">Page {{page}} of {{{totalPages}}}</p>
             <nav aria-label="search pagination d-flex">
                 <ul class="pagination flex-wrap justify-content-end">
 

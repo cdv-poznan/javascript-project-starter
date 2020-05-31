@@ -27,7 +27,11 @@ window.addEventListener('load', () => {
       e.preventDefault();
       // Navigate to clicked url
       const href = e.target.parentElement.getAttribute('href');
+      if (e.target.classList.contains('nav-link')) {
+        $('.navbar-collapse').collapse('hide');
+      }
       router.navigateTo(href);
+      window.scrollTo(0, 0);
     };
     const addEventListenerList = (list, e, fn) => {
       for (let i = 0, len = list.length; i < len; i += 1) {
@@ -71,8 +75,7 @@ window.addEventListener('load', () => {
     });
   });
 
-  router.add('/search/{mediaType}&query={query}&page={page}', (mediaType, query, page) => {
-    console.log('hello from route', 'media:', mediaType, 'query', query, 'page', page);
+  router.add(/^search\/(?<mediaType>.+)&query=(?<query>.+)&page=(?<page>.+)/i, (mediaType, query, page) => {
     renderSearchPage(mediaType, query, page).then(() => {
       attachLinks();
     });
@@ -82,6 +85,7 @@ window.addEventListener('load', () => {
   const form = document.querySelector('#nav-search');
   form.addEventListener('submit', (event) => {
     event.preventDefault();
+    $('.navbar-collapse').collapse('hide');
     router.navigateTo(`/search/multi&query=${event.target.searchQuery.value}&page=1`);
     event.target.reset();
   });

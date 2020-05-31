@@ -5,6 +5,7 @@ import tvShowTemplate from '../templates/tvShowTemplate.handlebars';
 
 const renderTvShowPage = async (tvShowId) => {
   const el = document.querySelector('#app');
+  el.innerHTML = '';
   const queryTvShow = `tv/${tvShowId}`;
   const queryCrew = queryTvShow + '/credits';
 

@@ -8,8 +8,9 @@ const renderMoviesPage = async () => {
   const queryTopRated = 'movie/top_rated';
   const queryNowPlaying = 'movie/now_playing';
 
-  // Select the spp root element
+  // Select the app root element
   const el = document.querySelector('#app');
+  el.innerHTML = '';
 
   // Set the page title
   const pageTitle = 'Filmeo - home page';

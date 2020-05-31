@@ -3,8 +3,9 @@ import apiCall from './apiCall';
 import { carouselConfig, carouselPeopleConfig } from '../utilis/carousel';
 import movieTemplate from '../templates/movieTemplate.handlebars';
 
-const el = document.querySelector('#app');
 const renderMoviePage = async (movieId) => {
+  const el = document.querySelector('#app');
+  el.innerHTML = '';
   const queryMovie = `movie/${movieId}`;
   const querySimilar = queryMovie + '/similar';
   const queryCrew = queryMovie + '/credits';
