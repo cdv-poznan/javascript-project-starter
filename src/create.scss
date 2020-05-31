@@ -1,0 +1,80 @@
+$base-color: black;
+$base-color2: #DDAC54;
+
+* {
+    font-family: Montserrat-Regular;
+}
+
+/* //create */
+.drawing-area {
+    position: absolute;
+    top: 60px;
+    left: 122px;
+    z-index: 10;
+    width: 200px;
+    height: 400px;
+}
+
+.canvas-container {
+    padding-top: 200px;
+    padding-left: 100px;
+    width: 200px;
+    height: 400px;
+    position: relative;
+    user-select: none;
+}
+
+#tshirt-div {
+    padding-left: 80px;
+    padding-top: 150px;
+    width: 452px;
+    height: 548px;
+    position: relative;
+    background-color: #fff;
+}
+
+#canvas {
+    position: absolute;
+    width: 200px;
+    height: 400px;
+    left: 0px;
+    top: 0px;
+    user-select: none;
+    cursor: default;
+}
+
+.col2content {
+    padding-top: 210px;
+    padding-left: 300px;
+}
+
+.button {
+    font-family: Montserrat-Medium;
+    margin-left: 370px;
+    color: white;
+    background-color: $base-color2;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    text-decoration: none !important;
+    border: none;
+}
+
+.button:hover {
+    background: none;
+    border: 1px solid $base-color2;
+    color: $base-color2;
+    transition: all 0.9s;
+    cursor: hover;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button:active {
+    outline: none;
+}
+
+*:focus {
+    outline: 0 !important;
+}

@@ -1,0 +1,118 @@
+$base-color: black;
+$base-color2: #DDAC54;
+
+div.gallery {
+    border: 1px solid #ccc;
+    padding: 50px 50px 150px 50px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+
+.responsive {
+    padding: 0 10px;
+    float: left;
+    width: 50%;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.delete-btn {
+    font-family: Montserrat-Medium;
+    margin-left: 50px;
+    color: white;
+    background-color: $base-color;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    text-decoration: none !important;
+    border: none;
+}
+
+.delete-btn:hover {
+    background: none;
+    border: 1px solid $base-color;
+    color: $base-color;
+    transition: all 0.9s;
+    cursor: hover;
+}
+
+.drawing-area2 {
+    position: absolute;
+    top: 60px;
+    left: 122px;
+    z-index: 10;
+    width: 200px;
+    height: 400px;
+}
+
+.canvas-container2 {
+    // padding-top: 200px;
+    // padding-left: 100px;
+    width: 200px;
+    height: 400px;
+    position: relative;
+    user-select: none;
+}
+
+#tshirt-div2 {
+    // padding-left: 80px;
+    // padding-top: 150px;
+    width: 452px;
+    height: 548px;
+    position: relative;
+    background-color: #fff;
+}
+
+#canvas2 {
+    position: absolute;
+    width: 200px;
+    height: 400px;
+    left: 0px;
+    top: 0px;
+    user-select: none;
+    cursor: default;
+}
+
+
+// a #btn-AddToFavs{
+//     margin-left: 20px;
+// }

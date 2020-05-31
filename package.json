@@ -38,10 +38,16 @@
     "sass-loader": "^8.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
+    "webpack-dev-server": "^3.11.0",
     "webpackbar": "^4.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "canvas": "^2.6.1",
+    "fabric": "^3.6.3",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Juszczak/cdv-project-starter.git"
