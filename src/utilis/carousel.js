@@ -30,3 +30,21 @@ export const carouselPeopleConfig = {
     },
   },
 };
+
+export const carouselSeasonsConfig = {
+  type: 'slider',
+  perView: 6,
+  gap: 30,
+  rewind: false,
+  breakpoints: {
+    992: {
+      perView: 4,
+    },
+    768: {
+      perView: 3,
+    },
+    576: {
+      perView: 2,
+    },
+  },
+};

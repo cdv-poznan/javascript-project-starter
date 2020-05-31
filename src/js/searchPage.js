@@ -7,7 +7,6 @@ const renderSearchPage = async (mediaType = 'multi', query, page) => {
   el.innerHTML = '';
   const querySearch = `search/${mediaType}`;
   const decodedQuery = decodeURI(query);
-  console.log(query, decodedQuery);
   const resultsSearch = await apiCall(querySearch, null, decodedQuery, page);
 
   const pageTitle = query + ' - Filmeo';

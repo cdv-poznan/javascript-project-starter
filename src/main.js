@@ -1,4 +1,5 @@
 import Router from 'vanilla-router';
+import renderHomePage from './js/homePage';
 import renderMoviesPage from './js/moviesPage';
 import renderMoviePage from './js/moviePage';
 import renderPersonPage from './js/personPage';
@@ -43,7 +44,7 @@ window.addEventListener('load', () => {
   };
 
   router.add('/', () => {
-    renderMoviesPage().then(() => {
+    renderHomePage().then(() => {
       attachLinks();
     });
   });
