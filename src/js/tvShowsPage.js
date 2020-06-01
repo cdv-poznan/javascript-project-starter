@@ -3,14 +3,17 @@ import apiCall from './apiCall';
 import { carouselConfig } from '../utilis/carousel';
 import overviewTemplate from '../templates/overviewTemplate.handlebars';
 
-const renderTvShowsPage = async () => {
+const renderTvShowsPage = async (app) => {
+  // Select the spp root element
+  const el = document.querySelector('#app');
+
+  // Clear previous page content (for better UX)
+  el.innerHTML = '';
+
+  // Create paths to API endpoints
   const queryPopular = 'tv/popular';
   const queryTopRated = 'tv/top_rated';
   const queryNowPlaying = 'tv/on_the_air';
-
-  // Select the spp root element
-  const el = document.querySelector('#app');
-  el.innerHTML = '';
 
   // Set the page title
   const pageTitle = 'Filmeo - TV Shows';
@@ -22,6 +25,7 @@ const renderTvShowsPage = async () => {
   // Calls to The Movie Database API
   const responsePopular = await apiCall(queryPopular, region);
   const responseTopRatedRaw = await apiCall(queryTopRated, region);
+  const responseNowPlaying = await apiCall(queryNowPlaying);
 
   // Filter result to cut off Japan tv series
   const responseTopRatedResults = responseTopRatedRaw.results.filter((result) => {
@@ -30,13 +34,23 @@ const renderTvShowsPage = async () => {
 
   const responseTopRated = { ...responseTopRatedRaw, results: responseTopRatedResults };
 
-  const responseNowPlaying = await apiCall(queryNowPlaying);
-
   // Inject templates to the DOM
-  el.innerHTML = overviewTemplate({
-    popularCarouselContext: { type: 'popular', media: 'tv', data: responsePopular },
-    topRatedCarouselContext: { type: 'top_rated', media: 'tv', data: responseTopRated },
-    nowPlayingCarouselContext: { type: 'now_playing', media: 'tv', data: responseNowPlaying },
+  app.innerHTML = overviewTemplate({
+    popularCarouselContext: {
+      type: 'popular',
+      media: 'tv',
+      data: responsePopular,
+    },
+    topRatedCarouselContext: {
+      type: 'top_rated',
+      media: 'tv',
+      data: responseTopRated,
+    },
+    nowPlayingCarouselContext: {
+      type: 'now_playing',
+      media: 'tv',
+      data: responseNowPlaying,
+    },
   });
 
   // Create instances of Glide carousels

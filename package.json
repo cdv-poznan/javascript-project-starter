@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack-dev-server",
-    "production": "webpack --mode=production"
+    "production": "webpack --mode=production",
+    "deploy": "webpack --mode=production && firebase deploy"
   },
   "keywords": [],
   "author": "Adrian Juszczak <adrian.juszczak@cdv.pl>",

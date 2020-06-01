@@ -1,5 +1,6 @@
 import util from 'handlebars-utils';
 
+// Handlebars helper function - logical OR
 export default function (...args) {
   const len = args.length - 1;
   const options = args[len];

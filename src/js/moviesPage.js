@@ -3,32 +3,47 @@ import apiCall from './apiCall';
 import { carouselConfig } from '../utilis/carousel';
 import overviewTemplate from '../templates/overviewTemplate.handlebars';
 
-const renderMoviesPage = async () => {
-  const queryPopular = 'movie/popular';
-  const queryTopRated = 'movie/top_rated';
-  const queryNowPlaying = 'movie/now_playing';
-
+const renderMoviesPage = async (app) => {
   // Select the app root element
   const el = document.querySelector('#app');
+
+  // Clear previous page content (for better UX)
   el.innerHTML = '';
 
+  // Create paths to API endpoints
+  const pathPopular = 'movie/popular';
+  const pathTopRated = 'movie/top_rated';
+  const pathNowPlaying = 'movie/now_playing';
+
   // Set the page title
-  const pageTitle = 'Filmeo - home page';
+  const pageTitle = 'Filmeo - movies';
   if (document.title !== pageTitle) document.title = pageTitle;
 
-  // Specify a ISO 3166-1 code to filter release dates.
+  // Specify a ISO 3166-1 code to filter release dates
   const region = 'PL';
 
   // Calls to The Movie Database API
-  const responsePopular = await apiCall(queryPopular, region);
-  const responseTopRated = await apiCall(queryTopRated, region);
-  const responseNowPlaying = await apiCall(queryNowPlaying);
+  const responsePopular = await apiCall(pathPopular, region);
+  const responseTopRated = await apiCall(pathTopRated, region);
+  const responseNowPlaying = await apiCall(pathNowPlaying);
 
   // Inject templates to the DOM
-  el.innerHTML = overviewTemplate({
-    popularCarouselContext: { type: 'popular', media: 'movie', data: responsePopular },
-    topRatedCarouselContext: { type: 'top_rated', media: 'movie', data: responseTopRated },
-    nowPlayingCarouselContext: { type: 'now_playing', media: 'movie', data: responseNowPlaying },
+  app.innerHTML = overviewTemplate({
+    popularCarouselContext: {
+      type: 'popular',
+      media: 'movie',
+      data: responsePopular,
+    },
+    topRatedCarouselContext: {
+      type: 'top_rated',
+      media: 'movie',
+      data: responseTopRated,
+    },
+    nowPlayingCarouselContext: {
+      type: 'now_playing',
+      media: 'movie',
+      data: responseNowPlaying,
+    },
   });
 
   // Create instances of Glide carousels

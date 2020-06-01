@@ -129,6 +129,7 @@ footer {
   border: solid 1px $primary;
   border-radius: 0;
   margin-left: -1px;
+  margin-top: -1px;
 }
 .embed-container {
   position: relative;
@@ -158,5 +159,14 @@ footer {
       width: auto;
       height: 100%;
     }
+  }
+}
+@media (max-width: 576px) {
+  .embed-container {
+    width: 90vw;
+    height: calc(90vw * 9 / 16);
+  }
+  .featured-movie__poster {
+    height: calc(90vw * 9 / 16);
   }
 }

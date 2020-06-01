@@ -3,26 +3,36 @@ import apiCall from './apiCall';
 import { carouselPeopleConfig, carouselConfig } from '../utilis/carousel';
 import tvShowTemplate from '../templates/tvShowTemplate.handlebars';
 
-const renderTvShowPage = async (tvShowId) => {
-  const el = document.querySelector('#app');
-  el.innerHTML = '';
-  const queryTvShow = `tv/${tvShowId}`;
-  const queryCrew = queryTvShow + '/credits';
-  const querySimilar = queryTvShow + '/similar';
+const renderTvShowPage = async (app, tvShowId) => {
+  // Create paths to API endpoints
+  const pathTvShow = `tv/${tvShowId}`;
+  const pathCrew = pathTvShow + '/credits';
+  const pathSimilar = pathTvShow + '/similar';
 
-  const resultsTvShow = await apiCall(queryTvShow);
+  // Call to The Movie Database API
+  const resultsTvShow = await apiCall(pathTvShow);
 
+  // Set the page title
   const pageTitle = resultsTvShow.name + ' - Filmeo';
   if (document.title !== pageTitle) {
     document.title = pageTitle;
   }
-  const resultsCrewRaw = await apiCall(queryCrew);
+  // Calls to The Movie Database API
+  const resultsCrewRaw = await apiCall(pathCrew);
+  // Limit the results to 7 movies
   const resultsCrew = { ...resultsCrewRaw, results: resultsCrewRaw.cast.slice(0, 10) };
 
-  const resultsSimilarRaw = await apiCall(querySimilar);
-  const resultsSimilar = { ...resultsSimilarRaw, results: resultsSimilarRaw.results.slice(0, 7) };
+  // Calls to The Movie Database API
+  const resultsSimilarRaw = await apiCall(pathSimilar);
 
-  el.innerHTML = tvShowTemplate({
+  // Limit the results to 7 movies
+  const resultsSimilar = {
+    ...resultsSimilarRaw,
+    results: resultsSimilarRaw.results.slice(0, 7),
+  };
+
+  // Inject templates to the DOM
+  app.innerHTML = tvShowTemplate({
     resultsTvShow,
     castCarouselContext: {
       type: 'cast',
@@ -34,6 +44,8 @@ const renderTvShowPage = async (tvShowId) => {
       data: resultsSimilar,
     },
   });
+
+  // Create instances of Glide carousels
   new Glide('#cast', carouselPeopleConfig).mount();
   new Glide('#similar', carouselConfig).mount();
 };

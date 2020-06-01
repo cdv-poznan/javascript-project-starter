@@ -3,27 +3,26 @@ import apiCall from './apiCall';
 import { carouselConfig } from '../utilis/carousel';
 import personTemplate from '../templates/personTemplate.handlebars';
 
-const renderPersonPage = async (personId) => {
-  const el = document.querySelector('#app');
-  el.innerHTML = '';
-  const queryPerson = `person/${personId}`;
-  const queryFilmography = queryPerson + '/movie_credits';
+const renderPersonPage = async (app, personId) => {
+  // Create paths to API endpoints
+  const pathPerson = `person/${personId}`;
+  const pathFilmography = pathPerson + '/movie_credits';
 
-  const resultsPerson = await apiCall(queryPerson);
+  // Calls to The Movie Database API
+  const resultsPerson = await apiCall(pathPerson);
+  const resultsFilmographyRaw = await apiCall(pathFilmography);
 
+  // Set the page title
   const pageTitle = resultsPerson.name + ' - Filmeo';
-  if (document.title !== pageTitle) {
-    document.title = pageTitle;
-  }
+  if (document.title !== pageTitle) document.title = pageTitle;
 
-  const resultsFilmographyRaw = await apiCall(queryFilmography);
-
+  // Limit the results to 10 movies
   const resultsFilmography = {
     ...resultsFilmographyRaw,
     results: resultsFilmographyRaw.cast.slice(0, 10),
   };
-
-  el.innerHTML = personTemplate({
+  // Inject templates to the DOM
+  app.innerHTML = personTemplate({
     resultsPerson,
     filmographyCarouselContext: {
       media: 'movie',
@@ -31,7 +30,8 @@ const renderPersonPage = async (personId) => {
       data: resultsFilmography,
     },
   });
-  console.log(resultsFilmography);
+
+  // Create instances of Glide carousels
   new Glide('#filmography', carouselConfig).mount();
 };
 
