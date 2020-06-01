@@ -1,6 +1,7 @@
 import Glide from '@glidejs/glide';
 import apiCall from './apiCall';
 import { carouselConfig, carouselPeopleConfig } from '../utilis/carousel';
+import { apiImagesUrl } from '../apiConfig';
 import movieTemplate from '../templates/movieTemplate.handlebars';
 
 const renderMoviePage = async (app, movieId) => {
@@ -29,14 +30,15 @@ const renderMoviePage = async (app, movieId) => {
   // Inject templates to the DOM
   app.innerHTML = movieTemplate({
     resultsMovie,
+    apiImagesUrl,
     similarCarouselContext: {
       type: 'similar_movies',
       media: 'movie',
-      data: resultsSimilar,
+      results: resultsSimilar.results,
     },
     castCarouselContext: {
       type: 'cast',
-      data: resultsCrew,
+      results: resultsCrew.results,
     },
   });
 

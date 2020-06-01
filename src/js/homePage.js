@@ -2,6 +2,7 @@ import Glide from '@glidejs/glide';
 import apiCall from './apiCall';
 import { carouselConfig } from '../utilis/carousel';
 import homeTemplate from '../templates/homeTemplate.handlebars';
+import { apiImagesUrl } from '../apiConfig';
 
 const renderHomePage = async (app) => {
   // Set the page title
@@ -37,8 +38,6 @@ const renderHomePage = async (app) => {
   const responseNowPlayingMovies = await apiCall(queryNowPlayingMovies);
   const responseNowPlayingTv = await apiCall(queryNowPlayingTv);
 
-  const { apiImagesUrl } = resultsTrending;
-
   // Inject templates to the DOM
   app.innerHTML = homeTemplate({
     movies,
@@ -46,12 +45,12 @@ const renderHomePage = async (app) => {
     nowPlayingMoviesCarouselContext: {
       type: 'now_playing_movie',
       media: 'movie',
-      data: responseNowPlayingMovies,
+      results: responseNowPlayingMovies.results,
     },
     nowPlayingTvCarouselContext: {
       type: 'now_playing_tv',
       media: 'tv',
-      data: responseNowPlayingTv,
+      results: responseNowPlayingTv.results,
     },
   });
   // Create instances of Glide carousels

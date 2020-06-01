@@ -1,6 +1,7 @@
 import Glide from '@glidejs/glide';
 import apiCall from './apiCall';
 import { carouselPeopleConfig, carouselConfig } from '../utilis/carousel';
+import { apiImagesUrl } from '../apiConfig';
 import tvShowTemplate from '../templates/tvShowTemplate.handlebars';
 
 const renderTvShowPage = async (app, tvShowId) => {
@@ -20,28 +21,26 @@ const renderTvShowPage = async (app, tvShowId) => {
   // Calls to The Movie Database API
   const resultsCrewRaw = await apiCall(pathCrew);
   // Limit the results to 7 movies
-  const resultsCrew = { ...resultsCrewRaw, results: resultsCrewRaw.cast.slice(0, 10) };
+  const resultsCrew = resultsCrewRaw.cast.slice(0, 10);
 
   // Calls to The Movie Database API
   const resultsSimilarRaw = await apiCall(pathSimilar);
 
   // Limit the results to 7 movies
-  const resultsSimilar = {
-    ...resultsSimilarRaw,
-    results: resultsSimilarRaw.results.slice(0, 7),
-  };
+  const resultsSimilar = resultsSimilarRaw.results.slice(0, 7);
 
   // Inject templates to the DOM
   app.innerHTML = tvShowTemplate({
+    apiImagesUrl,
     resultsTvShow,
     castCarouselContext: {
       type: 'cast',
-      data: resultsCrew,
+      results: resultsCrew,
     },
     similarCarouselContext: {
       type: 'similar',
       media: 'tv',
-      data: resultsSimilar,
+      results: resultsSimilar,
     },
   });
 

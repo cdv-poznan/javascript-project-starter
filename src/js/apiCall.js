@@ -1,14 +1,11 @@
-import { config } from '../apiConfig';
-
-const { apiKey, apiUrl, apiImagesUrl } = config;
+import { apiKey, apiUrl } from '../apiConfig';
 
 const apiCall = async (query, region, searchQuery, page) => {
   const searchQueryParam = searchQuery ? `&query=${searchQuery}` : '';
   const regionParam = region ? `&region=${region}` : '';
   const pageParam = page ? `&page=${page}` : '';
   const response = await fetch(`${apiUrl}/${query}?api_key=${apiKey}&language=en-US${regionParam}${searchQueryParam}${pageParam}`);
-  const responseJson = await response.json();
-  const data = { ...responseJson, apiImagesUrl };
+  const data = await response.json();
   return data;
 };
 

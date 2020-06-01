@@ -1,6 +1,7 @@
 import Glide from '@glidejs/glide';
 import apiCall from './apiCall';
 import { carouselConfig } from '../utilis/carousel';
+import { apiImagesUrl } from '../apiConfig';
 import overviewTemplate from '../templates/overviewTemplate.handlebars';
 
 const renderTvShowsPage = async (app) => {
@@ -32,24 +33,23 @@ const renderTvShowsPage = async (app) => {
     return result.origin_country[0] !== 'JP';
   });
 
-  const responseTopRated = { ...responseTopRatedRaw, results: responseTopRatedResults };
-
   // Inject templates to the DOM
   app.innerHTML = overviewTemplate({
+    apiImagesUrl,
     popularCarouselContext: {
       type: 'popular',
       media: 'tv',
-      data: responsePopular,
+      results: responsePopular.results,
     },
     topRatedCarouselContext: {
       type: 'top_rated',
       media: 'tv',
-      data: responseTopRated,
+      results: responseTopRatedResults,
     },
     nowPlayingCarouselContext: {
       type: 'now_playing',
       media: 'tv',
-      data: responseNowPlaying,
+      results: responseNowPlaying.results,
     },
   });
 

@@ -1,6 +1,7 @@
 import Glide from '@glidejs/glide';
 import apiCall from './apiCall';
 import { carouselConfig } from '../utilis/carousel';
+import { apiImagesUrl } from '../apiConfig';
 import overviewTemplate from '../templates/overviewTemplate.handlebars';
 
 const renderMoviesPage = async (app) => {
@@ -29,20 +30,21 @@ const renderMoviesPage = async (app) => {
 
   // Inject templates to the DOM
   app.innerHTML = overviewTemplate({
+    apiImagesUrl,
     popularCarouselContext: {
       type: 'popular',
       media: 'movie',
-      data: responsePopular,
+      results: responsePopular.results,
     },
     topRatedCarouselContext: {
       type: 'top_rated',
       media: 'movie',
-      data: responseTopRated,
+      results: responseTopRated.results,
     },
     nowPlayingCarouselContext: {
       type: 'now_playing',
       media: 'movie',
-      data: responseNowPlaying,
+      results: responseNowPlaying.results,
     },
   });
 

@@ -1,4 +1,9 @@
 $primary: #ffc200;
+
+// Automates responsive resizing
+// https://github.com/twbs/rfs
+$enable-responsive-font-sizes: true;
+
 @import "~bootstrap/scss/bootstrap";
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
@@ -90,7 +95,6 @@ footer {
     display: block;
   }
   &__title {
-    margin-left: 10px;
     margin-top: auto;
     &:hover {
       font-weight: 500;

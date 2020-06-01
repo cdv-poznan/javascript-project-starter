@@ -3,53 +3,70 @@
     <ul class="nav nav-pills my-3 flex-column flex-sm-row" id="pills-tab" role="tablist">
         <li class="flex-sm-fill text-sm-center nav-item" href="/search/multi&query={{{query}}}&page=1">
             <a class="nav-link link {{#if type.multi}}active{{/if}}"
-                href="/search/multi&query={{{query}}}&page=1">All</a>
+                href="/search/multi&query={{{query}}}&page=1">
+                    All
+            </a>
         </li>
         <li class="flex-sm-fill text-sm-center nav-item" href="/search/movie&query={{{query}}}&page=1">
             <a class="nav-link link {{#if type.movie}}active{{/if}}"
-                href="/search/movie&query={{{query}}}&page=1">Movies</a>
+                href="/search/movie&query={{{query}}}&page=1">
+                    Movies
+            </a>
         </li>
         <li class="flex-sm-fill text-sm-center nav-item" href="/search/person&query={{{query}}}&page=1">
             <a class="nav-link link {{#if type.person}}active{{/if}}"
-                href="/search/person&query={{{query}}}&page=1">People</a>
+                href="/search/person&query={{{query}}}&page=1">
+                    People
+            </a>
         </li>
         <li class="flex-sm-fill text-sm-center nav-item" href="/search/tv&query={{{query}}}&page=1">
-            <a class="nav-link link {{#if type.tv}}active{{/if}}" href="/search/tv&query={{{query}}}&page=1">Tv
-                shows</a>
+            <a class="nav-link link {{#if type.tv}}active{{/if}}" 
+                href="/search/tv&query={{{query}}}&page=1">
+                    Tv shows
+            </a>
         </li>
     </ul>
     <div>
         <div>
             <p>Total results: {{allResultsLength}}</p>
-            {{#if allResults}}{{#each allResults}}
-            <div class="card mb-3 mt-4">
-                <div class=" row no-gutters">
-                    <div class="col-4 col-sm-auto">
-                        <a href="/{{#if ../type.multi}}{{{this.media_type}}}{{else}}{{../mediaType}}{{/if}}/{{{this.id}}}"
-                            class="link">
-                            <img src={{#neither this.poster_path this.profile_path }} "https://fakeimg.pl/185x278/?text=No%20poster"
-                                {{/neither}}
-                                {{#or this.poster_path this.profile_path}} "{{../apiImagesUrl}}/w185{{this.poster_path}}{{this.profile_path}}"
-                                {{/or}} class="card-img-top" alt="{{this.name}}{{this.title}}"></a>
-                    </div>
-                    <div class="col d-flex flex-column">
-                        <div class=" px-2 px-sm-4 py-2 py-sm-3 d-flex flex-column ">
-                            <a href="/{{#if ../type.multi}}{{{this.media_type}}}{{else}}{{../mediaType}}{{/if}}/{{{this.id}}}"
-                                class="link">
-                                <h5 class="card-title">{{this.title}}{{this.name}}</h5>
-                            </a>
+            {{#if allResults}}
+                {{#each allResults}}
+                    <div class="card mb-3 mt-4">
+                        <div class=" row no-gutters">
+                            <div class="col-4 col-sm-auto">
+                                <a href="{{#if ../type.multi}}{{{this.media_type}}}{{else}}{{../mediaType}}{{/if}}/{{{this.id}}}"class="link">
+                                        <img 
+                                            src=
+                                                {{#neither this.poster_path this.profile_path }} 
+                                                    "https://fakeimg.pl/185x278/?text=No%20poster"
+                                                {{/neither}}
+                                                {{#or this.poster_path this.profile_path}}
+                                                    "{{../apiImagesUrl}}/w185{{this.poster_path}}{{this.profile_path}}"
+                                                {{/or}} 
+                                            class="card-img-top" 
+                                            alt="{{this.name}}{{this.title}}"
+                                        >
+                                </a>
+                            </div>
+                            <div class="col d-flex flex-column">
+                                <div class=" px-2 px-sm-4 py-2 py-sm-3 d-flex flex-column ">
+                                    <a href="{{#if ../type.multi}}{{{this.media_type}}}{{else}}{{../mediaType}}{{/if}}/{{{this.id}}}" class="link">
+                                        <h5 class="card-title">
+                                            {{this.title}}{{this.name}}
+                                        </h5>
+                                    </a>
 
-                            <small>
-                                <p class="card-text text-left search__overview">
-                                    {{this.overview}}
-                                </p>
-                            </small>
+                                    <small>
+                                        <p class="card-text text-left search__overview">
+                                            {{this.overview}}
+                                        </p>
+                                    </small>
 
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            {{/each}}
+                {{/each}}
             <p class="text-right mb-2">Page {{page}} of {{{totalPages}}}</p>
             <nav aria-label="search pagination d-flex">
                 <ul class="pagination flex-wrap justify-content-end">

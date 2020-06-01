@@ -1,6 +1,7 @@
 import Glide from '@glidejs/glide';
 import apiCall from './apiCall';
 import { carouselConfig } from '../utilis/carousel';
+import { apiImagesUrl } from '../apiConfig';
 import personTemplate from '../templates/personTemplate.handlebars';
 
 const renderPersonPage = async (app, personId) => {
@@ -23,11 +24,12 @@ const renderPersonPage = async (app, personId) => {
   };
   // Inject templates to the DOM
   app.innerHTML = personTemplate({
+    apiImagesUrl,
     resultsPerson,
     filmographyCarouselContext: {
       media: 'movie',
       type: 'filmography',
-      data: resultsFilmography,
+      results: resultsFilmography.results,
     },
   });
 

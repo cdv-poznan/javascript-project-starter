@@ -1,7 +1,13 @@
 <div class="container">
     <div class="row mt-3">
-        <div class="col-12 col-md-auto  pt-3 text-center"><img class="person__photo "
-                src="{{#if resultsPerson.profile_path}}{{resultsPerson.apiImagesUrl}}/w185{{resultsPerson.profile_path}}{{else}}https://fakeimg.pl/185x278/?text=No%20photo{{/if}}">
+        <div class="col-12 col-md-auto  pt-3 text-center">
+            <img class="person__photo "
+                src={{#if resultsPerson.profile_path}}
+                    "{{apiImagesUrl}}/w185{{resultsPerson.profile_path}}"
+                    {{else}}
+                        "https://fakeimg.pl/185x278/?text=No%20photo"
+                    {{/if}}
+                >
         </div>
         <div class="col-12 col-md">
             <h1 class="my-2 person__title">{{resultsPerson.name}}</h1>
@@ -10,5 +16,5 @@
         </div>
     </div>
     <h2 class="mt-5">Filmography</h2>
-    {{> ./carouselTemplate.handlebars filmographyCarouselContext }}
+    {{> ./carouselTemplate.handlebars filmographyCarouselContext apiImagesUrl=apiImagesUrl}}
 </div>

@@ -1,5 +1,6 @@
 import shave from 'shave';
 import apiCall from './apiCall';
+import { apiImagesUrl } from '../apiConfig';
 import searchTemplate from '../templates/searchTemplate.handlebars';
 
 const renderSearchPage = async (app, mediaType = 'multi', query, page) => {
@@ -33,8 +34,6 @@ const renderSearchPage = async (app, mediaType = 'multi', query, page) => {
     person: mediaType === 'person',
     multi: mediaType === 'multi',
   };
-
-  const { apiImagesUrl } = resultsSearch;
 
   // Inject templates to the DOM
   app.innerHTML = searchTemplate({
