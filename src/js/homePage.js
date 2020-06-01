@@ -53,9 +53,10 @@ const renderHomePage = async (app) => {
       results: responseNowPlayingTv.results,
     },
   });
-  // Create instances of Glide carousels
-  new Glide('#now_playing_movie', carouselConfig).mount();
-  new Glide('#now_playing_tv', carouselConfig).mount();
+  // Create instances of Glide carousels if there are results
+  if (responseNowPlayingMovies.results) new Glide('#now_playing_movie', carouselConfig).mount();
+
+  if (responseNowPlayingTv.results) new Glide('#now_playing_tv', carouselConfig).mount();
 
   // Create instances of Bootstrap carousel
   $('#featured-carousel').carousel();

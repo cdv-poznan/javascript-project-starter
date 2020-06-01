@@ -1,25 +1,28 @@
 {{#if results}}
     <div class="glide mt-3" id="{{type}}">
-        <div data-glide-el="track" class="glide__track">
-            <ul class="glide__slides">
-                {{#each results}}
-                    <li class="glide__slide text-center">
-                        <a href="/{{../media}}/{{{this.id}}}" class="link">
-                            <img class="carousel__image"
-                                src=
-                                {{#if this.poster_path}}
-                                    "{{../apiImagesUrl}}/w342{{this.poster_path}}"
-                                {{else}}
-                                    "https://fakeimg.pl/342x513/?text=No%20poster" 
-                                {{/if}}>
-                            <p class="carousel__title mt-2">
-                                {{this.title}}
-                                {{this.name}}
-                            </p>
-                        </a>
-                    </li>
-                {{/each}}
+        <div data-glide-el="track" class="glide__track text-center">
+            
+            <ul class="glide__slides ">
+                
+                    {{#each results}}
+                        <li class="glide__slide text-center">
+                            <a href="/{{../media}}/{{{this.id}}}" class="link">
+                                <img class="carousel__image"
+                                    src=
+                                    {{#if this.poster_path}}
+                                        "{{../apiImagesUrl}}/w342{{this.poster_path}}"
+                                    {{else}}
+                                        "https://fakeimg.pl/342x513/?text=No%20poster" 
+                                    {{/if}}>
+                                <p class="carousel__title mt-2">
+                                    {{this.title}}
+                                    {{this.name}}
+                                </p>
+                            </a>
+                        </li>
+                    {{/each}}
             </ul>
+           
         </div>
         <div class=" glide__arrows d-none d-md-block" data-glide-el="controls">
             <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
@@ -30,4 +33,9 @@
             </button>
         </div>
     </div>
-{{/if}}
+     {{else}}
+            <div class="text-center px-3">
+                <p>No results</p> 
+            </div>
+    {{/if}}
+

@@ -54,9 +54,9 @@ const renderTvShowsPage = async (app) => {
   });
 
   // Create instances of Glide carousels
-  new Glide('#popular', carouselConfig).mount();
-  new Glide('#top_rated', carouselConfig).mount();
-  new Glide('#now_playing', carouselConfig).mount();
+  if (responsePopular.results) new Glide('#popular', carouselConfig).mount();
+  if (responseTopRatedResults) new Glide('#top_rated', carouselConfig).mount();
+  if (responseNowPlaying.results) new Glide('#now_playing', carouselConfig).mount();
 };
 
 export default renderTvShowsPage;

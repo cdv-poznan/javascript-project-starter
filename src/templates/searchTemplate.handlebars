@@ -34,7 +34,7 @@
                     <div class="card mb-3 mt-4">
                         <div class=" row no-gutters">
                             <div class="col-4 col-sm-auto">
-                                <a href="{{#if ../type.multi}}{{{this.media_type}}}{{else}}{{../mediaType}}{{/if}}/{{{this.id}}}"class="link">
+                                <a href="/{{#if ../type.multi}}{{{this.media_type}}}{{else}}{{../mediaType}}{{/if}}/{{{this.id}}}"class="link">
                                         <img 
                                             src=
                                                 {{#neither this.poster_path this.profile_path }} 
@@ -50,7 +50,7 @@
                             </div>
                             <div class="col d-flex flex-column">
                                 <div class=" px-2 px-sm-4 py-2 py-sm-3 d-flex flex-column ">
-                                    <a href="{{#if ../type.multi}}{{{this.media_type}}}{{else}}{{../mediaType}}{{/if}}/{{{this.id}}}" class="link">
+                                    <a href="/{{#if ../type.multi}}{{{this.media_type}}}{{else}}{{../mediaType}}{{/if}}/{{{this.id}}}" class="link">
                                         <h5 class="card-title">
                                             {{this.title}}{{this.name}}
                                         </h5>

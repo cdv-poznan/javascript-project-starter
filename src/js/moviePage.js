@@ -43,8 +43,8 @@ const renderMoviePage = async (app, movieId) => {
   });
 
   // Create instances of Glide carousels
-  new Glide('#similar_movies', carouselConfig).mount();
-  new Glide('#cast', carouselPeopleConfig).mount();
+  if (resultsSimilar.results) new Glide('#similar_movies', carouselConfig).mount();
+  if (resultsCrew.results) new Glide('#cast', carouselPeopleConfig).mount();
 };
 
 export default renderMoviePage;

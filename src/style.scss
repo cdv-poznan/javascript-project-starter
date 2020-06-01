@@ -90,12 +90,10 @@ footer {
 .carousel {
   &__image {
     border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
   }
   &__title {
     margin-top: auto;
+    overflow: hidden;
     &:hover {
       font-weight: 500;
     }

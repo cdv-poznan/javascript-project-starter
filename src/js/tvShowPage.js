@@ -45,8 +45,8 @@ const renderTvShowPage = async (app, tvShowId) => {
   });
 
   // Create instances of Glide carousels
-  new Glide('#cast', carouselPeopleConfig).mount();
-  new Glide('#similar', carouselConfig).mount();
+  if (resultsCrew) new Glide('#cast', carouselPeopleConfig).mount();
+  if (resultsSimilar) new Glide('#similar', carouselConfig).mount();
 };
 
 export default renderTvShowPage;

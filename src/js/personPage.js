@@ -34,7 +34,7 @@ const renderPersonPage = async (app, personId) => {
   });
 
   // Create instances of Glide carousels
-  new Glide('#filmography', carouselConfig).mount();
+  if (resultsFilmography.results) new Glide('#filmography', carouselConfig).mount();
 };
 
 export default renderPersonPage;
