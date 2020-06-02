@@ -22,3 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   chartsView();
   enableRouting();
 });
+
+
+console.log('test');
+
