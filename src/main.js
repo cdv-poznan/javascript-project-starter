@@ -1,27 +1,58 @@
-// import { camelCase } from 'lodash';
 import $ from 'jquery';
-import { camelCaseView } from './views/camelcase';
-import { todoView } from './views/todo';
-import { chartsView } from './views/charts';
+import { addAnimation } from './modules/mysza-animations';
 
-function enableRouting() {
-  function setRoute() {
-    $('.view').hide(); // hide - metoda jQuery
-    const { hash } = window.location; // destrukturyzacja globalnego obiektu window.location
-    // jeśli hash jest pusty
-    if (hash === '') {
-      $('#home').show(); // pokaż element o #home
-    }
-    $(hash).show(); // show - metoda jQuery
-  }
-  setRoute(); // wywołaj niezwłocznie setRoute po wywołanie enableRouting
-  window.addEventListener('hashchange', setRoute); // wywołaj setRoute na każdy event `hashchange`
+let isActive = false;
+
+export function removeEvent() {
+  addAnimation('reset-to-defaults');
+  $('#text-container').empty();
+  isActive = false;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  camelCaseView();
-  todoView();
-  chartsView();
+function addEvent(animationName, text) {
+  isActive = true;
+  addAnimation(animationName);
+  if (text) {
+    $('#text-container').append('<p>' + text + '</p>');
+  }
+}
 
-  enableRouting();
-});
+function singleBehaviour(animationName, text, time) {
+  return new Promise((resolve, reject) => {
+    while ((isActive = true)) {
+      // czekaj dopóki wykonuje się jakieś zachowanie
+    }
+    addEvent(animationName, text);
+    setTimeout(() => {
+      removeEvent();
+      resolve();
+    }, time);
+  });
+}
+
+function manageBehaviours() {
+  const animationName1 = document.getElementById('animation-list1').value;
+  const text1 = document.getElementById('text-field1').value;
+  const duration1 = document.getElementById('duration-time1').value;
+  const animationName2 = document.getElementById('animation-list2').value;
+  const text2 = document.getElementById('text-field2').value;
+  const duration2 = document.getElementById('duration-time2').value;
+  singleBehaviour(animationName1, text1, duration1).then((value) => {
+    singleBehaviour(animationName2, text2, duration2);
+  });
+}
+
+function addInterval(animationName, interval) {
+  setInterval(() => {
+    while ((isActive = true)) {
+      return;
+    }
+    addEvent(animationName);
+  }, interval);
+}
+
+// document.addEventListener('DOMContentLoaded', () => {
+$('#trigger-events').click(manageBehaviours);
+// });
+
+$('#add-interval').click(addInterval);

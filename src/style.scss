@@ -1,16 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
 
-html {
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 body,
 h1,
 h2,
@@ -26,28 +15,69 @@ ul {
   font-weight: normal;
 }
 
-ol,
-ul {
-  list-style: none;
+/*kolory warstw dla myszy*/
+.st0 {
+  fill: #e6e6e6;
+}
+.st1 {
+  fill: none;
+  stroke: #f2cac2;
+  stroke-width: 15;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+.st2 {
+  fill: #f2f2f2;
+}
+.st3 {
+  fill: #f2deda;
+}
+.st4 {
+  fill: #f2cac2;
+}
+.st5 {
+  fill: #999999;
+}
+.st6 {
+  fill: #ffffff;
+}
+.st7 {
+  fill: #ff957d;
+}
+.st8 {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 2;
+  stroke-linecap: square;
+  stroke-miterlimit: 10;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+body {
+  background-color: #2e3192;
 }
 
-#app {
-  padding: 30px;
+/*layout contenera z myszą i tekstem*/
+#mysza-module-container {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  width: 40%;
+  right: 0;
+  bottom: 0;
 }
 
-.button-wrapper {
-  margin-top: 30px;
+#mysza-container {
+  width: 70%;
 }
 
-.hidden {
-  display: none;
+#text-container {
+  width: 30%;
+  margin-right: -20%;
 }
 
-.todo-list-wrapper {
-  margin: 30px 0;
+#text-container p {
+  padding: 15px 20px;
+  background-color: white;
+  border-radius: 5px;
 }
+
