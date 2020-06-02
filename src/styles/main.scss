@@ -1,5 +1,5 @@
 body {
-    background-color: #b5b7b2;
+    background-color: $background-color;
 }
 main {
     display: flex;
@@ -13,41 +13,44 @@ main {
         .item {
             width: 48%;
             margin: 10px 0;
-            background-color: whitesmoke;
+            background-color:  $main-color;
             padding: 10px;
             border-radius: 10px;
-            box-shadow: 1px 4px 120px 2px lightgray;
+            box-shadow: 2px 4px  12px 2px $shadow-color;
         }
     }
     .poke-container {
-        .filter {
-            background-color: whitesmoke;
+        margin-bottom: 30px;
+        .control-section {
+            display: flex;
+            justify-content: space-between;
+            background-color: $main-color;
             border-radius: 10px;
             margin: 10px auto;
             padding: 10px;
-            box-shadow: 1px 4px 12px 2px lightgray;
+            box-shadow: 3px 4px 12px 2px $shadow-color;
         }
         .poke-list ul {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
-            background-color: whitesmoke;
+            background-color: $main-color;
             border-radius: 10px;
-            box-shadow: 1px 4px 12px 2px lightgray;
+            box-shadow: 3px 4px 12px 2px $shadow-color;
             margin: 15px auto;
             li {
-                // border: 1px solid brown;
                 margin: 10px;
                 border-radius: 15px;
                 transition: 0.3s;
             }
             li:hover {
-                box-shadow: 1px 4px 12px 2px lightgray;
+                box-shadow: 1px 1px 10px 3px $secondary-color;
                 transform: scale(1.05);
             }
         }
     }
 }
+
 
 @media (max-width: 600px) {
     .flex-container {

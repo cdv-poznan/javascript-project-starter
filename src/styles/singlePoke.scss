@@ -8,6 +8,7 @@
     }
 }
 .poke-describe {
+    color: whitesmoke;
     .poke-name {
         text-transform: uppercase;
         font-weight: bold;
@@ -15,18 +16,15 @@
     }
     .poke-details {
         .pokemon-type {
-            display: flex;
-            // border: 1px solid black;
+            display: flex;      
             padding: 10px;
             p {
                 width: 20%;
             }
             .type-span {
                 font-weight: bold;
-                // width: 80%;
                 align-self: center;
                 margin-left: 30px;
-                // border: 1px solid red;
             }
         }  
     }
@@ -39,17 +37,16 @@
     .simple-stat {
         display: flex;
         align-items: center;
-        // border: 1px black solid;
         p {
             width: 20%;
-            // border: 1px solid black;
         }
         .bar {
             width: 80%;
+            height: 22px;
             border: 1px solid lightgray;
             margin-left: 30px;
             .progress-bar {
-                background-color: #EF5350;
+                background-color: $secondary-color;
             }
         }
     }

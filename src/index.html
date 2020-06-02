@@ -12,11 +12,12 @@
 
 <body>
   <header>
-    <h1 class="page-title">POKEDEX</h1>
+    <h1 class="page-title"><span>POKEDEX</span></h1>
   </header>
   <main>
     <section class="flex-item flex-container">
       <container class="poke-photo item">
+        <img class="poke-photo-img"/>
       </container>
       <container class="poke-describe item">
         <h2 class="poke-name">Choose a pokemon</h2>
@@ -29,46 +30,52 @@
             <div class="simple-stat">
               <p>HP:</p>
               <div class="progress bar">
-                <div class="progress-bar hp" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                <div class="progress-bar hp" role="progressbar" style="width: 0" aria-valuenow="25" aria-valuemin="0"
                   aria-valuemax="100"></div>
               </div>
             </div>
             <div class="simple-stat">
               <p>Speed:</p>
               <div class="progress bar">
-                <div class="progress-bar speed" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0"
+                <div class="progress-bar speed" role="progressbar" style="width: 0" aria-valuenow="25" aria-valuemin="0"
                   aria-valuemax="100"></div>
               </div>
             </div>
             <div class="simple-stat">
               <p>Defense:</p>
               <div class="progress bar">
-                <div class="progress-bar defense" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0"
+                <div class="progress-bar defense" role="progressbar" style="width: 0" aria-valuenow="25" aria-valuemin="0"
                   aria-valuemax="100"></div>
               </div>
             </div>
             <div class="simple-stat">
               <p>Attack</p>
               <div class="progress bar">
-                <div class="progress-bar attack" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0"
+                <div class="progress-bar attack" role="progressbar" style="width: 0" aria-valuenow="25" aria-valuemin="0"
                   aria-valuemax="100"></div>
               </div>
             </div>
-
           </div>
-
-
-
-
-        </>
       </container>
     </section>
     <section class="poke-container flex-item">
-      <div class="filter">
-        <label for="type">Wybierz typ</label>
-        <select name="type" id="type"></select>
-        <button for="type">Filtruj</button>
+      <div class="control-section">
+        <div class="filter">
+          <label for="type" class="filter-label">Choose a type: </label>
+          <select name="type" id="type" class="select"></select>
+          <button for="type" class="btn button">Filter</button>
+          <button for="type" class="btn button reset">Clear</button>
+        </div>
+        
+        <nav aria-label="Page navigation example" class="pagination-box">
+          <ul class="pagination-buttons">
+            <li><button class="btn previous">Previous</button></li>
+            <li><button class="btn next">Next</button></li>
+          </ul>
+        </nav>
       </div>
+
+
       <div class="poke-list">
         <ul class="list">
 
@@ -77,6 +84,7 @@
   </main>
   <footer class="footer">
     <p>Jacek Olszowski &copy; 2020 Poznań</p>
+    <button class="up ">Up</button>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -88,6 +96,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
+  
 
 </body>
 

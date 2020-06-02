@@ -2,13 +2,29 @@
 
 .footer {
     background-color: $main-color;
-    height: 40px;
+    height: 30px;
+    min-width: 300px;
     position: fixed;
-    bottom: 0;
     width: 100%;
+    bottom: 0px;
     p {
         text-align: center;
-        line-height: 40px;
+        line-height: 30px;
         color: $secondary-color;
+    }
+    .up {
+        position: absolute;
+        bottom: 50px;
+        right: 10px;
+        background-color: $secondary-color;
+        border: none;
+        height: 100%;
+        border-radius: 6px;
+        width: 50px;
+        color: whitesmoke;
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 5px lightgray;
+        }
     }
 }
