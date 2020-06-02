@@ -44,9 +44,7 @@ function manageBehaviours() {
 
 function addInterval(animationName, interval) {
   setInterval(() => {
-    while ((isActive = true)) {
-      return;
-    }
+
     addEvent(animationName);
   }, interval);
 }
