@@ -2,7 +2,9 @@ import $ from 'jquery';
 // import { camelCaseView } from './views/camelcase';
 // import { todoView } from './views/todo';
 // import { chartsView } from './views/chart';
-import { nbaGameView, nbaTeamView, nbaAllTeamsView, nbaAllGamesView } from './views/nba';
+import { nbaGameView, nbaAllGamesView } from './views/nba-games';
+import { nbaPlayerView, nbaPlayersSelectView } from './views/nba-players';
+import { nbaTeamView, nbaAllTeamsView, nbaTeamsSelectView } from './views/nba-teams';
 
 function enableRouting() {
   function setRoute() {
@@ -22,9 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // todoView();
   // chartsView();
   nbaGameView();
-  nbaAllGamesView();
+  nbaAllGamesView(2014, 0, 200, 2, '');
+  nbaPlayerView(2);
+  // nbaAllPlayersView(0, 100, 'jordan');
   nbaTeamView();
   nbaAllTeamsView();
+  nbaTeamsSelectView();
+  nbaPlayersSelectView();
   enableRouting();
 });
 
