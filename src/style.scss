@@ -3,7 +3,7 @@
 
 html {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 19px;
   font-family: 'Baloo Paaji 2', cursive;
 }
 
@@ -55,7 +55,6 @@ img {
   position: fixed;
   left: 20px;
   top: 20px;
-  font-size: 10px;
   font-weight: 900;
   &:hover {
     background: transparent;
@@ -67,9 +66,10 @@ ul.styles {
   display: block;
   position: fixed;
   left: 21px;
-  top: 55px;
+  top: 69px;
   transition: transform .4s;
   > li {
+    font-size: 1.2em;
     display: block;
     transition: transform .3s ease-in-out;
     &:hover{
@@ -85,8 +85,12 @@ ul.styles {
 }
 
 .drum-grid {
-  width: 50%;
+  width: 70%;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .hihat, .kick, .snare, .shaker {
@@ -94,6 +98,7 @@ ul.styles {
   justify-content: space-between;
   .legend {
     width: 100px;
+    line-height: 36px;
     &:hover{
       cursor: pointer;
     }
@@ -101,11 +106,12 @@ ul.styles {
 }
 
 .square {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border-radius: 3px;
-  &:nth-of-type(4n +1){
-    margin-right: 5px;
+  margin: 5px 2px;
+  &:nth-of-type(4n){
+    margin-right: 10px;
   }
 }
 
@@ -113,7 +119,8 @@ ul.styles {
 
 .techno {
   background: url('assets/img/darktunnel.jpg');
-  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
   .square {
     border: 1px $technoprimary solid;
     &:hover {
@@ -121,11 +128,11 @@ ul.styles {
     }
   }
   .checked {
-    background-color: rgb(31, 0, 31);
+    background-color: rgb(54, 0, 54);
     display: block;
   }
   .technoInterface {
-    background-color: rgba(0, 0, 0, 0.9);
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
     padding: 20px 40px;
     color: $technoprimary;
     font-weight: 600;

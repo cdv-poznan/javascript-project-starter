@@ -1,19 +1,25 @@
 // import lodash from 'lodash';
+import Tone from 'tone';
+// import Transport from 'tone/Tone/core/Transport';
 
 document.addEventListener('DOMContentLoaded', () => {
-  function checkSquare() {
-    this.classList.toggle('checked');
+  function technoSequencer() {
+    const kick = new Tone.Player('./assets/samples/techno/technoKick.wav').toMaster();
+    // const hat = new Tone.Player('./assets/samples/techno/technoHat.wav').toMaster();
+    let index = 0;
+    function repeat() {
+      const step = index % 16;
+      // console.log(step);
+      const kickInputs = document.querySelector(`.kick input:nth-of-type(${step + 1})`);
+      if (kickInputs.checked) {
+        kick.start();
+      }
+      index += 1;
+      console.log('index: ', index);
+      console.log('step: ', step);
+    }
+    Tone.Transport.scheduleRepeat(repeat, '16n');
+    Tone.Transport.start();
   }
-  const squares = document.querySelectorAll('.square');
-  squares.forEach(function (item) {
-    item.addEventListener('click', checkSquare);
-  });
-
-  const styles = document.querySelector('#styles');
-  document.querySelector('#styleChanger').addEventListener('click', () => styles.classList.toggle('hidden'));
-
-  const technoKick = new Audio('./assets/samples/technokick.wav');
-  document.querySelector('#technoKick').addEventListener('click', function () {
-    technoKick.play();
-  });
+  technoSequencer();
 });
