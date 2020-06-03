@@ -1,7 +1,8 @@
 import $ from 'jquery';
-import { camelCaseView } from './views/camelcase';
-import { todoView } from './views/todo';
-import { chartsView } from './views/chart';
+// import { camelCaseView } from './views/camelcase';
+// import { todoView } from './views/todo';
+// import { chartsView } from './views/chart';
+import { nbaGameView, nbaTeamView, nbaAllTeamsView, nbaAllGamesView } from './views/nba';
 
 function enableRouting() {
   function setRoute() {
@@ -17,12 +18,14 @@ function enableRouting() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  camelCaseView();
-  todoView();
-  chartsView();
+  // camelCaseView();
+  // todoView();
+  // chartsView();
+  nbaGameView();
+  nbaAllGamesView();
+  nbaTeamView();
+  nbaAllTeamsView();
   enableRouting();
 });
 
-
-console.log('test');
-
+// console.log('test');

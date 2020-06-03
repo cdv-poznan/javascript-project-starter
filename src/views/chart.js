@@ -8,7 +8,7 @@ export async function chartsView() {
     const api = `https://api.covid19api.com/country/${country}/status/confirmed?from=${fromDate}&to=${toDate}`;
 
     const res = await fetch(api);
-    const json = await res.json();
+    const json = await res.body();
 
     return json;
   }
