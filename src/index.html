@@ -10,6 +10,7 @@
       <nav class="navbar navbar-light">
         <a href="#">Home</a>
 
+        <a href="#firebase-test">FIREBASE Test</a>
         <a href="#nba-games">NBA Games</a>
         <a href="#nba-game">NBA Game</a>
         <a href="#nba-teams">NBA Teams</a>
@@ -21,9 +22,16 @@
         <h1>Start</h1>
       </div>
 
+      <div class="container view hidden" id="firebase-test">
+        <h1>FIREBASE Test</h1>
+        <h2 id="hotDogOutput">Hot dog status:</h2>
+        <input type="text" id="latestHotDogStatus" />
+        <button id="saveButton">Save</button>
+        <button id="loadButton">Load</button>
+      </div>
+
       <div class="container view hidden" id="nba-games">
         <h1>NBA Games List</h1>
-
         <div id="nba-games-stats"></div>
       </div>
       <div class="container view hidden" id="nba-game">

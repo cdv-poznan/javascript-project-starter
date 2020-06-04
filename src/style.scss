@@ -1,4 +1,23 @@
+// zestaw kolorów
+// https://coolors.co/2b2d42-8d99ae-edf2f4-ef233c-d90429
+
+// #2B2D42
+// #8D99AE
+// #EDF2F4
+// #EF233C
+// #D90429
+
+// zestaw kolorów
+
 @import "~bootstrap/scss/bootstrap";
+
+$color-navy: #2b2d42;
+$color-gray: #8d99ae;
+$color-white: #edf2f4;
+$color-lightred: #ef233c;
+$color-darkred: #d90429;
+
+$border-gray: 1px solid #8d99ae;
 
 html {
   box-sizing: border-box;
@@ -55,7 +74,7 @@ img {
 .teamBox {
   margin: 10px 0;
   padding: 10px 0;
-  border-bottom: 1px solid #c3c3c3;
+  border-bottom: $border-gray;
 }
 
 .teamBox .row {
@@ -65,10 +84,20 @@ img {
 .gameBox {
   margin: 10px 0;
   padding: 10px 0;
-  border-bottom: 1px solid #c3c3c3;
+  border-bottom: $border-gray;
   text-align: center;
 }
 
 .gameBox .row {
   margin: 10px 0;
+}
+
+.paginationBox {
+  text-align: center;
+}
+
+.paginationBox button {
+  border: none;
+  background: $color-navy;
+  color: $color-gray;
 }

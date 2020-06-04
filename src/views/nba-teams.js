@@ -87,7 +87,7 @@ export async function nbaTeamsSelectView() {
 
       selectBoxTeams.addEventListener('change', () => {
         const selectValue = selectBoxTeams.value;
-        console.log(selectValue);
+        // console.log(selectValue);
         nbaTeamView(selectValue);
       });
     })

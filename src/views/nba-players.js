@@ -17,25 +17,25 @@ export async function nbaPlayerView(playerID = 1) {
   })
     .then((response) => response.json())
     .then((body) => {
-      console.log(body);
+      // console.log(body);
       const {
-        // id: playerID,
         first_name: playerFirstName,
         last_name: playerLastName,
         position: playerPosition,
+        // id: playerID,
         // height_feet: playerHightFeet,
         // height_inches: playerHightInches,
         team: playerTeam,
       } = body;
 
       const {
+        full_name: playerTeamFullName,
         // id: playerTeamID,
         // abbreviation: playerTeamAbbreviation,
         // city: playerTeamCity,
         // conference: playerTeamConference,
         // division: playerTeamDivision,
         // name: playerTeamName,
-        full_name: playerTeamFullName,
       } = playerTeam;
 
       statsBoxPlayer.innerHTML = '';
@@ -60,7 +60,7 @@ export async function nbaPlayersSelectView() {
     .then((data) => {
       const bodyData = data.data;
       bodyData.forEach((bodydata) => {
-        console.log(bodydata);
+        // console.log(bodydata);
         const { id: playerID, first_name: playerFirstName, last_name: playerLastName } = bodydata;
 
         selectBoxPlayers.insertAdjacentHTML('beforeend', generatePlayersSelect(playerID, playerFirstName, playerLastName));
@@ -68,7 +68,7 @@ export async function nbaPlayersSelectView() {
 
       selectBoxPlayers.addEventListener('change', () => {
         const selectValue = selectBoxPlayers.value;
-        console.log(selectValue);
+        // console.log(selectValue);
         nbaPlayerView(selectValue);
       });
     })

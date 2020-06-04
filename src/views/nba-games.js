@@ -95,7 +95,7 @@ export async function nbaAllGamesView(gameSeason, page = 0, perPage = 25, teamID
           //   name: visitorTeamName,
           full_name: visitorTeamFullName,
         } = visitorTeam;
-
+        statsBoxGames.innerHTML = '';
         statsBoxGames.insertAdjacentHTML(
           'beforeend',
           generateGameRow(
@@ -109,8 +109,31 @@ export async function nbaAllGamesView(gameSeason, page = 0, perPage = 25, teamID
         );
       });
     })
-
     .catch((err) => {
       console.log(err);
     });
+
+  const nextPageButton = document.querySelector('#nextPage');
+  nextPageButton.addEventListener('click', function () {
+    page += 1;
+    nbaAllGamesView(gameSeason, page, perPage, teamID, date);
+    console.log(`kliknięto next`, page);
+  });
+  const prevPageButton = document.querySelector('#prevPage');
+  prevPageButton.addEventListener('click', function () {
+    page -= 1;
+    nbaAllGamesView(gameSeason, page, perPage, teamID, date);
+    console.log(`kliknięto prev`, page);
+  });
+}
+
+export function paginationView() {
+  const statsBoxGames = document.getElementById('nba-games-stats');
+
+  const paginationBox = `<div class="paginationBox d-flex flex-row justify-content-center">
+          <div class="col-2"><button id="prevPage"><i class="fas fa-angle-double-left"></i></button></div>
+          <div class="col-2"><button id="nextPage"><i class="fas fa-angle-double-right"></i></button></div>
+        </div>`;
+
+  statsBoxGames.insertAdjacentHTML('afterend', paginationBox);
 }
