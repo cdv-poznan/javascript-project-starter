@@ -1,18 +1,14 @@
-import { generateTeamRow, generateTeamsSelect } from './tools';
-
-const fetchMethod = 'GET';
-const fetchHeaders = {
-  'x-rapidapi-host': 'free-nba.p.rapidapi.com',
-  'x-rapidapi-key': 'ebdbe9243dmsh265cfefe983de1ep18677ajsne6a7199e5ab5',
-};
+import { generateTeamRow } from './tools';
 
 export async function nbaAllTeamsView() {
   const statsBoxTeams = document.querySelector('#nba-teams-stats');
 
-  await fetch(`https://free-nba.p.rapidapi.com/teams?page=0`, {
-    method: fetchMethod,
-    headers: fetchHeaders,
-  })
+  const urlStartTeams = `https://www.balldontlie.io/api/v1/teams`;
+
+  const urlParametersPage = `?page=0`;
+  const nbaTeamsURL = `${urlStartTeams}${urlParametersPage}`;
+
+  await fetch(nbaTeamsURL)
     .then((response) => response.json())
     .then((data) => {
       const bodyData = data.data;
@@ -33,19 +29,20 @@ export async function nbaAllTeamsView() {
         );
       });
     })
-
     .catch((err) => {
       console.log(err);
     });
 }
 
-export async function nbaTeamView(teamNumber = 1) {
+export async function nbaTeamView(teamNumber = 0) {
   const statsBoxTeam = document.querySelector('#nba-team-stats');
 
-  await fetch(`https://free-nba.p.rapidapi.com/teams/${teamNumber}`, {
-    method: fetchMethod,
-    headers: fetchHeaders,
-  })
+  const urlStartTeams = `https://www.balldontlie.io/api/v1/teams`;
+
+  const urlTeamNumber = `/${teamNumber}`;
+  const nbaTeamsURL = `${urlStartTeams}${urlTeamNumber}`;
+
+  await fetch(nbaTeamsURL)
     .then((response) => response.json())
     .then((body) => {
       const {
@@ -64,34 +61,6 @@ export async function nbaTeamView(teamNumber = 1) {
         generateTeamRow(teamID, teamAbbreviation, teamCity, teamConference, teamDivision, teamFullName, teamName),
       );
     })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-
-export async function nbaTeamsSelectView() {
-  const selectBoxTeams = document.querySelector('#nba-team-select');
-
-  await fetch(`https://free-nba.p.rapidapi.com/teams?page=0`, {
-    method: fetchMethod,
-    headers: fetchHeaders,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      const bodyData = data.data;
-      bodyData.forEach((bodydata) => {
-        const { id: teamID, full_name: teamFullName } = bodydata;
-
-        selectBoxTeams.insertAdjacentHTML('beforeend', generateTeamsSelect(teamID, teamFullName));
-      });
-
-      selectBoxTeams.addEventListener('change', () => {
-        const selectValue = selectBoxTeams.value;
-        // console.log(selectValue);
-        nbaTeamView(selectValue);
-      });
-    })
-
     .catch((err) => {
       console.log(err);
     });

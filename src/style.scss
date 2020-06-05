@@ -19,6 +19,50 @@ $color-darkred: #d90429;
 
 $border-gray: 1px solid #8d99ae;
 
+$phone-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$large-desktop-width: 1280px;
+$xlarge-desktop-width: 1366px;
+$xxlarge-desktop-width: 1600px;
+$ultra-desktop-width: 1920px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) and (max-width: #{$large-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$large-desktop-width}) and (max-width: #{$xlarge-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin xlarge-desktop {
+  @media (min-width: #{$xlarge-desktop-width}) and (max-width: #{$xxlarge-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin xxlarge-desktop {
+  @media (min-width: #{$xxlarge-desktop-width}) and (max-width: #{$ultra-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin ultra-desktop {
+  @media (min-width: #{$ultra-desktop-width}) {
+    @content;
+  }
+}
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -88,6 +132,15 @@ img {
   text-align: center;
 }
 
+.gameBox strong {
+  font-size: 30px;
+}
+
+.gameBox span {
+  font-size: 14px;
+  color: $color-gray;
+}
+
 .gameBox .row {
   margin: 10px 0;
 }
@@ -100,4 +153,37 @@ img {
   border: none;
   background: $color-navy;
   color: $color-gray;
+}
+
+.playerBox {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-bottom: $border-gray;
+  text-align: center;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header header header"
+    "aside article article article"
+    "footer footer footer footer";
+}
+
+.header {
+  grid-area: header;
+}
+
+.aside {
+  grid-area: aside;
+}
+
+.article {
+  grid-area: article;
+}
+
+.footer {
+  grid-area: footer;
 }

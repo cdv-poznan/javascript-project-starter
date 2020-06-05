@@ -16,12 +16,7 @@ export function generateTeamRow(teamID, teamAbbreviation, teamCity, teamConferen
   return teamRow;
 }
 
-export function generateTeamsSelect(teamID, teamFullName) {
-  const teamSelectRow = `<option value="${teamID}">${teamFullName}</option>`;
-  return teamSelectRow;
-}
-
-export function generatePlayerRow(playerFirstName, playerLastName, playerTeamFullName, playerPosition) {
+export function generatePlayerRow(playerFirstName, playerLastName, playerTeamFullName, playerPosition, playerID) {
   const playerRow = `
   <div div class="playerBox" >
         <div class="row">
@@ -40,6 +35,10 @@ export function generatePlayerRow(playerFirstName, playerLastName, playerTeamFul
             <div class="col">Pozycja</div>
             <div class="col">${playerPosition}</div>
         </div>
+        <div class="row">
+            <div class="col">ID</div>
+            <div class="col">${playerID}</div>
+        </div>
         </div>
   `;
   return playerRow;
@@ -52,28 +51,20 @@ export function generateGameRow(
   visitorTeamScore,
   homeTeamAbbreviation,
   visitorTeamAbbreviation,
+  gameDate,
 ) {
   const gameRow = `<div div class="gameBox" >
-        <div class="row">
-            <div class="col">Gospodarze</div>
-            <div class="col">Goście</div>
-        </div>
-        <div class="row">
-            <div class="col" style="background: url('https://www.nba.com/assets/logos/teams/primary/web/${toUpper(
+        <div class="row d-flex align-items-center">
+            <div class="col-1" style="background: url('https://www.nba.com/assets/logos/teams/primary/web/${toUpper(
               homeTeamAbbreviation,
-            )}.svg') no-repeat center; width: 150px; height: 150px;"></div>
-            <div class="col" style="background: url('https://www.nba.com/assets/logos/teams/primary/web/${toUpper(
-              visitorTeamAbbreviation,
-            )}.svg') no-repeat center; width: 150px; height: 150px;"></div>
-        </div>
-        <div class="row">
+            )}.svg') no-repeat center; background-size: contain; width: 150px; height: 150px;"></div>
             <div class="col">${homeTeamFullName}</div>
+            <div class="col"><strong>${homeTeamScore} : ${visitorTeamScore}</strong><hr><span>${gameDate}</span></div>
             <div class="col">${visitorTeamFullName}</div>
-        </div>
-        <div class="row">
-            <div class="col">${homeTeamScore}</div>
-            <div class="col">${visitorTeamScore}</div>
-        </div>
+            <div class="col-1 teamIcon" style="background: url('https://www.nba.com/assets/logos/teams/primary/web/${toUpper(
+              visitorTeamAbbreviation,
+            )}.svg') no-repeat center;  background-size: contain; width: 150px; height: 150px;"></div>
+
         </div> `;
   return gameRow;
 }
@@ -81,4 +72,109 @@ export function generateGameRow(
 export function generatePlayersSelect(playerID, playerFirstName, playerLastName) {
   const playerSelectRow = `<option value="${playerID}">${playerFirstName} ${playerLastName}</option>`;
   return playerSelectRow;
+}
+
+export function generateGamesSeasonsSelect() {
+  const seasonsSelect = document.querySelector('#game-season');
+  const statisticsSeasonsSelect = document.querySelector('#statistics-season');
+
+  let selectOptions = '';
+
+  for (let i = 2019; i >= 1979; i -= 1) {
+    selectOptions += `<option value="${i}">${i} / ${i + 1}</option>`;
+  }
+  seasonsSelect.insertAdjacentHTML('beforeend', selectOptions);
+  statisticsSeasonsSelect.insertAdjacentHTML('beforeend', selectOptions);
+}
+
+export async function generateGamesTeamsSelect() {
+  const teamsSelect = document.querySelector('#game-teams');
+  const selectBoxTeams = document.querySelector('#nba-team-select');
+
+  let selectOptions = '';
+
+  const urlStartTeams = `https://www.balldontlie.io/api/v1/teams`;
+
+  const urlParametersPage = `?page=0`;
+  const nbaTeamsURL = `${urlStartTeams}${urlParametersPage}`;
+
+  await fetch(nbaTeamsURL)
+    .then((response) => response.json())
+    .then((data) => {
+      const bodyData = data.data;
+      bodyData.forEach((bodydata) => {
+        const { id: teamID, full_name: teamFullName } = bodydata;
+
+        selectOptions += `<option value="${teamID}">${teamFullName}</option>`;
+      });
+    })
+
+    .catch((err) => {
+      console.log(err);
+    });
+
+  teamsSelect.insertAdjacentHTML('beforeend', selectOptions);
+  selectBoxTeams.insertAdjacentHTML('beforeend', selectOptions);
+}
+
+export function generatePlayerSeasonStats(
+  gamesPlayed,
+  // playerID,
+  season,
+  min,
+  // fgm,
+  // fga,
+  // fg3m,
+  // fg3a,
+  // ftm,
+  // fta,
+  oreb,
+  dreb,
+  reb,
+  ast,
+  stl,
+  blk,
+  // turnover,
+  // pf,
+  pts,
+  // fgPct,
+  // fg3Pct,
+  // ftPct,
+) {
+  const playerRow = `
+  <div div class="statisticsBox" >
+  <div class="row">
+            <div class="col-2">Sezon</div>
+            <div class="col-1">${season}</div>
+            <div class="col-2">Rozegranych meczy</div>
+            <div class="col-1">${gamesPlayed}</div>
+            <div class="col-2">Minut na boisku</div>
+            <div class="col-1">${min}</div>
+            <div class="col-2">Średnia punktów</div>
+            <div class="col-1">${pts}</div>
+        </div>
+        <div class="row">
+            <div class="col-2">Asyst</div>
+            <div class="col-1">${ast}</div>
+            <div class="col-2">Zbiórek</div>
+            <div class="col-1">${reb}</div>
+            <div class="col-2">Przechwyty</div>
+            <div class="col-1">${stl}</div>
+            <div class="col-2">Bloki</div>
+            <div class="col-1">${blk}</div>
+        </div>
+         <div class="row">
+            <div class="col-2">Zbiórki</div>
+            <div class="col-1">${reb}</div>
+            <div class="col-2">w ataku</div>
+            <div class="col-1">${oreb}</div>
+            <div class="col-2">w obronie</div>
+            <div class="col-1">${dreb}</div>
+            <div class="col-2">Przechwyty</div>
+            <div class="col-1">${stl}</div>
+        </div>
+        
+        </div>
+  `;
+  return playerRow;
 }

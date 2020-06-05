@@ -3,11 +3,13 @@ import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
+import { generateGamesSeasonsSelect, generateGamesTeamsSelect } from './views/tools';
 
 import { firebaseLayer } from './views/firebase';
-import { nbaGameView, nbaAllGamesView, paginationView } from './views/nba-games';
-import { nbaPlayerView, nbaPlayersSelectView } from './views/nba-players';
-import { nbaTeamView, nbaAllTeamsView, nbaTeamsSelectView } from './views/nba-teams';
+
+import { nbaGameView, paginationView, gamesSearchEngine } from './views/nba-games';
+import { nbaPlayerView, playersSearchEngine, nbaPlayersSelectView, playerStatsSearchEngine } from './views/nba-players';
+import { nbaTeamView, nbaAllTeamsView } from './views/nba-teams';
 
 function enableRouting() {
   function setRoute() {
@@ -23,18 +25,17 @@ function enableRouting() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // camelCaseView();
-  // todoView();
-  // chartsView();
+  nbaPlayersSelectView();
   nbaGameView();
-  nbaAllGamesView(2014, 0, 2, '', '');
+  gamesSearchEngine();
   paginationView();
-  nbaPlayerView(2);
-  // nbaAllPlayersView(0, 100, 'jordan');
+  nbaPlayerView(179);
+  playersSearchEngine();
   nbaTeamView();
   nbaAllTeamsView();
-  nbaTeamsSelectView();
-  nbaPlayersSelectView();
+  generateGamesSeasonsSelect();
+  generateGamesTeamsSelect();
+  playerStatsSearchEngine();
   firebaseLayer();
   enableRouting();
 });
