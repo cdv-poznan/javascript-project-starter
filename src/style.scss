@@ -53,7 +53,39 @@ ul {
 }
 
 body {
-  background-color: #2e3192;
+  background-color: #7C7DA5;
+  padding:50px;
+}
+
+/*przyciski*/
+label.turn-off {
+color: #DAF4AB!important;
+}
+
+/*layout kontenera z tekstami*/
+.single-event-container {
+  margin-top: 30px;
+  background-color: #e6e6e6;
+  width: 50%;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/*layout kontenera z intervalami*/
+.intervals-list {
+  display: flex;
+}
+
+/*karty interwałów*/
+.card{
+  padding: 15px;
+}
+.intervals-list .card {
+  background-color: #e6e6e6;
+}
+.intervals-list .card-title {
+}
+.intervals-list .card-text {
 }
 
 /*layout contenera z myszą i tekstem*/
@@ -72,12 +104,27 @@ body {
 
 #text-container {
   width: 30%;
-  margin-right: -20%;
+  margin-right: -10%;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  position: relative;
+  top: 100px;
+  right: 0px;
 }
 
 #text-container p {
   padding: 15px 20px;
   background-color: white;
   border-radius: 5px;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  
+  border-left: 60px solid green;
 }
 
