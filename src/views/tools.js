@@ -4,8 +4,8 @@ export function generateTeamRow(teamID, teamAbbreviation, teamCity, teamConferen
   const teamRow = `<div class="teamBox">
             <div class="row">
                 <div class="col" style="background: url('https://www.nba.com/assets/logos/teams/primary/web/${toUpper(
-                  teamAbbreviation,
-                )}.svg') no-repeat; width: 150px; height: 150px;"></div>
+    teamAbbreviation,
+  )}.svg') no-repeat; width: 150px; height: 150px;"></div>
                 <div class="col">${teamFullName} (${toLower(teamName)})</div>
             </div>
             <div class="row">
@@ -56,14 +56,14 @@ export function generateGameRow(
   const gameRow = `<div div class="gameBox" >
         <div class="row d-flex align-items-center">
             <div class="col-1" style="background: url('https://www.nba.com/assets/logos/teams/primary/web/${toUpper(
-              homeTeamAbbreviation,
-            )}.svg') no-repeat center; background-size: contain; width: 150px; height: 150px;"></div>
+    homeTeamAbbreviation,
+  )}.svg') no-repeat center; background-size: contain; width: 150px; height: 150px;"></div>
             <div class="col">${homeTeamFullName}</div>
             <div class="col"><strong>${homeTeamScore} : ${visitorTeamScore}</strong><hr><span>${gameDate}</span></div>
             <div class="col">${visitorTeamFullName}</div>
             <div class="col-1 teamIcon" style="background: url('https://www.nba.com/assets/logos/teams/primary/web/${toUpper(
-              visitorTeamAbbreviation,
-            )}.svg') no-repeat center;  background-size: contain; width: 150px; height: 150px;"></div>
+    visitorTeamAbbreviation,
+  )}.svg') no-repeat center;  background-size: contain; width: 150px; height: 150px;"></div>
 
         </div> `;
   return gameRow;
@@ -80,7 +80,7 @@ export function generateGamesSeasonsSelect() {
 
   let selectOptions = '';
 
-  for (let i = 2019; i >= 1979; i -= 1) {
+  for (let i = 2019; i >= 1979; i--) {
     selectOptions += `<option value="${i}">${i} / ${i + 1}</option>`;
   }
   seasonsSelect.insertAdjacentHTML('beforeend', selectOptions);
@@ -178,3 +178,31 @@ export function generatePlayerSeasonStats(
   `;
   return playerRow;
 }
+
+ // testy
+  // const request = fetch('https://reqres.in/api/users?page=1');
+
+  // request
+  //   .then((response) => response.json())
+  //   .then((body) => {
+  //     console.log('body', body);
+  //     const { data } = body;
+  //     return data;
+  //   })
+  //   .then((data) => {
+  //     console.log(data);
+  //     data.forEach((record) => {
+  //       const { id, email, first_name: firstName, last_name: lastName, avatar } = record;
+  //       console.log(`
+  //       ${id}
+  //       ${email}
+  //       ${firstName}
+  //       ${lastName}
+  //       ${avatar}
+  //       `);
+  //     });
+  //   })
+  //   .catch((error) => {
+  //     console.log('error:', error);
+  //   });
+  // testy

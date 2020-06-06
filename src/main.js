@@ -38,4 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
   playerStatsSearchEngine();
   firebaseLayer();
   enableRouting();
+
 });
