@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -18,18 +20,41 @@ h5,
 h6,
 p,
 ol,
-ul {
+ {
   margin: 0;
   padding: 0;
   font-weight: normal;
 }
 
 ol,
-ul {
+{
   list-style: none;
 }
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+#todo-list-wrapper {
+  margin: 30px 0;
+}
+
+#weather-wrapper {
+  position: relative;
+}
+
+#weather-icon-tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 6px;
+  color: #f5f5f5;
+}
+
+.title {
+  padding: 20px 0;
 }

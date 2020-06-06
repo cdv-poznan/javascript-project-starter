@@ -3,9 +3,57 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CDV</title>
+    <title>CDV</title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <nav class="navbar navbar-light bg-light">
+        <a href="#">Home</a>        
+        <a href="#weather">Prognoza 5 dniowa (interwał co 3h)</a>
+        <a href="#onecall">Prognoza 7 dniowa</a>
+      </nav>
+
+      <div class="container view hidden" id="home">
+        <h1 class="title">Prognoza pogody dla Poznania</h1>
+        <div><strong>Wykresy pogodowe</strong></div>
+        <ul>
+          <li>Prognoza 5 dniowa z interwałem co 3 godziny, na wykresie temperatura maksymalna wraz z ikonką pogodową</li>
+          <li>Progrnoza 7 dniowa z maksymalna temperaturą w ciągu dnia oraz z dzienną sumą opadów</li>
+        </ul>
+        <strong>Stack technologiczny</strong>
+        <ul>
+          <li>EcmaScript 6</li>
+          <li>jQuery</li>
+          <li>Webpack</li>
+          <li>Lodash</li>
+          <li>Chart.js
+            <ul>
+              <li>plugin: datalabels</li>
+              <li>plugin: paterrnomaly</li>
+            </ul>
+          </li>
+        </ul>
+        <strong>
+          Rozwinięcie aplikacji w Angularze <i class="fab fa-angular"></i>
+          <ul>
+            <li>Dodanie inputu do wyboru miejsowości</li>
+            <li>Dodanie wykresu pogodowych dla innych wartości</li>            
+          </ul> 
+        </strong>
+      </div>
+      
+      <div class="container view hidden" id="weather">
+        <h1>Prognoza 5 dniowa dla Poznania z interwałem co 3h</h1>
+        <canvas id="weather-canvas"></canvas>
+        <canvas id="canvas"></canvas>
+      </div>
+      <div class="container view hidden" id="onecall">
+        <h1>Prognoza 7 dniowa dla Poznania</h1>
+        <canvas id="onecall-canvas"></canvas>
+        <canvas id="canvas-one"></canvas>
+      </div>
+    </div>
   </body>
 </html>
