@@ -14,7 +14,7 @@ const config = {
     filename: 'main.js',
   },
   resolve: {
-    extensions: ['.js', '.html', '.scss'],
+    extensions: ['.js', '.html', '.scss', '.css'],
     modules: ['node_modules'],
   },
   module: {

@@ -1,5 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./assets/_variables.scss";
+@import "./assets/fontello/css/fontello.css";
+// @import "./assets/fontello/fontello-ea1a2a6a/css/fontello.css"
 
 html {
   box-sizing: border-box;
@@ -141,6 +143,22 @@ ul.styles {
     > *:hover {
       color: rgb(255, 255, 255)
     }
+  }
+  #play {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    padding: 0 3px 0 0;
+  }
+  
+  .drum-grid {
+    position: relative;
+  }
+  
+  .icon-play-circled2, .icon-pause-circle-o {
+    color: white;
+    font-size: 30px;
+    display: inline-block;
   }
 }
 
