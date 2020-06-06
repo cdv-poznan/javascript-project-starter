@@ -167,4 +167,5 @@ export async function oneCall() {
   };
 
   const oneCallChart = new Chart(canvasOne, configOne);
+  console.log(oneCallChart);
 }

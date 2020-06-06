@@ -130,10 +130,10 @@ export async function weatherView() {
         displayColors: false,
         callbacks: {
           // remove title
-          title: function (tooltipItem, data) {
+          title: function () {
             return '';
           },
-          label: function (tooltipItem, data) {
+          label: function (tooltipItem) {
             let label = '';
 
             const img = new Image();
@@ -154,4 +154,5 @@ export async function weatherView() {
   };
 
   const weather = new Chart(canvas, config);
+  console.log(weather);
 }
