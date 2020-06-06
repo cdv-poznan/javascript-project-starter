@@ -1,6 +1,14 @@
+@import "~bootstrap/scss/bootstrap";
+
 html {
   box-sizing: border-box;
   font-size: 16px;
+}
+
+body {
+  margin: 50px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px;
 }
 
 *,
@@ -24,9 +32,19 @@ ul {
   font-weight: normal;
 }
 
-ol,
+h1 {
+  font-size: 26px;
+  color: #646464;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 45px auto;
+}
+
 ul {
-  list-style: none;
+  padding: 20px;
+}
+li {
+  line-height: 35px;
 }
 
 img {
@@ -34,26 +52,45 @@ img {
   height: auto;
 }
 
-
-$bgColor: #e9e7dc;
-$txtColor: rgb(71, 51, 51);
-$fontFamily: 'Arial';
-
-body {
-    background-color: $bgColor;
+#app {
+  padding: 30px;
+  min-height: calc(100vh - 356px);
 }
 
-#app {
-    h1 {
-        color: $txtColor;
-        font-family: $fontFamily;
-    }
+nav {
+  border-radius: 0 0 25px 25px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+}
 
-    p {
-        color: $txtColor;
-    }
+nav a.navbar-brand {
+  padding: 0 15px;
+}
+nav a.navbar-brand:hover {
+  text-decoration: underline;
+}
 
-    ul {
-        font-family: $fontFamily;
-    }
+footer {
+  background-color: #f8f9fa;
+  border-radius: 25px 25px 0 0;
+}
+
+footer div {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.button-wrapper {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.todo-list-wrapper {
+  padding-bottom: 25px;
 }
