@@ -58,7 +58,7 @@ img {
 }
 
 nav {
-  border-radius: 0 0 25px 25px;
+  border-radius: 0 0 15px 15px;
   display: flex;
   align-items: center;
   align-content: center;
@@ -74,7 +74,7 @@ nav a.navbar-brand:hover {
 
 footer {
   background-color: #f8f9fa;
-  border-radius: 25px 25px 0 0;
+  border-radius: 15px 15px 0 0;
 }
 
 footer div {
@@ -93,4 +93,36 @@ footer div {
 
 .todo-list-wrapper {
   padding-bottom: 25px;
+}
+
+.video-item {
+  margin: 15px 0;
+  padding: 15px;
+  border: 1px solid #dbdbdb;
+  border-radius: 15px;
+}
+.video-item h2 {
+  width: 100%;
+  justify-content: center;
+  font-size: 30px;
+  font-family: 'Roboto';
+  margin-bottom: 20px;
+}
+.video-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.video-contnent div {
+  display: flex;
+  flex: 1 1 auto;
+}
+.video-content p {
+  max-height: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 20px;
+  padding-right: 25px;
+  text-align: justify;
 }

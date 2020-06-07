@@ -10,6 +10,7 @@
     <nav class="container navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Opis projektu</a>
       <a class="navbar-brand" href="#todo">TODO</a>
+      <a class="navbar-brand" href="#trendingVideos">Popularne na Youtube</a>
       <a class="navbar-brand" href="#camelcase">Camel Case</a>
       <a class="navbar-brand" href="#charts">Charts</a>
     </nav>
@@ -81,6 +82,13 @@
         <div class="charts-wrapper">
           <canvas id="chart-canvas"></canvas>
         </div>
+      </div>
+      <div class="container view hidden" id="trendingVideos">
+        <h1>Filmy popularne na polskim YouTube</h1>
+        
+        <p>Przedstawiamy 5 najpopularniejszych filmów na polskim YouTube</p>
+        
+        <div id="trending-youtube-videos"></div>
       </div>
     </div>
 
@@ -155,7 +163,7 @@
           </svg>
         </div>
         <div class="col">
-          &copy; czerwiec 2020 - Michał Gierszewski
+          &copy; 2020 - Michał Gierszewski
         </div>
       </div>
     </footer>
