@@ -2,48 +2,78 @@ import $ from 'jquery';
 import 'bootstrap';
 import { addAnimation, isAnimationActive } from './modules/mysza-animations';
 import { getUrbanDefinition } from './modules/urban-dictionary-api';
+import { editText, sliceLongString } from './modules/text-editor-module';
+import { translateString } from './modules/google-translate-module';
 
-const isActive = false;
+let isSingleTalkEventActive = false;
 let newInterval = false;
 const intervalsList = [];
 
-export function removeEvent() {
+function removeTalkEvent() {
   // addAnimation('reset-to-defaults');
   $('#text-container').empty();
 }
 
-function addEvent(animationName, text) {
-  addAnimation(animationName);
-  if (text) {
-    $('#text-container').append('<p>' + text + '</p>');
-  }
-  const isEndedChecker = setInterval(() => {
+// dodaje kontener z tekstem
+function addTextToContainer(text) {
+  $('#text-container').append('<p>' + text + '</p>');
+}
+
+// pojedyncze zdarzenie gadania
+function singleTalkEvent(editedText) {
+  const isActiveChecker = setInterval(() => {
     if (isAnimationActive() === false) {
-      removeEvent();
+      clearInterval(isActiveChecker);
+      if (editedText.length < 30) {
+        addAnimation('short-sentence');
+      } else {
+        addAnimation('long-sentence');
+      }
+      addTextToContainer(editedText);
+      isSingleTalkEventActive = true;
+      const isEndedChecker = setInterval(() => {
+        if (isAnimationActive() === false) {
+          removeTalkEvent();
+          isSingleTalkEventActive = false;
+        }
+      }, 100);
     }
   }, 100);
 }
 
-function singleBehaviour(animationName, text, time) {
-  return new Promise((resolve, reject) => {
-    addEvent(animationName, text);
-    setTimeout(() => {
-      removeEvent();
-      resolve();
-    }, time);
-  });
-}
-
-function manageBehaviours() {
-  const animationName1 = document.getElementById('animation-list1').value;
-  const text1 = document.getElementById('text-field1').value;
-  const duration1 = document.getElementById('duration-time1').value;
-  const animationName2 = document.getElementById('animation-list2').value;
-  const text2 = document.getElementById('text-field2').value;
-  const duration2 = document.getElementById('duration-time2').value;
-  singleBehaviour(animationName1, text1, duration1).then((value) => {
-    singleBehaviour(animationName2, text2, duration2);
-  });
+// chciałem to zrobić rekurencją, ale nie potrafiłem ogarnąć :( chętnie przyjmę pomoc :)
+// obsługa gadania
+function addTalkingEvent(text) {
+  const editedText = sliceLongString(text);
+  // jeśli zmieści się w jednej chmurce
+  if (typeof editedText === 'string') {
+    singleTalkEvent(text);
+    // jeśli tekst jest dłuższy
+  } else if (typeof editedText === 'object') {
+    singleTalkEvent(editedText[0]);
+    let isActiveChecker = setInterval(() => {
+      if (isSingleTalkEventActive === false) {
+        clearInterval(isActiveChecker);
+        singleTalkEvent(editedText[1]);
+        isActiveChecker = setInterval(() => {
+          if (isSingleTalkEventActive === false) {
+            clearInterval(isActiveChecker);
+            if (editedText[2]) {
+              singleTalkEvent(editedText[2]);
+              isActiveChecker = setInterval(() => {
+                if (isSingleTalkEventActive === false) {
+                  clearInterval(isActiveChecker);
+                  if (editedText[3]) {
+                    singleTalkEvent(editedText[2]);
+                  }
+                }
+              }, 100);
+            }
+          }
+        }, 100);
+      }
+    }, 100);
+  }
 }
 
 // dodaje interwał
@@ -52,15 +82,16 @@ function addInterval(animationName, interval) {
   let isActiveChecker = setInterval(() => {
     if (isAnimationActive() === false) {
       // pierwsze zdarzenie
-      addAnimation(animationName);
       clearInterval(isActiveChecker);
+      addAnimation(animationName);
       // wlasciwy interwal
       newInterval = setInterval(() => {
         // wewnetrzy active checker
         isActiveChecker = setInterval(() => {
           if (isAnimationActive() === false) {
-            addAnimation(animationName);
             clearInterval(isActiveChecker);
+            console.log(intervalsList);
+            addAnimation(animationName);
           }
         }, 100);
       }, interval);
@@ -72,7 +103,7 @@ function addInterval(animationName, interval) {
 // usuwa interwał
 function removeInterval(animationName) {
   let i;
-  for (i = 0; i < intervalsList.length; i = +1) {
+  for (i = 0; i < intervalsList.length; i++) {
     if (intervalsList[i][1] === animationName) {
       clearInterval(intervalsList[i][0]);
       intervalsList.splice(i, 1);
@@ -83,7 +114,7 @@ function removeInterval(animationName) {
 // szuka, czy podana animacja interwalu jest już na liście - zwraca true/false
 function isIntervalAdded(animationName) {
   let i;
-  for (i = 0; i < intervalsList.length; i = +1) {
+  for (i = 0; i < intervalsList.length; i++) {
     if (intervalsList[i][1] === animationName) {
       return true;
     }
@@ -91,16 +122,7 @@ function isIntervalAdded(animationName) {
   return false;
 }
 
-$('#trigger-events').click(manageBehaviours);
-
-$('.add-interval-button').click(function (event) {
-  addInterval(event.target.getAttribute('animation-name'), 3000);
-});
-
-$('.remove-interval-button').click(function (event) {
-  removeInterval(event.target.getAttribute('animation-name'));
-});
-
+// switche z interwalami
 $('.interval-toggle-option').click(function (event) {
   const animationName = event.target.parentElement.parentNode.getAttribute('animation-name');
   const animationDuration = event.target.getAttribute('value');
@@ -112,6 +134,7 @@ $('.interval-toggle-option').click(function (event) {
   }
 });
 
+// animacja raz guzik
 $('.interval-once').click(function (event) {
   const animationName = event.target.getAttribute('animation-name');
   const isActiveChecker = setInterval(() => {
@@ -122,23 +145,15 @@ $('.interval-once').click(function (event) {
   }, 100);
 });
 
+// guzik dodaj tekst
 $('.single-event-button').click(function () {
-  const animationText = $('input.single-event-text-input').val();
-  if (animationText) {
-    if (animationText.length < 15) {
-      addEvent('short-sentence', animationText);
-    } else {
-      addEvent('long-sentence', animationText);
-    }
-  }
+  const text = $('input.single-event-text-input').val();
+  addTalkingEvent(text);
 });
 
-$('.api-button').click(function () {
-  const wartosc = $('input.api-text-input').val();
-  console.log(wartosc);
-  const apiResponse = getUrbanDefinition(wartosc);
-  if (apiResponse) {
-    console.log(apiResponse);
-    $('#output').text(apiResponse);
-  }
+// guzik podaj definicje
+$('.api-button').click(async function () {
+  const toDefine = $('input.api-text-input').val();
+  const definition = await getUrbanDefinition(toDefine);
+  addTalkingEvent(editText(definition));
 });
