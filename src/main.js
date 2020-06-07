@@ -83,8 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const triangleLoop = new Tone.Loop(function () {
     triangle.triggerAttackRelease('C2', '1n');
   }, '1n');
+  const sine = new Tone.Synth('sine').toMaster();
+  const sineLoop = new Tone.Loop(function () {
+    sine.triggerAttackRelease('c3', '1n');
+  }, '1n');
+  const sawtooth = new Tone.Synth('sawtooth').toMaster();
+  const sawtoothLoop = new Tone.Loop(function () {
+    sawtooth.triggerAttackRelease('c2', '1n');
+  }, '1n');
+
   function playSynth(synth) {
-    console.log(isTrianglePlayed);
     if (synth === 'triangle') {
       if (isTrianglePlayed === true) {
         triangleLoop.start(0);
@@ -92,11 +100,17 @@ document.addEventListener('DOMContentLoaded', () => {
         triangleLoop.stop(0);
       }
     } else if (synth === 'sine') {
-      const sine = new Tone.Synth('sine').toMaster();
-      sine.triggerAttackRelease('c3', '1n');
+      if (isSinePlayed === true) {
+        sineLoop.start(0);
+      } else {
+        sineLoop.stop(0);
+      }
     } else if (synth === 'sawtooth') {
-      const sawtooth = new Tone.Synth('sawtooth').toMaster();
-      sawtooth.triggerAttackRelease('c2', '1n');
+      if (isSawtoothPlayed === true) {
+        sawtoothLoop.start(0);
+      } else {
+        sawtoothLoop.stop(0);
+      }
     }
   }
   // Interface handling
@@ -111,18 +125,33 @@ document.addEventListener('DOMContentLoaded', () => {
     playTechno();
   });
   btnSynth1.addEventListener('click', function () {
-    if (isTrianglePlayed === false) isTrianglePlayed = true;
-    else isTrianglePlayed = false;
+    if (isTrianglePlayed === false) {
+      isTrianglePlayed = true;
+      btnSynth1.innerHTML = '<i class="icon-pause-circle-o"></i>';
+    } else {
+      isTrianglePlayed = false;
+      btnSynth1.innerHTML = '<i class="icon-play-circled2"></i>';
+    }
     playSynth('triangle');
   });
   btnSynth2.addEventListener('click', function () {
-    if (isSinePlayed === false) isSinePlayed = true;
-    else isSinePlayed = false;
+    if (isSinePlayed === false) {
+      isSinePlayed = true;
+      btnSynth2.innerHTML = '<i class="icon-pause-circle-o"></i>';
+    } else {
+      isSinePlayed = false;
+      btnSynth2.innerHTML = '<i class="icon-play-circled2"></i>';
+    }
     playSynth('sine');
   });
   btnSynth3.addEventListener('click', function () {
-    if (isSawtoothPlayed === false) isSawtoothPlayed = true;
-    else isSawtoothPlayed = false;
+    if (isSawtoothPlayed === false) {
+      isSawtoothPlayed = true;
+      btnSynth3.innerHTML = '<i class="icon-pause-circle-o"></i>';
+    } else {
+      isSawtoothPlayed = false;
+      btnSynth3.innerHTML = '<i class="icon-play-circled2"></i>';
+    }
     playSynth('sawtooth');
   });
 });

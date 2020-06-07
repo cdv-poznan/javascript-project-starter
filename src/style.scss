@@ -80,6 +80,12 @@ ul.styles {
       cursor: pointer;
     }
   }
+  a {
+    color: $technoprimary;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .hidden {
