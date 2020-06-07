@@ -181,3 +181,47 @@ ul.styles {
     // }
   }
 }
+
+.about {
+  background: #ffffff;
+  // height: 500;
+  width: 40vw;
+  border-radius: 5px;
+  padding: 50px;
+  h5 {
+    // padding-bottom: 30px;
+  }
+  .photo {
+    padding: 40px 0 40px 0;
+    display: flex;
+    justify-content: center;
+    // height: 100px;
+    img {
+      height: 130px;
+    }
+  }
+  p   {
+    padding: 10px 0;
+  }
+}
+
+.small-text {
+  font-size: 14px;
+}
+
+.separator {
+  border: 1px solid lightgray;
+  width: 100%;
+  min-height: 1px;
+}
+
+.impro-list {
+  padding-top: 30px;
+  ul {
+    list-style-type: circle;
+    padding-top: 10px;
+    li {
+      margin-left: 20px;
+    }
+  }
+}
