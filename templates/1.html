@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<div lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/styles/index.css">
+    <script type="text/javascript" src="static/js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <script>
+      
+      var answers = [-1, -1, -1, -1, -1];
+      var all_features = [["Classic", "Modern"], ["Feminine", "Masculine"], ["Playful", "Serious"], ["Vibrant", "Toned"], ["Luxurious", "Affordable"]];
+
+      var current_page = 0
+      function goToNextPage(){
+        leftsrc = document.getElementById("roundleftIMG").src
+        rightsrc = document.getElementById("roundrightIMG").src
+        if((leftsrc.endsWith("static/assets/roundorange.png")) || (rightsrc.endsWith("static/assets/roundorange.png"))){
+            if (leftsrc.endsWith("static/assets/roundorange.png")) {
+                selected = 1
+            }
+            else {
+                selected = 0
+            }
+            cleanselected()
+            answers[current_page] = selected
+            
+            if (current_page == 4) {
+              window.location = "/final?answers=".concat(...answers)
+            }
+            else {
+              features = all_features[current_page+1];
+              document.getElementById("featureleft").innerHTML = features[0];
+              document.getElementById("featureright").innerHTML = features[1];
+              current_page += 1;
+              document.getElementById("noselectalert").innerHTML = "";
+            }
+        }
+        else{
+            document.getElementById("noselectalert").innerHTML = "Please select one option"
+        }
+
+      }
+
+      function goToPreviousPage(){
+        if (current_page == 0){
+          window.location = "/";
+        } else {
+          features = all_features[current_page-1];
+          document.getElementById("featureleft").innerHTML = features[0];
+          document.getElementById("featureright").innerHTML = features[1];
+          current_page -= 1;
+          if (answers[current_page] == 0) {
+            document.getElementById("roundrightIMG").src = "static/assets/roundorange.png"
+          } else {
+            document.getElementById("roundleftIMG").src = "static/assets/roundorange.png"
+          }
+        }
+        document.getElementById("noselectalert").innerHTML = "";
+      }
+
+
+      
+    </script>
+  </head>
+<body>
+  <div style="max-width:1368px;margin: 0 auto;">
+        <nav class="navigation">
+                <ul class="navigation">
+                    <li><a href="/"><img  class="logo" src="static/assets/logo.png"></a></li>
+                    <li><a href="/about">ABOUT</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
+                </ul>
+            </nav>
+            <button class="arrowright" onclick="goToPreviousPage()">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="83.012" height="107.879" viewBox="0 0 83.012 107.879">
+                <defs>
+                  <filter id="LIGHT" x="0" y="24.867" width="68.891" height="68.891" filterUnits="userSpaceOnUse">
+                    <feOffset dx="-6" dy="-6" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="5" result="blur"/>
+                    <feFlood flood-color="#f7f7f7" flood-opacity="0.8"/>
+                    <feComposite operator="in" in2="blur"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                  <filter id="DARK" x="14.121" y="38.988" width="68.891" height="68.891" filterUnits="userSpaceOnUse">
+                    <feOffset dx="6" dy="6" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="5" result="blur-2"/>
+                    <feFlood flood-opacity="0.2"/>
+                    <feComposite operator="in" in2="blur-2"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                  <filter id="LIGHT-2" x="0" y="0" width="68.891" height="68.891" filterUnits="userSpaceOnUse">
+                    <feOffset dx="-6" dy="-6" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="5" result="blur-3"/>
+                    <feFlood flood-color="#f7f7f7" flood-opacity="0.8"/>
+                    <feComposite operator="in" in2="blur-3"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                  <filter id="DARK-2" x="14.121" y="9.879" width="68.891" height="68.891" filterUnits="userSpaceOnUse">
+                    <feOffset dx="6" dy="6" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="5" result="blur-4"/>
+                    <feFlood flood-opacity="0.2"/>
+                    <feComposite operator="in" in2="blur-4"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                </defs>
+                <g id="Component_4_2" data-name="Component 4 – 2" transform="translate(54.948 86.879) rotate(180)">
+                  <g id="Group_10" data-name="Group 10" transform="translate(-6.064 0)">
+                    <g id="Component_1_36" data-name="Component 1 – 36" transform="translate(6.778 0) rotate(45)">
+                      <g transform="matrix(-0.71, 0.71, -0.71, -0.71, 99.78, 23.08)" filter="url(#LIGHT)">
+                        <rect id="LIGHT-3" data-name="LIGHT" width="44" height="11" rx="5.5" transform="translate(52.11 84.76) rotate(-135)" fill="#f29104"/>
+                      </g>
+                      <g transform="matrix(-0.71, 0.71, -0.71, -0.71, 99.78, 23.08)" filter="url(#DARK)">
+                        <rect id="DARK-3" data-name="DARK" width="44" height="11" rx="5.5" transform="translate(54.23 86.88) rotate(-135)" fill="#f29104"/>
+                      </g>
+                    </g>
+                    <g id="Component_1_37" data-name="Component 1 – 37" transform="translate(-1 60.222) rotate(-45)">
+                      <g transform="matrix(-0.71, -0.71, 0.71, -0.71, 25, 62.7)" filter="url(#LIGHT-2)">
+                        <rect id="LIGHT-4" data-name="LIGHT" width="44" height="11" rx="5.5" transform="translate(59.89 28.78) rotate(135)" fill="#f29104"/>
+                      </g>
+                      <g transform="matrix(-0.71, -0.71, 0.71, -0.71, 25, 62.7)" filter="url(#DARK-2)">
+                        <rect id="DARK-4" data-name="DARK" width="44" height="11" rx="5.5" transform="translate(62.01 26.66) rotate(135)" fill="#f29104"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button class="arrowleft" onclick="goToNextPage()">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="83.256" height="109.647" viewBox="0 0 83.256 109.647">
+                <defs>
+                  <filter id="LIGHT" x="1.312" y="26.866" width="70.413" height="68.735" filterUnits="userSpaceOnUse">
+                    <feOffset dx="-6" dy="-6" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="5" result="blur"/>
+                    <feFlood flood-color="#f7f7f7" flood-opacity="0.8"/>
+                    <feComposite operator="in" in2="blur"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                  <filter id="DARK" x="11.118" y="40.912" width="70.413" height="68.735" filterUnits="userSpaceOnUse">
+                    <feOffset dx="6" dy="6" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="5" result="blur-2"/>
+                    <feFlood flood-opacity="0.2"/>
+                    <feComposite operator="in" in2="blur-2"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                  <filter id="LIGHT-2" x="0" y="0" width="69.172" height="70.012" filterUnits="userSpaceOnUse">
+                    <feOffset dx="-6" dy="-6" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="5" result="blur-3"/>
+                    <feFlood flood-color="#f7f7f7" flood-opacity="0.8"/>
+                    <feComposite operator="in" in2="blur-3"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                  <filter id="DARK-2" x="14.084" y="14.158" width="69.172" height="70.012" filterUnits="userSpaceOnUse">
+                    <feOffset dx="6" dy="6" input="SourceAlpha"/>
+                    <feGaussianBlur stdDeviation="5" result="blur-4"/>
+                    <feFlood flood-opacity="0.2"/>
+                    <feComposite operator="in" in2="blur-4"/>
+                    <feComposite in="SourceGraphic"/>
+                  </filter>
+                </defs>
+                <g id="Component_32_1" data-name="Component 32 – 1" transform="translate(20.118 21)">
+                  <g id="Component_1_165" data-name="Component 1 – 165" transform="translate(0 59.602) rotate(-43)">
+                    <g transform="matrix(0.73, 0.68, -0.68, 0.73, 40.26, -72.67)" filter="url(#LIGHT)">
+                      <rect id="LIGHT-3" data-name="LIGHT" width="45" height="11" rx="5.5" transform="translate(22.31 78.56) rotate(-43)" fill="#f29104"/>
+                    </g>
+                    <g transform="matrix(0.73, 0.68, -0.68, 0.73, 40.26, -72.67)" filter="url(#DARK)">
+                      <rect id="DARK-3" data-name="DARK" width="45" height="11" rx="5.5" transform="translate(20.12 80.6) rotate(-43)" fill="#f29104"/>
+                    </g>
+                  </g>
+                  <g id="Component_1_166" data-name="Component 1 – 166" transform="matrix(-0.695, -0.719, 0.719, -0.695, 34.225, 42.17)">
+                    <g transform="matrix(-0.69, 0.72, -0.72, -0.69, 83.19, 4.79)" filter="url(#LIGHT-2)">
+                      <rect id="LIGHT-4" data-name="LIGHT" width="45" height="11" rx="5.5" transform="matrix(-0.69, -0.72, 0.72, -0.69, 52.26, 61.01)" fill="#f29104"/>
+                    </g>
+                    <g transform="matrix(-0.69, 0.72, -0.72, -0.69, 83.19, 4.79)" filter="url(#DARK-2)">
+                      <rect id="DARK-4" data-name="DARK" width="45" height="11" rx="5.5" transform="matrix(-0.69, -0.72, 0.72, -0.69, 54.34, 63.17)" fill="#f29104"/>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              
+            
+              
+            </button>
+
+        
+  <div class="centered">
+    <div class="designtext">I want my design to be...</div>
+    <div class="line">
+      <img src="static/assets/line.png">
+      </div>
+
+      
+    <div class="featureright" id="featureright">Modern</div>
+    <div class="featureleft" id="featureleft">Classic</div>
+    <div class="roundleft"><img id="roundleftIMG" onclick="roundOrangeLeft()" src="static/assets/round.png"></div>
+    <div class="roundright"><img id="roundrightIMG" onclick="roundOrangeRight()" src="static/assets/round.png"></div>
+
+    
+      <div id="noselectalert"></div>
+    
+
+
+        
+
+
+
+</body>

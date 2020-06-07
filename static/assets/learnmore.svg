@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="246" height="98" viewBox="0 0 246 98">
+  <defs>
+    <filter id="LIGHT" x="0" y="0" width="236" height="85" filterUnits="userSpaceOnUse">
+      <feOffset dx="-6" dy="-6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#f7f7f7" flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="DARK" x="10" y="13" width="236" height="85" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Component_6_1" data-name="Component 6 – 1" transform="translate(18 21)">
+    <g id="Component_1_61" data-name="Component 1 – 61">
+      <g transform="matrix(1, 0, 0, 1, -18, -21)" filter="url(#LIGHT)">
+        <rect id="LIGHT-2" data-name="LIGHT" width="206" height="55" rx="27.5" transform="translate(21 21)" fill="#f29104"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, -18, -21)" filter="url(#DARK)">
+        <rect id="DARK-2" data-name="DARK" width="206" height="55" rx="27.5" transform="translate(18 21)" fill="#f29104"/>
+      </g>
+    </g>
+    <text id="_learn_more" data-name=" learn more" transform="translate(47 33)" fill="#fff" font-size="20" font-family="Poppins-Medium, Poppins" font-weight="500"><tspan x="0" y="0" xml:space="preserve"> learn more</tspan></text>
+  </g>
+</svg>

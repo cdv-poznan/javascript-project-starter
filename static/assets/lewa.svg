@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="83.256" height="109.647" viewBox="0 0 83.256 109.647">
+  <defs>
+    <filter id="LIGHT" x="1.312" y="26.866" width="70.413" height="68.735" filterUnits="userSpaceOnUse">
+      <feOffset dx="-6" dy="-6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#f7f7f7" flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="DARK" x="11.118" y="40.912" width="70.413" height="68.735" filterUnits="userSpaceOnUse">
+      <feOffset dx="6" dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="LIGHT-2" x="0" y="0" width="69.172" height="70.012" filterUnits="userSpaceOnUse">
+      <feOffset dx="-6" dy="-6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-3"/>
+      <feFlood flood-color="#f7f7f7" flood-opacity="0.8"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="DARK-2" x="14.084" y="14.158" width="69.172" height="70.012" filterUnits="userSpaceOnUse">
+      <feOffset dx="6" dy="6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-4"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Component_32_1" data-name="Component 32 – 1" transform="translate(20.118 21)">
+    <g id="Component_1_165" data-name="Component 1 – 165" transform="translate(0 59.602) rotate(-43)">
+      <g transform="matrix(0.73, 0.68, -0.68, 0.73, 40.26, -72.67)" filter="url(#LIGHT)">
+        <rect id="LIGHT-3" data-name="LIGHT" width="45" height="11" rx="5.5" transform="translate(22.31 78.56) rotate(-43)" fill="#f29104"/>
+      </g>
+      <g transform="matrix(0.73, 0.68, -0.68, 0.73, 40.26, -72.67)" filter="url(#DARK)">
+        <rect id="DARK-3" data-name="DARK" width="45" height="11" rx="5.5" transform="translate(20.12 80.6) rotate(-43)" fill="#f29104"/>
+      </g>
+    </g>
+    <g id="Component_1_166" data-name="Component 1 – 166" transform="matrix(-0.695, -0.719, 0.719, -0.695, 34.225, 42.17)">
+      <g transform="matrix(-0.69, 0.72, -0.72, -0.69, 83.19, 4.79)" filter="url(#LIGHT-2)">
+        <rect id="LIGHT-4" data-name="LIGHT" width="45" height="11" rx="5.5" transform="matrix(-0.69, -0.72, 0.72, -0.69, 52.26, 61.01)" fill="#f29104"/>
+      </g>
+      <g transform="matrix(-0.69, 0.72, -0.72, -0.69, 83.19, 4.79)" filter="url(#DARK-2)">
+        <rect id="DARK-4" data-name="DARK" width="45" height="11" rx="5.5" transform="matrix(-0.69, -0.72, 0.72, -0.69, 54.34, 63.17)" fill="#f29104"/>
+      </g>
+    </g>
+  </g>
+</svg>

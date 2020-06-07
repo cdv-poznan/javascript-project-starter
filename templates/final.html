@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<div lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/styles/index.css">
+    <script type="text/javascript" src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Arvo&family=Bitter&family=Changa:wght@300&family=Dosis:wght@500&family=EB+Garamond&family=Inconsolata&family=Josefin+Sans:wght@300&family=Kreon:wght@300&family=Literata&family=Lora&family=Manrope:wght@300&family=Merriweather:wght@300&family=Montserrat&family=Nobile&family=Noto+Sans+JP:wght@300&family=Open+Sans+Condensed:wght@700&family=Oswald&family=PT+Sans&family=PT+Serif&family=Playfair+Display&family=Podkova&family=Quicksand&family=Raleway:wght@200&family=Roboto+Mono&family=Roboto+Slab&family=Roboto:wght@100&family=Rokkitt&family=Slabo+27px&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <script type ="text/javascript" src="static/js/color_variants.js"></script>
+    <script>
+    var url = new URL(window.location.href);
+    var answers = url.searchParams.get("answers").split('');
+    var theme = cvar[answers[0]][answers[1]][answers[2]][answers[3]][answers[4]]
+
+    var color = theme['color']
+    var font = theme['font']
+    var font_color = theme['font_color']
+    </script>
+
+</head>
+<body>
+  <div style="max-width:1368px;margin: 0 auto;">
+        <nav class="navigation">
+                <ul class="navigation">
+                    <li><a href="/"><img class="logo" src="static/assets/logo.png"></a></li>
+                    <li><a href="/about">ABOUT</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
+                </ul>
+            </nav>
+
+      <div class="boxfinal" id="boxfinal">
+      <div class="finaltext colorable" id="finalfont">Font name</div> 
+      <div class="colortext colorable" id="colorname">Color #</div>
+      </div>
+      
+      <div class="centertext">
+          <button class="buttonfinal"><a href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="246" height="98" viewBox="0 0 246 98">
+              <defs>
+                <filter id="LIGHT" x="0" y="0" width="236" height="85" filterUnits="userSpaceOnUse">
+                  <feOffset dx="-6" dy="-6" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="5" result="blur"/>
+                  <feFlood flood-color="#f7f7f7" flood-opacity="0.8"/>
+                  <feComposite operator="in" in2="blur"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+                <filter id="DARK" x="10" y="13" width="236" height="85" filterUnits="userSpaceOnUse">
+                  <feOffset dx="7" dy="7" input="SourceAlpha"/>
+                  <feGaussianBlur stdDeviation="5" result="blur-2"/>
+                  <feFlood flood-opacity="0.2"/>
+                  <feComposite operator="in" in2="blur-2"/>
+                  <feComposite in="SourceGraphic"/>
+                </filter>
+              </defs>
+              <g id="Component_31_1" data-name="Component 31 – 1" transform="translate(18 21)">
+                <g id="Component_1_163" data-name="Component 1 – 163">
+                  <g transform="matrix(1, 0, 0, 1, -18, -21)" filter="url(#LIGHT)">
+                    <rect id="LIGHT-2" data-name="LIGHT" width="206" height="55" rx="27.5" transform="translate(21 21)" fill="#f29104"/>
+                  </g>
+                  <g transform="matrix(1, 0, 0, 1, -18, -21)" filter="url(#DARK)">
+                    <rect id="DARK-2" data-name="DARK" width="206" height="55" rx="27.5" transform="translate(18 21)" fill="#f29104"/>
+                  </g>
+                </g>
+                <text id="go_to_home_page" data-name="go to home page" transform="translate(18 34)" fill="#fff" font-size="20" font-family="Poppins-Medium, Poppins" font-weight="500"><tspan x="0" y="0">go to home page</tspan></text>
+              </g>
+            </svg> 
+          </a>
+          </button>
+          </div>
+
+      
+      
+
+
+
+        
+<script>
+  document.getElementById('boxfinal').style.backgroundColor = color;
+  document.getElementById('colorname').style.color = font_color;
+  document.getElementById('finalfont').style.color = font_color;
+  document.getElementById('colorname').innerText = color;
+  document.getElementById('finalfont').style.fontFamily = font;
+  document.getElementById('finalfont').innerText = font;
+</script>
+
+
+</body>
