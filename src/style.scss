@@ -160,5 +160,18 @@ ul.styles {
     font-size: 30px;
     display: inline-block;
   }
+  
+  .side-synth {
+    color: white !important;
+    position: relative;
+    i {
+      font-size: 22px;
+    }
+    // .synth-btn {
+    //   position: absolute;
+    //   left: 0;
+    //   top: 10px;
+    //   z-index: 0;
+    // }
+  }
 }
-
