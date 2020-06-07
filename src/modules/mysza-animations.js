@@ -85,6 +85,18 @@ export function addAnimation(animationName) {
       tl.to(mouthShape, 0.1, { attr: { d: mouthClosedPath } });
       tl.to(mouthShape, 0.1, { attr: { d: mouthOpenedPath } });
       tl.to(mouthShape, 0.1, { attr: { d: mouthClosedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthOpenedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthClosedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthOpenedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthClosedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthOpenedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthClosedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthOpenedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthClosedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthOpenedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthClosedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthOpenedPath } });
+      tl.to(mouthShape, 0.1, { attr: { d: mouthClosedPath } });
       tl.call(animationEnd);
       break;
     // oczy na boki
@@ -140,7 +152,7 @@ export function addAnimation(animationName) {
       tl2.repeat(0);
       break;
     default:
-      alert('cos innego');
+      alert('nie ma takiej animacji');
       break;
   }
 }
