@@ -225,3 +225,21 @@ ul.styles {
     }
   }
 }
+
+.social {
+  position: fixed;
+  left: 20px;
+  bottom: 30px;
+  i {
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 25px;
+    color: $technoprimary;
+    z-index: 30;
+    transition: transform .5s ease-in-out;
+    &:hover {
+      transform: scale(1.7);
+      cursor: pointer;
+    }
+  }
+}

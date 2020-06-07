@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, '1n');
   const sine = new Tone.Synth('sine').toMaster();
   const sineLoop = new Tone.Loop(function () {
-    sine.triggerAttackRelease('c3', '1n');
+    sine.triggerAttackRelease('c4', '1n');
   }, '1n');
   const sawtooth = new Tone.Synth('sawtooth').toMaster();
   const sawtoothLoop = new Tone.Loop(function () {
