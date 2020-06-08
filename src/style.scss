@@ -101,6 +101,36 @@ nav a.navbar-brand:hover {
   color: #f9f9f9;
 }
 
+.btn-danger {
+  background-color: white;
+  border-color: #FF8800;
+  color: #FF8800;
+}
+.btn-danger:hover {
+  background-color: #FF8800;
+  border-color: #FF8800;
+  color: white;
+}
+.btn-outline-primary {
+  border-color: #626262;
+  color: #626262;
+}
+.btn-outline-primary:hover,
+.btn-outline:hover {
+  border-color: #626262;
+  color: white;
+  background-color: #626262;
+}
+
+
+#todos {
+  padding-right: 0;
+}
+#todo-text {
+  line-height: 60px;
+  height: 60px;
+}
+
 footer {
   background-color: #3C3B4B;
   border-radius: 0 0 5px 5px;
