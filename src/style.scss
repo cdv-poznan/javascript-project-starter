@@ -173,12 +173,15 @@ ul.styles {
     i {
       font-size: 22px;
     }
-    // .synth-btn {
-    //   position: absolute;
-    //   left: 0;
-    //   top: 10px;
-    //   z-index: 0;
-    // }
+    label {
+      margin-bottom: 0;
+    }
+    select {
+      font-size: 12px;
+      height: 20px;
+      width: 40px;
+      padding: 0 0 0 4px;
+    }
   }
 }
 
@@ -238,7 +241,7 @@ ul.styles {
     z-index: 30;
     transition: transform .5s ease-in-out;
     &:hover {
-      transform: scale(1.7);
+      transform: scale(1.2) translateX(15px);
       cursor: pointer;
     }
   }

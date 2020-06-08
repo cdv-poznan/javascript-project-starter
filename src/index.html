@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Browser Music</title>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -98,9 +98,49 @@
           <button class="btn btn-transparent" id="play"><i class="icon-play-circled2"></i></button>
         </div>
         <div>
-          <div class="side-synth"><span id="triangle"><i class="icon-play-circled2 synth-btn"></i></span> Synth 1</div>
-          <div class="side-synth"><span id="sine"><i class="icon-play-circled2"></i></span> Synth 2</div>
-          <div class="side-synth"><span id="sawtooth"><i class="icon-play-circled2"></i></span> Synth 3</div>
+          <div class="side-synth">
+            <span id="triangle"><i class="icon-play-circled2 synth-btn"></i></span> Synth 1
+            <div class="form-group d-flex justify-content-between align-items-center">
+              <label for="exampleFormControlSelect1">Note</label>
+              <select class="form-control" id="synthSelect1">
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+                <option>F</option>
+                <option>G</option>
+                <option>A</option>
+                <option>B</option>
+              </select>
+            </div>
+          </div>
+          <div class="side-synth"><span id="sine"><i class="icon-play-circled2"></i></span> Synth 2
+          <div class="form-group d-flex justify-content-between align-items-center">
+            <label for="synthSelect3">Note</label>
+            <select class="form-control" id="synthSelect2">
+              <option>C</option>
+              <option>D</option>
+              <option>E</option>
+              <option>F</option>
+              <option>G</option>
+              <option>A</option>
+              <option>B</option>
+            </select>
+          </div>
+        </div>
+          <div class="side-synth"><span id="sawtooth"><i class="icon-play-circled2"></i></span> Synth 3
+            <div class="form-group d-flex justify-content-between align-items-center">
+              <label for="synthSelect3">Note</label>
+              <select class="form-control" id="synthSelect3">
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+                <option>F</option>
+                <option>G</option>
+                <option>A</option>
+                <option>B</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
     </div>
