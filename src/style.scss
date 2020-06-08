@@ -1,7 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./assets/_variables.scss";
 @import "./assets/fontello/css/fontello.css";
-// @import "./assets/fontello/fontello-ea1a2a6a/css/fontello.css"
 
 html {
   box-sizing: border-box;
@@ -123,8 +122,6 @@ ul.styles {
   }
 }
 
-// different styles depending on the view
-
 .techno {
   background: url('assets/img/darktunnel.jpg');
   background-repeat: no-repeat;
@@ -201,18 +198,13 @@ ul.styles {
 
 .about {
   background: #ffffff;
-  // height: 500;
   width: 40vw;
   border-radius: 5px;
   padding: 50px;
-  h5 {
-    // padding-bottom: 30px;
-  }
   .photo {
     padding: 40px 0 40px 0;
     display: flex;
     justify-content: center;
-    // height: 100px;
     img {
       height: 130px;
     }

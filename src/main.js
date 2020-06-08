@@ -1,9 +1,6 @@
-// import lodash from 'lodash';
 import Tone from 'tone';
 import $ from 'jquery';
 import Swal from 'sweetalert2';
-// import Transport from 'tone/transport';
-// import Transport from 'tone/Tone/core/Transport';
 
 document.addEventListener('DOMContentLoaded', () => {
   let technoIsPlayed = false;
@@ -175,23 +172,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const cookieName = encodeURIComponent(name);
       const cookieVal = encodeURIComponent(val);
       let cookieText = cookieName + '=' + cookieVal;
-
       if (typeof days === 'number') {
         const data = new Date();
         data.setTime(data.getTime() + days * 24 * 60 * 60 * 1000);
         cookieText += '; expires=' + data.toGMTString();
       }
-
       if (secure) {
         cookieText += '; secure';
       }
-
       document.cookie = cookieText;
     }
   }
   function fireModal() {
     Swal.fire({
-      // title: 'Sweet!',
       text: 'Go get your headphones now.',
       width: 400,
       background: 'black',
@@ -203,7 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
       customClass: {
         confirmButton: 'btn btn-outline-secondary',
       },
-      // showCloseButton: true,
       confirmButtonText: 'Ok',
       backdrop: `
     rgba(0,0,100,0.1)
