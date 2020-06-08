@@ -75,7 +75,17 @@
       <div class="container view hidden" id="trendingVideos">
         <h1>Filmy popularne na polskim YouTube</h1>
         
-        <p class="center">Przedstawiamy 5 najpopularniejszych filmów na polskim YouTube:</p>
+        <p class="center">Przedstawiamy najpopularniejsze filmy na polskim YouTube:</p>
+
+        <div>
+          <label for="video-limit">Liczba filmów: </label>
+          <select id="video-limit" name="video-limit">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
         
         <div id="trending-youtube-videos"></div>
       </div>
