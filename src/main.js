@@ -1,5 +1,6 @@
 // import lodash from 'lodash';
 import Tone from 'tone';
+import $ from 'jquery';
 // import Transport from 'tone/transport';
 // import Transport from 'tone/Tone/core/Transport';
 
@@ -60,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
       index += 1;
     }
     if (state === 'start') {
-      Tone.Transport.bpm.value = 140;
+      const tempo = document.getElementById('bpmInput').value;
+      Tone.Transport.bpm.value = tempo;
       Tone.Transport.scheduleRepeat(repeat, '16n');
       Tone.Transport.start();
     }
@@ -159,5 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
       btnSynth3.innerHTML = '<i class="icon-play-circled2"></i>';
     }
     playSynth('sawtooth');
+  });
+  // enable tooltip
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
   });
 });

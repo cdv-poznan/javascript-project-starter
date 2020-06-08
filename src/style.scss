@@ -183,6 +183,20 @@ ul.styles {
       padding: 0 0 0 4px;
     }
   }
+  .bpm {
+    display: flex;
+    justify-content: space-between;
+    &:not(input){
+      color: white;
+      font-size: 15px;
+    }
+    input {
+      font-size: 15px;
+      height: 20px;
+      width: 35px;
+      padding: 0 0 0 4px;
+    }
+  }
 }
 
 .about {
@@ -233,6 +247,9 @@ ul.styles {
   position: fixed;
   left: 20px;
   bottom: 30px;
+  a {
+    display: block;
+  }
   i {
     margin-top: 15px;
     display: inline-block;
