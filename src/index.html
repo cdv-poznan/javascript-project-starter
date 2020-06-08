@@ -3,9 +3,112 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-signin-client_id" content="496761076959-ktq3d6ofsnmub63dms35iuvdqnca6g69.apps.googleusercontent.com">
+   
+    <script src="https://apis.google.com/js/platform.js" ></script>
+
+   <script src="https://apis.google.com/js/api.js"></script>
     <title>CDV</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app " class="display">
+      <header class="navbar navbar-expand px-4 bg-white">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <button type="button" id="sidebarCollapse" class="btn mr-4">
+                <i class="fas fa-bars align-middle"></i>
+              </button>
+              <a href="#" class="navbar-brand"> <img src="../src/images/logoYT.png" width="80" height="24" class="d-inline-block"></a>
+              <form class="form-inline  mx-auto">
+                  <div class="input-group">
+                    <input type="text" class="form-control border-0 " placeholder="Szukaj" aria-label="Username" aria-describedby="basic-addon1" id="searchInput">
+                    <div class="input-group-prepend">
+                      <span class="keyboard"></span>
+                      <button class="btn bg-light" id="execute"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+              </form>
+              <ul class="navbar-nav mr-0">
+                  <li class="nav-item mr-3 h5">
+                    <a href="#" class="nav-link" data-toggle="tooltip" data-placement="top" title="Utwórz"><i class="fas fa-video"></i></a>
+                  </li>
+                  <li class="nav-item mr-3 h5">
+                    <a href="#" class="nav-link" data-toggle="tooltip" data-placement="top" title="Aplikacje"><i class="fas fa-border-none"></i></a>
+                  </li>
+                  <li class="nav-item mr-3 h5">
+                    <a href="#" class="nav-link" data-toggle="tooltip" data-placement="top" title="Powiadomienia"><i class="fas fa-bell"></i></a>
+                  </li>
+                  <li class="nav-item mr-3 h5">
+                    <div>
+                      <div class="g-signin2" id="authentical">
+                     </div> 
+                  </li>
+              </ul>
+            </div>
+      </header>
+      <main>
+         
+          <div class="container-fluid d-flex p-0 m-0">
+            <nav id="sidebar" class="navbar-light d-block">
+              <ul class="list-unstyled">
+                <li class="active d-block-flex">
+                    <a href="#">
+                      <div class="list-inline-item"><i class="fas fa-home"></i></div>  
+                      <div class="list-inline-item d-inline w-100">Główna</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                      <div class="list-inline-item"><i class="fas fa-fire"></i></div>
+                      <div class="list-inline-item d-inline w-100">Na czasie</div>
+                    </a>
+                    <a href="#">
+                      <div class="list-inline-item"><i class="fab fa-youtube"></i></div>
+                      <div class="list-inline-item d-inline w-100">Subskrypcje</div> 
+                    </a>
+                </li>
+                <div class="dropdown-divider"></div>
+                <li>
+                  <a href="#" >
+                    <div class="list-inline-item"><i class="fas fa-address-book"></i></div> 
+                    <div class="list-inline-item d-inline w-100">Bibiloteka</div>  
+                  </a>
+                </li>
+                <li class="disable">
+                  <a href="#">
+                    <div class="list-inline-item"><i class="fas fa-history"></i></div>
+                    <div class="list-inline-item d-inline w-100">Historia</div>
+                  </a>
+                </li>
+                <li class="disable">
+                  <a href="#">
+                  <div class="list-inline-item"><i class="fas fa-video"></i></div>
+                  <div class="list-inline-item d-inline w-100 ">Twoje filmy</div>
+                  </a>
+                </li>
+                <li class="disable">
+                  <a href="#">
+                    <div class="list-inline-item"><i class="fas fa-address-book"></i></div>
+                    <div class="list-inline-item d-inline w-100 textNav">Do obejrzenia</div>
+                  </a>
+                </li>
+                <li class="disable">
+                  <a href="#">
+                  <div class="list-inline-item"><i class="fas fa-clock"></i></div>
+                  <div class="list-inline-item d-inline w-100 text-right">Filmy, które mi sie podobają</div>
+                  </a>
+                </li>
+                <li class="disable">
+                  <a href="#">
+                  <div class="list-inline-item"><i class="fas fa-music"></i></div>
+                  <div class="list-inline-item d-inline w-100">Muzyka</div>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="row m-0" id="page">
+            </div> 
+          </div>
+      </main> 
+    </div>  
   </body>
 </html>

@@ -61,8 +61,14 @@ const config = {
         loaders: [
           {
             loader: 'file-loader',
+            loader: 'url-loader',
+
             options: {
               outputPath: 'assets',
+              publicPath:'./fonts/',
+              name:'../fonts/[name].[ext]',
+              limit:1000
+
             },
           },
         ],
@@ -78,7 +84,9 @@ const config = {
       chunkFilename: '[id].css',
     }),
     new WebpackBar(),
-    new CopyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),
+    new CopyWebpackPlugin([{ from: './src/assets', to: 'assets' },
+    { from: './node_modules/@fortawesome/fontawesome-free/webfonts', to: './webfonts'}
+  ]),
   ],
   watchOptions: {
     aggregateTimeout: 500,
