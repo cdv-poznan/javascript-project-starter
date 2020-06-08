@@ -1,11 +1,11 @@
 // zestaw kolorów
 // https://coolors.co/542582-eeeeee-fec42f-cccccc-333333
 
-// #333333
-// #CCCCCC
-// #EEEEEE
-// #FEC42F
-// #542582
+// #333333 - ciemny szary
+// #CCCCCC - szary
+// #EEEEEE - jasny
+// #FEC42F- żółty
+// #542582 - fioletowy
 
 // zestaw kolorów
 
@@ -21,46 +21,32 @@ $color-totalwhite: #fff;
 $border-gray: 1px solid #cccccc;
 $border-white: 1px solid #fff;
 
-$phone-width: 480px;
-$tablet-width: 768px;
-$desktop-width: 1024px;
-$large-desktop-width: 1280px;
-$xlarge-desktop-width: 1366px;
-$xxlarge-desktop-width: 1600px;
-$ultra-desktop-width: 1920px;
+$phone: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$xlarge: 1366px;
+$xxlarge: 1600px;
 
 @mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+  @media (min-width: #{$tablet}) and (max-width: #{$desktop - 1px}) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: #{$desktop-width}) and (max-width: #{$large-desktop-width - 1px}) {
+  @media (min-width: #{$desktop}) and (max-width: #{$xlarge - 1px}) {
     @content;
   }
 }
 
-@mixin large-desktop {
-  @media (min-width: #{$large-desktop-width}) and (max-width: #{$xlarge-desktop-width - 1px}) {
+@mixin xlarge {
+  @media (min-width: #{$xlarge}) and (max-width: #{$xxlarge - 1px}) {
     @content;
   }
 }
 
-@mixin xlarge-desktop {
-  @media (min-width: #{$xlarge-desktop-width}) and (max-width: #{$xxlarge-desktop-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin xxlarge-desktop {
-  @media (min-width: #{$xxlarge-desktop-width}) and (max-width: #{$ultra-desktop-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin ultra-desktop {
-  @media (min-width: #{$ultra-desktop-width}) {
+@mixin xxlarge {
+  @media (min-width: #{$xxlarge}) {
     @content;
   }
 }
@@ -105,6 +91,11 @@ a {
   color: $color-violet;
 }
 
+a:hover {
+  color: $color-yellow;
+  text-decoration: none;
+}
+
 #app {
   padding: 30px;
 }
@@ -117,16 +108,8 @@ h1 {
   padding-top: 50px;
 }
 
-.button-wrapper {
-  margin-top: 30px;
-}
-
 .hidden {
   display: none;
-}
-
-.todo-list-wrapper {
-  margin: 30px 0;
 }
 
 nav {
@@ -139,12 +122,43 @@ nav {
   padding-bottom: 50px;
 }
 
+.homeIntro h3 {
+  color: $color-violet;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.homeLALink h3 {
+  padding: 20px;
+  color: $color-violet;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  @include desktop {
+    font-size: 40px;
+    padding: 40px;
+  }
+}
+
 .home h2 {
   color: $color-totalwhite;
   text-align: center;
-  font-size: 120px;
-  margin: 30px;
+  font-size: 60px;
+  margin: 10px;
   font-weight: 800;
+  @include desktop {
+    font-size: 80px;
+    margin: 20px;
+  }
+  @include xlarge {
+    font-size: 100px;
+    margin: 30px;
+  }
+  @include xxlarge {
+    font-size: 120px;
+    margin: 30px;
+  }
 }
 
 .home img {
@@ -159,14 +173,49 @@ nav {
 
 .teamBox h1,
 .view h1 {
-  font-size: 60px;
   font-weight: 800;
   text-transform: uppercase;
-  margin: 30px 0;
+  font-size: 30px;
+  margin: 10px 0;
+  @include desktop {
+    font-size: 40px;
+    margin: 20px 0;
+  }
+  @include xlarge {
+    font-size: 60px;
+    margin: 30px 0;
+  }
+  @include xxlarge {
+    font-size: 60px;
+    margin: 30px 0;
+  }
 }
 
 .teamBox .row {
   margin: 10px 0;
+}
+
+.teamBox h2 {
+  color: $color-violet;
+  font-weight: 800;
+  font-size: 30px;
+  margin: 10px 0;
+  @include desktop {
+    font-size: 30px;
+    margin: 10px 0;
+  }
+  @include xlarge {
+    font-size: 40px;
+    margin: 20px 0;
+  }
+  @include xxlarge {
+    font-size: 60px;
+    margin: 30px 0;
+  }
+}
+.teamBox h3 {
+  font-size: 20px;
+  font-weight: 800;
 }
 
 .gameBox {
@@ -179,6 +228,41 @@ nav {
 }
 
 .gameBox span {
+  font-size: 14px;
+  color: $color-gray;
+}
+
+.gameLinkBox h2 {
+  text-align: center;
+  color: $color-violet;
+  font-weight: 800;
+  font-size: 20px;
+  margin: 10px 0;
+  @include desktop {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  @include xlarge {
+    font-size: 30px;
+    margin: 20px 0;
+  }
+  @include xxlarge {
+    font-size: 40px;
+    margin: 30px 0;
+  }
+}
+
+.gameDetailBox {
+  border-bottom: 1px solid $color-violet;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.gameDetailBox strong {
+  font-size: 60px;
+}
+
+.gameDetailBox span {
   font-size: 14px;
   color: $color-gray;
 }
@@ -197,13 +281,101 @@ nav {
 
 .playerBox h3 {
   color: $color-violet;
+  font-weight: 800;
 }
 
 .playerBoxFull {
+  padding: 20px;
+  border-bottom: $border-white;
 }
 
-.playerStatsTable {
+.playerBoxFull h2 {
+  color: $color-totalwhite;
+  font-weight: 800;
+  font-size: 20px;
+  margin: 10px 0;
+  @include desktop {
+    font-size: 40px;
+    margin: 20px 0;
+  }
+  @include xlarge {
+    font-size: 40px;
+    margin: 30px 0;
+  }
+  @include xxlarge {
+    font-size: 40px;
+    margin: 30px 0;
+  }
+}
+
+.playerBoxShort {
+  border-bottom: $border-white;
+}
+
+.playerBoxShort h2 {
+  font-weight: 800;
+  font-size: 30px;
+  margin: 10px 0;
+  @include desktop {
+    font-size: 30px;
+    margin: 10px 0;
+  }
+  @include xlarge {
+    font-size: 40px;
+    margin: 20px 0;
+  }
+  @include xxlarge {
+    font-size: 40px;
+    margin: 30px 0;
+  }
+}
+
+.playerDetailsBox,
+.gameDetailsBox {
+  padding-top: 20px;
+  @include desktop {
+    border-left: none;
+    border-top: $border-white;
+  }
+  @include xlarge {
+    border-left: $border-white;
+    border-top: none;
+  }
+  @include xxlarge {
+    border-left: $border-white;
+    border-top: none;
+  }
+}
+
+.playerStats {
+  padding: 50px 0;
+}
+
+.playerStats h2,
+.gameStats h2 {
+  color: $color-totalwhite;
   text-align: center;
+  font-weight: 800;
+  font-size: 40px;
+  margin: 10px;
+  @include desktop {
+    font-size: 40px;
+    margin: 20px;
+  }
+  @include xlarge {
+    font-size: 60px;
+    margin: 30px;
+  }
+  @include xxlarge {
+    font-size: 80px;
+    margin: 30px;
+  }
+}
+
+.playerStatsTable,
+.gameStatsTable {
+  text-align: center;
+  font-size: 12px;
 }
 
 .footer {
@@ -211,4 +383,28 @@ nav {
   color: $color-white;
   text-align: center;
   padding: 30px;
+}
+
+.playerInfo {
+  padding: 50px;
+  border-bottom: 1px solid $color-violet;
+}
+
+.playerInfo h3 {
+  font-size: 20px;
+  @include desktop {
+    font-size: 30px;
+  }
+  @include xlarge {
+    font-size: 40px;
+  }
+  @include xxlarge {
+    font-size: 50px;
+  }
+}
+
+input,
+select {
+  border: 1px solid $color-violet;
+  padding: 10px;
 }

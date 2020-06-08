@@ -11,12 +11,10 @@
       <nav class="navbar fixed-top">
         <a class="nav-link" href="#">Home</a>
 
-        <a class="nav-link" href="#la-games">LA Games</a>
-        <a class="nav-link" href="#la-players">LA Players</a>
-        <a class="nav-link" href="#other-teams">Other Teams</a>        
-        <a class="nav-link" href="#other-players">Other Players</a>        
-        <a class="nav-link" href="#player-statistics">Player statistics</a>
-        <!-- <a href="#firebase-test">FIREBASE Test</a> -->
+        <a class="nav-link" href="#mecze">MECZE</a>
+        <a class="nav-link" href="#zawodnicy">ZAWODNICY</a>
+        <a class="nav-link" href="#druzyny-nba">DRUŻYNY NBA</a>        
+        <a class="nav-link" href="#wyszukaj-zawodnika">WYSZUKAJ ZAWODNIKA</a>        
       </nav>
     </header>
     
@@ -27,71 +25,76 @@
         
         <div class="row homeIntro">
           <img src="https://www.nba.com/assets/logos/teams/primary/web/LAL.svg" />
-          <div class="col">Conference: <b>WEST</b></div>
-          <div class="col">Division: <b>PACIFIC</b></div>
+          <div class="col-12 col-md-3">Konferencja:</div>
+          <div class="col-12 col-md-3"><h3>WEST</h3></div>
+          <div class="col-12 col-md-3">Dywizja:</div>
+          <div class="col-12 col-md-3"><h3>PACIFIC</h3></div>
         </div>
         <div class="row">
           <div class="col-12"><h2>PLAYERS</h2><div id="nba-team-players" class="row"></div></div>  
-        
         </div>
-         <div class="row">
-          <div class="col-12"><h2>GAMES</h2></div>
+        <div class="row homeLALink">
+          <div class="col-12"><a href="https://www.nba.com/teams/lakers"><h3>Zobacz stronę zespołu na NBA.com</h3></a></div>
         </div>
-        
          
       </div>
 
-      <div class="container view hidden" id="la-games">
-        <h1>LOS ANGELES LAKERS GAMES</h1>
+      <div class="container view hidden" id="mecze">
+        <h1>MECZE LOS ANGELES LAKERS</h1>
         <div class="row">
              <div class="col"><form class="pure-form">
-          <label for="game-season"
-            >Wybierz sezon
-            <select name="game-season" id="game-season"></select>
+          <label for="game-season">
+            <select name="game-season" id="game-season">
+              <option value="">Wybierz sezon</option>
+            </select>
           </label>
         </form></div>
         </div>        
         <div id="nba-games-stats"></div>
         
       </div>
-      <div class="container view hidden" id="la-players">
-        <h1>LOS ANGELES LAKERS PLAYERS</h1>
+      <div class="container view hidden" id="zawodnicy">
+        <h1>ZAWODNICY LOS ANGELES LAKERS</h1>
         <div id="nba-team-players-full" class="row"></div>
         
       </div>
-      <div class="container view hidden" id="game-statistics">
-        <h1>NBA Game Details</h1>
-        <div id="nba-game-stats"></div>
-      </div>
-      <div class="container view hidden" id="other-teams">
-        <h1>ALL NBA TEAMS</h1>
+      <div class="container view hidden" id="druzyny-nba">
+        <h1>DRUŻYNY NBA</h1>
         <div id="nba-teams-stats"></div>
       </div>
-      <div class="container view hidden team-details" id="team-details">
-        
+         <div class="container view hidden" id="wyszukaj-zawodnika">
+        <h1>WYSZUKAJ ZAWODNIKA</h1>
+        <div class="row">          
+          <div class="col-12 col-lg-3">
+            <form class="pure-form">
+              <label for="player-search">                
+                <input type="text" name="player-search" id="player-search" placeholder="Wpisz imię lub nazwisko" />
+              </label>
+            </form></div>
+          <div class="col-12 col-lg-9">
+        <div id="nba-players-stats"></div></div>
+        </div>        
       </div>
-      <div class="container view hidden" id="other-players">
-        <h1>SEARCH PLAYER</h1>
-        <form class="pure-form">
-          <label for="player-search">
-            <input type="text" name="player-search" id="player-search" />
-          </label>
-          
-          
-          <!-- <button type="submit">>></button> -->
-        </form>
-        <div id="nba-players-stats"></div>
-      </div>
-      <div class="container view hidden" id="player-statistics">
-        <h1>NBA Player Detail</h1>
-        <div id="nba-player-stats">
-          <table class="table table-striped playerStatsTable"><tbody id="player-stats-show"></tbody></table>
+
+      <!-- subrouting -->
+
+      <div class="container view hidden" id="games">
+        <div id="nba-game-info"></div>
+        <div id="nba-game-stats" class="gameStats">
+          <div id="game-stats-show"></div>
         </div>
-        <!-- <select name="player-id" id="statistics-player-id"></select> -->
-        <select name="season-number" id="statistics-season"></select>
-        <!-- <div id="nba-player-info"></div> -->
-        
       </div>
+
+      <div class="container view hidden" id="players">
+        <div id="nba-player-info"></div>
+        <div id="nba-player-stats" class="playerStats">
+          <h2>STATYSTYKI</h2>
+          <table class="table table-striped table-responsive playerStatsTable"><tbody id="player-stats-show"></tbody></table>
+        </div>
+      </div>
+
+      <!-- subrouting -->
+
     </main>
     <footer class="footer">
       Projekt zaliczeniowy - JAVASCRIPT - Gerard Urbański
