@@ -1,6 +1,11 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./assets/_variables.scss";
+@import "./assets/fontello/css/fontello.css";
+
 html {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 19px;
+  font-family: 'Baloo Paaji 2', cursive;
 }
 
 *,
@@ -21,8 +26,10 @@ ol,
 ul {
   margin: 0;
   padding: 0;
-  font-weight: normal;
+  &:not(body) {font-weight: normal;}
 }
+
+
 
 ol,
 ul {
@@ -32,4 +39,219 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.app {
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.style-changer {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  font-weight: 900;
+  &:hover {
+    background: transparent;
+    border-color: white;
+  }
+}
+
+ul.styles {
+  display: block;
+  position: fixed;
+  left: 21px;
+  top: 69px;
+  transition: transform .4s;
+  > li {
+    font-size: 1.2em;
+    display: block;
+    transition: transform .3s ease-in-out;
+    &:hover{
+      color: white;
+      transform: scale(1.2) translateX(20px);
+      cursor: pointer;
+    }
+  }
+  a {
+    color: $technoprimary;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.hidden {
+  transform: scale(0);
+}
+
+.drum-grid {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hihat, .kick, .snare, .shaker {
+  display: flex;
+  justify-content: space-between;
+  .legend {
+    width: 100px;
+    line-height: 36px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.square {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin: 5px 2px;
+  &:nth-of-type(4n){
+    margin-right: 10px;
+  }
+}
+
+.techno {
+  background: url('assets/img/darktunnel.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  .square {
+    border: 1px $technoprimary solid;
+    &:hover {
+      border-color: rgb(255, 255, 255);
+    }
+  }
+  .checked {
+    background-color: rgb(54, 0, 54);
+    display: block;
+  }
+  .technoInterface {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
+    padding: 20px 40px;
+    color: $technoprimary;
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 5px;
+    > *:hover {
+      color: rgb(255, 255, 255)
+    }
+  }
+  #play {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    padding: 0 3px 0 0;
+  }
+  
+  .drum-grid {
+    position: relative;
+  }
+  
+  .icon-play-circled2, .icon-pause-circle-o {
+    color: white;
+    font-size: 30px;
+    display: inline-block;
+  }
+  
+  .side-synth {
+    color: white !important;
+    position: relative;
+    i {
+      font-size: 22px;
+    }
+    label {
+      margin-bottom: 0;
+    }
+    select {
+      font-size: 12px;
+      height: 20px;
+      width: 40px;
+      padding: 0 0 0 4px;
+    }
+  }
+  .bpm {
+    display: flex;
+    justify-content: space-between;
+    &:not(input){
+      color: white;
+      font-size: 15px;
+    }
+    input {
+      font-size: 15px;
+      height: 20px;
+      width: 35px;
+      padding: 0 0 0 4px;
+    }
+  }
+}
+
+.about {
+  background: #ffffff;
+  width: 40vw;
+  border-radius: 5px;
+  padding: 50px;
+  .photo {
+    padding: 40px 0 40px 0;
+    display: flex;
+    justify-content: center;
+    img {
+      height: 130px;
+    }
+  }
+  p   {
+    padding: 10px 0;
+  }
+}
+
+.small-text {
+  font-size: 14px;
+}
+
+.separator {
+  border: 1px solid lightgray;
+  width: 100%;
+  min-height: 1px;
+}
+
+.impro-list {
+  padding-top: 30px;
+  ul {
+    list-style-type: circle;
+    padding-top: 10px;
+    li {
+      margin-left: 20px;
+    }
+  }
+}
+
+.social {
+  position: fixed;
+  left: 20px;
+  bottom: 30px;
+  a {
+    display: block;
+  }
+  i {
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 25px;
+    color: $technoprimary;
+    z-index: 30;
+    transition: transform .5s ease-in-out;
+    &:hover {
+      transform: scale(1.2) translateX(15px);
+      cursor: pointer;
+    }
+  }
 }

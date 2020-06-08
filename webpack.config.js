@@ -14,7 +14,7 @@ const config = {
     filename: 'main.js',
   },
   resolve: {
-    extensions: ['.js', '.html', '.scss'],
+    extensions: ['.js', '.html', '.scss', '.css'],
     modules: ['node_modules'],
   },
   module: {
@@ -57,7 +57,7 @@ const config = {
         ],
       },
       {
-        test: /\.(svg|eot|woff|woff2|ttf)$/,
+        test: /\.(svg|eot|woff|woff2|ttf|jpg)$/,
         loaders: [
           {
             loader: 'file-loader',
@@ -71,7 +71,13 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      filename: 'index.html',
       template: resolve(__dirname, './src/index.html'),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'about.html',
+      template: './src/about.html',
+      excludeAssets: [/style.js/],
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
