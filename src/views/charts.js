@@ -13,7 +13,12 @@ export async function chartsView() {
 
   const poland = await getDataForCountry('poland');
   const germany = await getDataForCountry('germany');
-  const italy = await getDataForCountry('italy');
+  const russia = await getDataForCountry('russia');
+  const belarus = await getDataForCountry('belarus');
+  const ukraine = await getDataForCountry('ukraine');
+  const czechia = await getDataForCountry('czechia');
+  const slovakia = await getDataForCountry('slovakia');
+  const lithuania = await getDataForCountry('lithuania');
 
   const config = {
     type: 'line',
@@ -26,14 +31,39 @@ export async function chartsView() {
           borderColor: '#ab0000',
         },
         {
-          label: 'Germany',
-          data: germany.map((entry) => entry.Cases),
+          label: 'Russia',
+          data: russia.map((entry) => entry.Cases),
           borderColor: '#222222',
         },
         {
-          label: 'Italy',
-          data: italy.map((entry) => entry.Cases),
+          label: 'Germany',
+          data: germany.map((entry) => entry.Cases),
           borderColor: '#00ab00',
+        },
+        {
+          label: 'Belarus',
+          data: belarus.map((entry) => entry.Cases),
+          borderColor: '#ffcc00',
+        },
+        {
+          label: 'Ukraine',
+          data: ukraine.map((entry) => entry.Cases),
+          borderColor: '#FFFB99',
+        },
+        {
+          label: 'Czech Republic',
+          data: czechia.map((entry) => entry.Cases),
+          borderColor: '#212CFF',
+        },
+        {
+          label: 'Slovakia',
+          data: slovakia.map((entry) => entry.Cases),
+          borderColor: '#D10A0E',
+        },
+        {
+          label: 'Lithuania',
+          data: lithuania.map((entry) => entry.Cases),
+          borderColor: '#256D68',
         },
       ],
     },
@@ -41,7 +71,7 @@ export async function chartsView() {
       responsive: true,
       title: {
         display: true,
-        text: 'Przypadki COVID-19 w Polsce w 2020 roku',
+        text: 'Przypadki COVID-19 w Polsce i krajach sąsiadujących w 2020 roku',
       },
       scales: {
         xAxes: [{ display: true }],
@@ -54,5 +84,4 @@ export async function chartsView() {
   const context = canvas.getContext('2d');
 
   const chart = new Chart(context, config);
-  console.log(chart);
 }

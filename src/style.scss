@@ -7,7 +7,6 @@ html {
 
 body {
   margin: 50px;
-  font-family: 'Nunito Sans', sans-serif;
   font-size: 20px;
 }
 
@@ -30,6 +29,14 @@ ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
+}
+
+a {
+  color: #9B0000;
+}
+a:hover {
+  color: #AE0000;
+  text-decoration: initial;
 }
 
 h1 {
@@ -63,6 +70,7 @@ nav {
   align-items: center;
   align-content: center;
   justify-content: space-evenly;
+  text-transform: uppercase;
 }
 
 nav a.navbar-brand {
@@ -91,6 +99,33 @@ footer div {
   display: none;
 }
 
+.center {
+  text-align: center;
+}
+
+.fill {
+  flex: 1 1 auto;
+}
+
+#todos input[type='text'] {
+  padding: 0px 12px;
+  border-radius: 5px;
+  border: 1px solid #cbcbcb;
+  min-width: 50%;
+}
+#todos .btn {
+  min-width: 80px;
+}
+#todos .btn-outline {
+  margin-right: 10px;
+  border-color: #626262;
+}
+
+#todos .btn-info {
+  margin-right: 10px;
+  border-color: #626262;
+}
+
 .todo-list-wrapper {
   padding-bottom: 25px;
 }
@@ -100,6 +135,9 @@ footer div {
   padding: 15px;
   border: 1px solid #dbdbdb;
   border-radius: 15px;
+}
+.video-item:nth-child(even) {
+ background-color: #ededed;
 }
 .video-item h2 {
   width: 100%;
@@ -126,3 +164,4 @@ footer div {
   padding-right: 25px;
   text-align: justify;
 }
+

@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import { camelCaseView } from './views/camelcase';
 import { todoView } from './views/todo';
 import { chartsView } from './views/charts';
 import { trendingYoutubeView } from './views/trending-videos';
@@ -19,7 +18,6 @@ function enabelRouting() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  camelCaseView();
   todoView();
   chartsView();
   trendingYoutubeView();

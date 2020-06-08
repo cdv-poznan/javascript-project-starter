@@ -9,21 +9,21 @@ export function todoView() {
 
   function addTodo(item) {
     const todoItem = $(
-      `<li><input type="text" value="${item.text}" id="elem${item.id}" disabled="disabled" /><small>${item.id}</small></li>`,
+      `<li><input type="text" value="${item.text}" id="elem${item.id}" disabled="disabled" /><div class="fill"></div></li>`,
     );
     todoItem.addClass('list-group-item d-flex justify-content-between align-items-center');
-    todoItem.append($(`<div class="btn btn-primary btn-edit">Edit</div>`));
-    todoItem.append($(`<div class="btn btn-danger btn-delete">Delete</div>`));
+    todoItem.append($(`<div class="btn btn-outline btn-edit">Edytuj</div>`));
+    todoItem.append($(`<div class="btn btn-danger btn-delete">Usuń</div>`));
 
     todoItem.find('.btn-edit').click(() => {
       const itemInput = document.querySelector('#elem' + item.id);
 
       itemInput.removeAttribute('disabled');
-      todoItem.find('.btn-edit').html('Edit...').removeClass('btn-primary').addClass('btn-info');
+      todoItem.find('.btn-edit').html('Edycja...').removeClass('btn-outline').addClass('btn-info');
     });
 
     todoItem.find('.btn-delete').click(() => {
-      const confQuestion = window.confirm('Are you sure?');
+      const confQuestion = window.confirm('Czy jesteś pewien?');
 
       if (confQuestion === true) {
         todoItem.remove();
@@ -39,7 +39,7 @@ export function todoView() {
     todoItem.find('input').change(() => {
       const itemInput = document.querySelector('#elem' + item.id);
       itemInput.setAttribute('disabled', 'disabled');
-      todoItem.find('.btn-edit').html('Edit').removeClass('btn-info').addClass('btn-primary');
+      todoItem.find('.btn-edit').html('Edytuj').removeClass('btn-info').addClass('btn-outline');
 
       // usuwamy item.id z listy todosList
       todosList = remove(todosList, (el) => el.id !== item.id);
