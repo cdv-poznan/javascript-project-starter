@@ -3,9 +3,168 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CDV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet"> 
+    
+    <title>Projekt Javascript - MG</title>
   </head>
   <body>
-    <div id="app"></div>
+    <nav class="container navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">Opis</a>
+      <a class="navbar-brand" href="#todo">TODO</a>
+      <a class="navbar-brand" href="#trendingVideos">Popularne na Youtube</a>
+      <a class="navbar-brand" href="#charts">COVID-19</a>
+    </nav>
+
+    <div id="app" class="container">
+
+      <div class="container view hidden" id="home">
+        <h1>Opis projektu</h1>
+        <p>
+          <a href="#todo">1) Rozwinięcie funkcjonalności TODO-listy</a>
+        </p>
+        <ul>
+          <li>Dodane pole dialogowe, z pytaniem "Czy jesteś pewien?" przy próbie usuwania zadania</li>
+          <li>Możliwość edycji zadania z zapisem zaktualizowanego stanu do localStorage</li>
+        </ul>
+        <p>
+          <a href="#trendingVideos">2) Przykład wykorzystania API: YouTube API v3</a> 
+        </p>
+        <ul>
+          <li>Prezentacja 5 najpopularniejszych aktualnie filmów w Polsce</li>
+        </ul>
+        <p>
+          <a href="#charts">3) Charts</a> 
+        </p>
+        <ul>
+          <li>Prezentacja liczby przypadków zachorowań na COVID-19 w Polsce oraz krajach sąsiadujących w 2020 roku</li>
+        </ul>
+      </div>
+
+      <div class="container view hidden" id="todo">
+        <h1>Lista zadań</h1>
+        
+        <div class="todo-list-wrapper">
+          <ul id="todos" class="list-group"></ul>
+        </div>
+
+        <form id="todo-form">
+          <div class="input-group">
+            <input class="form-control"
+                    id="todo-text"
+                    placeholder="Wpisz treść zadania..."
+                    required />
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-outline-primary">
+                Dodaj nowe
+              </button>
+              <button type="reset" class="btn btn-outline-secondary">
+                Wyczyść tekst
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="container view hidden" id="charts">
+        <h1>COVID-19</h1>
+        
+        <div class="charts-wrapper">
+          <canvas id="chart-canvas"></canvas>
+        </div>
+      </div>
+      <div class="container view hidden" id="trendingVideos">
+        <h1>Filmy popularne na polskim YouTube</h1>
+        
+        <p class="center">Przedstawiamy najpopularniejsze filmy na polskim YouTube:</p>
+
+        <div>
+          <label for="video-limit">Liczba filmów: </label>
+          <select id="video-limit" name="video-limit">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
+        
+        <div id="trending-youtube-videos"></div>
+      </div>
+    </div>
+
+    <footer class="container">
+      <div class="row">
+        <div class="col project-logo">
+          <svg width="300px" height="300px">
+            <rect x="50" y="50" width="230" height="120" style="fill: #004A7F; rx: 10px; ry: 10px"></rect>
+            <rect x="50" y="165" width="230" height="40" style="fill: #E5E5E5; rx: 10px; ry: 10px"></rect>
+            <rect x="50" y="160" width="230" height="10" style="fill: #004A7F; rx: 0px; ry: 0px"></rect>
+
+            <rect x="135" y="205" width="60" height="40" style="fill: #959595;"></rect>
+            <rect x="110" y="245" width="110" height="30" style="fill: #E5E5E5; rx: 20px; ry: 10px;"></rect>
+            <rect x="110" y="260" width="110" height="15" style="fill: #A8DFFF; rx: 0px; ry: 0px;"></rect>
+            
+            <rect x="82" y="65" width="50" height="50" style="fill: #ffcc00;"></rect>
+            
+            <g style="fill: #ff8800;">
+                <circle cx="155" cy="70" r="4" ></circle>
+                <circle cx="225" cy="70" r="4"></circle>
+                <rect x="155" y="66" width="70" height="8"></rect>
+
+                <circle cx="245" cy="70" r="4"></circle>
+            </g>
+
+            <g style="fill: #ff8800;">
+                <circle cx="160" cy="90" r="4"></circle>
+                
+                <circle cx="180" cy="90" r="4" ></circle>
+                <circle cx="245" cy="90" r="4"></circle>
+                <rect x="180" y="86" width="65" height="8"></rect>
+            </g>
+
+            <g style="fill: #ff8800;">
+                <circle cx="155" cy="111" r="4"></circle>
+                <circle cx="168" cy="111" r="4"></circle>
+                <rect x="155" y="107" width="13" height="8"></rect>
+
+                <circle cx="183" cy="111" r="4"></circle>
+                
+                <circle cx="200" cy="111" r="4" ></circle>
+                <circle cx="245" cy="111" r="4"></circle>
+                <rect x="200" y="107" width="45" height="8"></rect>
+            </g>
+
+
+            <g style="fill: #ff8800;">  
+                <circle cx="80" cy="132" r="4" ></circle>
+                <circle cx="116" cy="132" r="4"></circle>
+                <rect x="80" y="128" width="36" height="8"></rect>
+                
+                <circle cx="135" cy="132" r="4"></circle>
+                
+                <circle cx="155" cy="132" r="4" ></circle>
+                <circle cx="225" cy="132" r="4"></circle>
+                <rect x="155" y="128" width="70" height="8"></rect>
+
+                <circle cx="245" cy="132" r="4"></circle>
+            </g>
+
+            <g style="fill: #ff8800;">  
+                <circle cx="80" cy="153" r="4"></circle>
+                
+                <circle cx="100" cy="153" r="4" ></circle>
+                <circle cx="146" cy="153" r="4"></circle>
+                <rect x="100" y="149" width="46" height="8"></rect>
+                
+                <circle cx="175" cy="153" r="4" ></circle>
+                <circle cx="245" cy="153" r="4"></circle>
+                <rect x="175" y="149" width="70" height="8"></rect>
+            </g>
+          </svg>
+        </div>
+        <div class="col">
+          &copy; 2020 - Michał Gierszewski
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

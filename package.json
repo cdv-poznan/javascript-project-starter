@@ -1,13 +1,13 @@
 {
   "name": "javascript-project-starter",
-  "description": "Starter for JavaScript project",
+  "description": "Projekt na zajęciach CDV 2020-04-26",
   "version": "1.0.0",
   "scripts": {
     "start": "webpack-dev-server",
     "production": "webpack --mode=production"
   },
   "keywords": [],
-  "author": "Adrian Juszczak <adrian.juszczak@cdv.pl>",
+  "author": "Michał Gierszewski <mgierszewski@cdv.pl>",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -41,14 +41,21 @@
     "webpack-dev-server": "^3.10.3",
     "webpackbar": "^4.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "chart.js": "^2.9.3",
+    "jquery": "^3.5.0",
+    "lodash": "^4.17.15",
+    "popper.js": "^1.16.1",
+    "uuid": "^7.0.3"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Juszczak/cdv-project-starter.git"
+    "url": "git+https://github.com/michooPL/cdv-project-starter.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Juszczak/cdv-project-starter/issues"
+    "url": "https://github.com/michooPL/cdv-project-starter/issues"
   },
-  "homepage": "https://github.com/Juszczak/cdv-project-starter#readme"
+  "homepage": "https://github.com/michooPL/cdv-project-starter#readme"
 }
