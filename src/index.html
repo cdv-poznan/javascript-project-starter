@@ -3,114 +3,98 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CDV</title>
+    <title>NBA Info - based on Free-NBA API</title>
   </head>
   <body>
-    <main class="main">
-    <header class="header">
-
-    </header>
     
-      <aside class="aside">
-        <nav class="navbar flex-column">
+    <header class="header">
+      <nav class="navbar fixed-top">
         <a class="nav-link" href="#">Home</a>
 
-        <a class="nav-link" href="#games">Games</a>
-        <a class="nav-link" href="#game-statistics">Game statistics</a>
-        <a class="nav-link" href="#teams">Teams</a>
-        <a class="nav-link" href="#team-statistics">Team statistics</a>
-        <a class="nav-link" href="#players">Players</a>
+        <a class="nav-link" href="#la-games">LA Games</a>
+        <a class="nav-link" href="#la-players">LA Players</a>
+        <a class="nav-link" href="#other-teams">Other Teams</a>        
+        <a class="nav-link" href="#other-players">Other Players</a>        
         <a class="nav-link" href="#player-statistics">Player statistics</a>
         <!-- <a href="#firebase-test">FIREBASE Test</a> -->
       </nav>
-      </aside>
-      <article class="article">
+    </header>
+    
+    <main class="main">
         <div id="app">
       
-      <div class="container view hidden" id="home">
-        <h1>Start</h1>
+      <div class="container view hidden home" id="home">
+        
+        <div class="row homeIntro">
+          <img src="https://www.nba.com/assets/logos/teams/primary/web/LAL.svg" />
+          <div class="col">Conference: <b>WEST</b></div>
+          <div class="col">Division: <b>PACIFIC</b></div>
+        </div>
+        <div class="row">
+          <div class="col-12"><h2>PLAYERS</h2><div id="nba-team-players" class="row"></div></div>  
+        
+        </div>
+         <div class="row">
+          <div class="col-12"><h2>GAMES</h2></div>
+        </div>
+        
+         
       </div>
 
-      <div class="container view hidden" id="firebase-test">
-        <h1>FIREBASE Test</h1>
-        <h2 id="hotDogOutput">Hot dog status:</h2>
-        <input type="text" id="latestHotDogStatus" />
-        <button id="saveButton">Save</button>
-        <button id="loadButton">Load</button>
-      </div>
-
-      <div class="container view hidden" id="games">
-        <h1>NBA Games List</h1>
-        <form class="pure-form">
+      <div class="container view hidden" id="la-games">
+        <h1>LOS ANGELES LAKERS GAMES</h1>
+        <div class="row">
+             <div class="col"><form class="pure-form">
           <label for="game-season"
-            >Sezon:
+            >Wybierz sezon
             <select name="game-season" id="game-season"></select>
           </label>
-          <label for="page">
-            <input type="number" name="page" id="page" />
-          </label>
-          <label for="per-page">
-            <select name="per-page" id="per-page">
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="25">25</option>
-              <option value="50">50</option>
-              <option value="100">100</option>
-            </select>
-          </label>
-          <label for="game-teams">
-            <select name="game-teams" id="game-teams"></select>
-
-            <input type="number" name="team-id" id="team-id" />
-          </label>
-          <label for="date">
-            <input type="date" name="date" id="date" />
-          </label>
-          <!-- <button type="submit">>></button> -->
-        </form>
+        </form></div>
+        </div>        
         <div id="nba-games-stats"></div>
+        
+      </div>
+      <div class="container view hidden" id="la-players">
+        <h1>LOS ANGELES LAKERS PLAYERS</h1>
+        <div id="nba-team-players-full" class="row"></div>
+        
       </div>
       <div class="container view hidden" id="game-statistics">
         <h1>NBA Game Details</h1>
         <div id="nba-game-stats"></div>
       </div>
-      <div class="container view hidden" id="teams">
-        <h1>NBA Teams List</h1>
-
+      <div class="container view hidden" id="other-teams">
+        <h1>ALL NBA TEAMS</h1>
         <div id="nba-teams-stats"></div>
       </div>
-      <div class="container view hidden" id="team-statistics">
-        <h1>NBA Team Detail</h1>
-        <select name="team-id" id="nba-team-select"></select>
-        <div id="nba-team-stats"></div>
+      <div class="container view hidden team-details" id="team-details">
+        
       </div>
-      <div class="container view hidden" id="players">
-        <h1>NBA Players List</h1>
+      <div class="container view hidden" id="other-players">
+        <h1>SEARCH PLAYER</h1>
         <form class="pure-form">
           <label for="player-search">
             <input type="text" name="player-search" id="player-search" />
           </label>
-          <label for="player-page">
-            <input type="number" name="player-page" id="player-page" />
-          </label>
-          <label for="player-per-page">
-            <input type="number" name="player-per-page" id="player-per-page" />
-          </label>
+          
+          
           <!-- <button type="submit">>></button> -->
         </form>
         <div id="nba-players-stats"></div>
       </div>
       <div class="container view hidden" id="player-statistics">
         <h1>NBA Player Detail</h1>
-        <select name="player-id" id="statistics-player-id"></select>
+        <div id="nba-player-stats">
+          <table class="table table-striped playerStatsTable"><tbody id="player-stats-show"></tbody></table>
+        </div>
+        <!-- <select name="player-id" id="statistics-player-id"></select> -->
         <select name="season-number" id="statistics-season"></select>
-        <div id="nba-player-info"></div>
-        <div id="nba-player-stats"></div>
+        <!-- <div id="nba-player-info"></div> -->
+        
       </div>
-      </article>
-
     </main>
-    <footer class="footer"></footer>
-    </main>
+    <footer class="footer">
+      Projekt zaliczeniowy - JAVASCRIPT - Gerard Urbański
+    </footer>
   </body>
 </html>

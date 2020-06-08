@@ -93,10 +93,10 @@ export async function nbaAllGamesView(gameSeasonToShow, gamePageToShow, gameTeam
 
 export function gamesSearchEngine() {
   let gameSeasonToShow = '2019';
-  let pageToShow = 0;
-  let teamIDToShow = '1';
-  let perPageToShow = 5;
-  let dateToShow = '';
+  const pageToShow = 0;
+  const teamIDToShow = '14';
+  const perPageToShow = 100;
+  const dateToShow = '';
 
   nbaAllGamesView(gameSeasonToShow, pageToShow, teamIDToShow, perPageToShow, dateToShow);
   // gameSeason
@@ -107,40 +107,40 @@ export function gamesSearchEngine() {
     nbaAllGamesView(gameSeasonToShow, pageToShow, teamIDToShow, perPageToShow, dateToShow);
   });
   // page
-  const page = document.querySelector('#page');
-  page.addEventListener('change', () => {
-    pageToShow = page.value;
-    // console.log(pageToShow);
-    nbaAllGamesView(gameSeasonToShow, pageToShow, teamIDToShow, perPageToShow, dateToShow);
-  });
-  const teamID = document.querySelector('#game-teams');
-  // teamID
-  teamID.addEventListener('change', () => {
-    teamIDToShow = teamID.value;
-    // console.log(teamIDToShow);
-    nbaAllGamesView(gameSeasonToShow, pageToShow, teamIDToShow, perPageToShow, dateToShow);
-  });
-  const perPage = document.querySelector('#per-page');
-  // perPage
-  perPage.addEventListener('change', () => {
-    perPageToShow = perPage.value;
-    // console.log(perPageToShow);
-    nbaAllGamesView(gameSeasonToShow, pageToShow, teamIDToShow, perPageToShow, dateToShow);
-  });
-  const date = document.querySelector('#date');
-  // date
-  date.addEventListener('change', () => {
-    dateToShow = date.value;
-    // console.log(dateToShow);
-    nbaAllGamesView(gameSeasonToShow, pageToShow, teamIDToShow, perPageToShow, dateToShow);
-  });
+  // const page = document.querySelector('#page');
+  // page.addEventListener('change', () => {
+  //   pageToShow = page.value;
+  //   // console.log(pageToShow);
+  //   nbaAllGamesView(gameSeasonToShow, pageToShow, teamIDToShow, perPageToShow, dateToShow);
+  // });
+  // const teamID = document.querySelector('#game-teams');
+  // // teamID
+  // teamID.addEventListener('change', () => {
+  //   teamIDToShow = teamID.value;
+  //   // console.log(teamIDToShow);
+  //   nbaAllGamesView(gameSeasonToShow, pageToShow, teamIDToShow, perPageToShow, dateToShow);
+  // });
+  // const perPage = document.querySelector('#per-page');
+  // // perPage
+  // perPage.addEventListener('change', () => {
+  //   perPageToShow = perPage.value;
+  //   // console.log(perPageToShow);
+  //   nbaAllGamesView(gameSeasonToShow, pageToShow, teamIDToShow, perPageToShow, dateToShow);
+  // });
+  // const date = document.querySelector('#date');
+  // // date
+  // date.addEventListener('change', () => {
+  //   dateToShow = date.value;
+  //   // console.log(dateToShow);
+  //   nbaAllGamesView(gameSeasonToShow, pageToShow, teamIDToShow, perPageToShow, dateToShow);
+  // });
 }
-export function paginationView() {
-  const statsBoxGames = document.getElementById('nba-games-stats');
+// export function paginationView() {
+//   const statsBoxGames = document.getElementById('nba-games-stats');
 
-  const paginationBox = `<div class="paginationBox d-flex flex-row justify-content-center">
-          <div class="col-6"><button id="loadMore"><i class="fas fa-angle-double-right"></i></button></div>
-        </div>`;
+//   const paginationBox = `<div class="paginationBox d-flex flex-row justify-content-center">
+//           <div class="col-6"><button id="loadMore"><i class="fas fa-angle-double-right"></i></button></div>
+//         </div>`;
 
-  statsBoxGames.insertAdjacentHTML('afterend', paginationBox);
-}
+//   statsBoxGames.insertAdjacentHTML('afterend', paginationBox);
+// }

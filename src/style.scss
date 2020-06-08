@@ -1,23 +1,25 @@
 // zestaw kolorów
-// https://coolors.co/2b2d42-8d99ae-edf2f4-ef233c-d90429
+// https://coolors.co/542582-eeeeee-fec42f-cccccc-333333
 
-// #2B2D42
-// #8D99AE
-// #EDF2F4
-// #EF233C
-// #D90429
+// #333333
+// #CCCCCC
+// #EEEEEE
+// #FEC42F
+// #542582
 
 // zestaw kolorów
 
 @import "~bootstrap/scss/bootstrap";
 
-$color-navy: #2b2d42;
-$color-gray: #8d99ae;
-$color-white: #edf2f4;
-$color-lightred: #ef233c;
-$color-darkred: #d90429;
+$color-darkgray: #333333;
+$color-gray: #cccccc;
+$color-white: #eeeeee;
+$color-yellow: #fec42f;
+$color-violet: #542582;
+$color-totalwhite: #fff;
 
-$border-gray: 1px solid #8d99ae;
+$border-gray: 1px solid #cccccc;
+$border-white: 1px solid #fff;
 
 $phone-width: 480px;
 $tablet-width: 768px;
@@ -99,8 +101,20 @@ img {
   height: auto;
 }
 
+a {
+  color: $color-violet;
+}
+
 #app {
   padding: 30px;
+}
+
+body {
+  background: $color-white;
+}
+
+h1 {
+  padding-top: 50px;
 }
 
 .button-wrapper {
@@ -115,10 +129,40 @@ img {
   margin: 30px 0;
 }
 
+nav {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.homeIntro {
+  text-align: center;
+  border-bottom: $border-white;
+  padding-bottom: 50px;
+}
+
+.home h2 {
+  color: $color-totalwhite;
+  text-align: center;
+  font-size: 120px;
+  margin: 30px;
+  font-weight: 800;
+}
+
+.home img {
+  width: 100%;
+}
+
 .teamBox {
   margin: 10px 0;
   padding: 10px 0;
-  border-bottom: $border-gray;
+  border-bottom: $border-white;
+}
+
+.teamBox h1,
+.view h1 {
+  font-size: 60px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 30px 0;
 }
 
 .teamBox .row {
@@ -126,8 +170,6 @@ img {
 }
 
 .gameBox {
-  margin: 10px 0;
-  padding: 10px 0;
   border-bottom: $border-gray;
   text-align: center;
 }
@@ -141,49 +183,32 @@ img {
   color: $color-gray;
 }
 
-.gameBox .row {
-  margin: 10px 0;
-}
-
-.paginationBox {
-  text-align: center;
-}
-
-.paginationBox button {
-  border: none;
-  background: $color-navy;
-  color: $color-gray;
-}
-
 .playerBox {
   margin: 10px 0;
-  padding: 10px 0;
+  padding: 20px;
   border-bottom: $border-gray;
   text-align: center;
 }
 
-// .main {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr 1fr;
-//   grid-template-rows: auto;
-//   grid-template-areas:
-//     "header header header header"
-//     "aside article article article"
-//     "footer footer footer footer";
-// }
+.playerBox img {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-// .header {
-//   grid-area: header;
-// }
+.playerBox h3 {
+  color: $color-violet;
+}
 
-// .aside {
-//   grid-area: aside;
-// }
+.playerBoxFull {
+}
 
-// .article {
-//   grid-area: article;
-// }
+.playerStatsTable {
+  text-align: center;
+}
 
-// .footer {
-//   grid-area: footer;
-// }
+.footer {
+  background: $color-darkgray;
+  color: $color-white;
+  text-align: center;
+  padding: 30px;
+}

@@ -45,6 +45,7 @@
     "@fortawesome/fontawesome-free": "^5.13.0",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
+    "crossroads": "^0.12.2",
     "firebase": "^7.14.6",
     "jquery": "^3.5.0",
     "lodash": "^4.17.15",

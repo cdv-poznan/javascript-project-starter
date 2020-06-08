@@ -1,45 +1,27 @@
-import { toLower, toUpper } from 'lodash';
-
-export function generateTeamRow(teamID, teamAbbreviation, teamCity, teamConference, teamDivision, teamFullName, teamName) {
-  const teamRow = `<div class="teamBox">
-            <div class="row">
-                <div class="col" style="background: url('https://www.nba.com/assets/logos/teams/primary/web/${toUpper(
-    teamAbbreviation,
-  )}.svg') no-repeat; width: 150px; height: 150px;"></div>
-                <div class="col">${teamFullName} (${toLower(teamName)})</div>
-            </div>
-            <div class="row">
-                <div class="col">Miasto: ${teamCity}<br>Konferencja: ${teamConference}<br>Dywizja: ${teamDivision}</div>
-                <div class="col">${teamAbbreviation} - ${teamID}</div>       
-            </div>
-          </div>`;
-  return teamRow;
-}
+import { toUpper, replace } from 'lodash';
 
 export function generatePlayerRow(playerFirstName, playerLastName, playerTeamFullName, playerPosition, playerID) {
   const playerRow = `
-  <div div class="playerBox" >
+  <div class="playerBox align-items-center col-4">
+        <img src="./assets/players-img/small/${playerID}-${playerFirstName}-${playerLastName}.png" class="img-responsive" />
+            <h3>${playerFirstName} ${playerLastName}</h3>
+   </div>
+  `;
+  return playerRow;
+}
+
+export function generatePlayerRowFull(playerFirstName, playerLastName, playerTeamFullName, playerPosition, playerID) {
+  const playerRow = `
+  <div class="playerBoxFull align-items-center col-12">
         <div class="row">
-            <div class="col">Imię</div>
-            <div class="col">${playerFirstName}</div>
+            <div class="col-3"><img src="./assets/players-img/small/${playerID}-${playerFirstName}-${playerLastName}.png" class="img-responsive" /></div>
+            <div class="col-9">
+            <h3>${playerFirstName} ${playerLastName}</h3>
+            <p>Pozycja: ${playerPosition}</p>
+            </div>
         </div>
-        <div class="row">
-            <div class="col">Nazwisko</div>
-            <div class="col">${playerLastName}</div>
-        </div>
-        <div class="row">
-            <div class="col">Drużyna</div>
-            <div class="col">${playerTeamFullName}</div>
-        </div>
-        <div class="row">
-            <div class="col">Pozycja</div>
-            <div class="col">${playerPosition}</div>
-        </div>
-        <div class="row">
-            <div class="col">ID</div>
-            <div class="col">${playerID}</div>
-        </div>
-        </div>
+         <!-- ${playerID} -->
+  </div>
   `;
   return playerRow;
 }
@@ -56,15 +38,18 @@ export function generateGameRow(
   const gameRow = `<div div class="gameBox" >
         <div class="row d-flex align-items-center">
             <div class="col-1" style="background: url('https://www.nba.com/assets/logos/teams/primary/web/${toUpper(
-    homeTeamAbbreviation,
-  )}.svg') no-repeat center; background-size: contain; width: 150px; height: 150px;"></div>
+              homeTeamAbbreviation,
+            )}.svg') no-repeat center; background-size: contain; width: 150px; height: 150px;"></div>
             <div class="col">${homeTeamFullName}</div>
-            <div class="col"><strong>${homeTeamScore} : ${visitorTeamScore}</strong><hr><span>${gameDate}</span></div>
+            <div class="col"><span>${replace(
+              gameDate,
+              'T00:00:00.000Z',
+              '',
+            )}</span><br><strong>${homeTeamScore} : ${visitorTeamScore}</strong></div>
             <div class="col">${visitorTeamFullName}</div>
             <div class="col-1 teamIcon" style="background: url('https://www.nba.com/assets/logos/teams/primary/web/${toUpper(
-    visitorTeamAbbreviation,
-  )}.svg') no-repeat center;  background-size: contain; width: 150px; height: 150px;"></div>
-
+              visitorTeamAbbreviation,
+            )}.svg') no-repeat center;  background-size: contain; width: 150px; height: 150px;"></div>
         </div> `;
   return gameRow;
 }
@@ -80,7 +65,7 @@ export function generateGamesSeasonsSelect() {
 
   let selectOptions = '';
 
-  for (let i = 2019; i >= 1979; i--) {
+  for (let i = 2019; i >= 2010; i--) {
     selectOptions += `<option value="${i}">${i} / ${i + 1}</option>`;
   }
   seasonsSelect.insertAdjacentHTML('beforeend', selectOptions);
@@ -178,31 +163,3 @@ export function generatePlayerSeasonStats(
   `;
   return playerRow;
 }
-
- // testy
-  // const request = fetch('https://reqres.in/api/users?page=1');
-
-  // request
-  //   .then((response) => response.json())
-  //   .then((body) => {
-  //     console.log('body', body);
-  //     const { data } = body;
-  //     return data;
-  //   })
-  //   .then((data) => {
-  //     console.log(data);
-  //     data.forEach((record) => {
-  //       const { id, email, first_name: firstName, last_name: lastName, avatar } = record;
-  //       console.log(`
-  //       ${id}
-  //       ${email}
-  //       ${firstName}
-  //       ${lastName}
-  //       ${avatar}
-  //       `);
-  //     });
-  //   })
-  //   .catch((error) => {
-  //     console.log('error:', error);
-  //   });
-  // testy

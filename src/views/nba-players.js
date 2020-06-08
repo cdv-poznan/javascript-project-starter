@@ -97,8 +97,8 @@ export async function nbaPlayersSelectView() {
 
 export function playersSearchEngine() {
   let playerSearchToShow = '';
-  let playerPageToShow = 0;
-  let playerPerPageToShow = 3;
+  const playerPageToShow = 0;
+  const playerPerPageToShow = 100;
 
   nbaAllPlayersView(playerSearchToShow, playerPageToShow, playerPerPageToShow);
   // gameSeason
@@ -106,21 +106,6 @@ export function playersSearchEngine() {
   playerSearch.addEventListener('keyup', () => {
     playerSearchToShow = playerSearch.value;
     // console.log(playerSearchToShow);
-    nbaAllPlayersView(playerSearchToShow, playerPageToShow, playerPerPageToShow);
-  });
-  // page
-  const playerPage = document.querySelector('#player-page');
-  playerPage.addEventListener('change', () => {
-    playerPageToShow = playerPage.value;
-    // console.log(playerPageToShow);
-    nbaAllPlayersView(playerSearchToShow, playerPageToShow, playerPerPageToShow);
-  });
-
-  const playerPerPage = document.querySelector('#player-per-page');
-  // perPage
-  playerPerPage.addEventListener('change', () => {
-    playerPerPageToShow = playerPerPage.value;
-    // console.log(playerPerPageToShow);
     nbaAllPlayersView(playerSearchToShow, playerPageToShow, playerPerPageToShow);
   });
 }
@@ -238,24 +223,124 @@ export async function nbaPlayersStatisticsView(season = 2018, playerID = 179) {
 }
 
 export function playerStatsSearchEngine() {
-  let statisticsSeasonToShow = 2019;
-  let statisticsPlayerToShow = 179;
-  const statisticsSeason = document.querySelector('#statistics-season');
-  const statisticsPlayer = document.querySelector('#statistics-player-id');
+  // const statisticsSeasonToShow = 2019;
+  // const statisticsPlayerToShow = 179;
+  // const statisticsSeason = document.querySelector('#statistics-season');
+  // const statisticsPlayer = document.querySelector('#statistics-player-id');
+  // statisticsSeason.addEventListener('change', () => {
+  //   statisticsSeasonToShow = statisticsSeason.value;
+  //   statisticsPlayerToShow = statisticsPlayer.value;
+  //   // nbaPlayerView(statisticsSeasonToShow);
+  //   nbaPlayersStatisticsView(statisticsSeasonToShow, statisticsPlayerToShow);
+  // });
+  // // perPage
+  // statisticsPlayer.addEventListener('change', () => {
+  //   statisticsSeasonToShow = statisticsSeason.value;
+  //   statisticsPlayerToShow = statisticsPlayer.value;
+  //   // console.log(playerPerPageToShow);
+  //   // nbaPlayerView(statisticsPlayerToShow);
+  //   nbaPlayersStatisticsView(statisticsSeasonToShow, statisticsPlayerToShow);
+  // });
+}
 
-  statisticsSeason.addEventListener('change', () => {
-    statisticsSeasonToShow = statisticsSeason.value;
-    statisticsPlayerToShow = statisticsPlayer.value;
-    // nbaPlayerView(statisticsSeasonToShow);
-    nbaPlayersStatisticsView(statisticsSeasonToShow, statisticsPlayerToShow);
-  });
+export async function playerStatisticsInSeason(season, playerID) {
+  const playerStatsShow = document.querySelector('#player-stats-show');
+  const urlStartStatistics = `https://www.balldontlie.io/api/v1/season_averages`;
+  const urlParametersSeason = `?season=${season}`;
+  const urlParametersPlayerID = `&player_ids[]=${playerID}`;
+  const nbaPlayersStatisticsURL = `${urlStartStatistics}${urlParametersSeason}${urlParametersPlayerID}`;
 
-  // perPage
-  statisticsPlayer.addEventListener('change', () => {
-    statisticsSeasonToShow = statisticsSeason.value;
-    statisticsPlayerToShow = statisticsPlayer.value;
-    // console.log(playerPerPageToShow);
-    // nbaPlayerView(statisticsPlayerToShow);
-    nbaPlayersStatisticsView(statisticsSeasonToShow, statisticsPlayerToShow);
-  });
+  await fetch(nbaPlayersStatisticsURL)
+    .then((response) => response.json())
+    .then((data) => {
+      const bodyData = data.data;
+      bodyData.forEach((bodydata) => {
+        const {
+          games_played: gamesPlayed,
+          // player_id: playerIDNumber,
+          season: seasonNumber,
+          min,
+          fgm,
+          fga,
+          fg3m,
+          fg3a,
+          ftm,
+          fta,
+          oreb,
+          dreb,
+          reb,
+          ast,
+          stl,
+          blk,
+          turnover,
+          pf,
+          pts,
+          fg_pct: fgPct,
+          fg3_pct: fg3Pct,
+          ft_pct: ftPct,
+        } = bodydata;
+
+        const playerStatsTableRow = `<tr>
+        <td>${seasonNumber}</td>
+      <td>${gamesPlayed}</td>
+        <td>${min}</td>
+        <td>${fgm}</td>
+        <td>${fga}</td>
+        <td>${fg3m}</td>
+        <td>${fg3a}</td>
+        <td>${ftm}</td>
+        <td>${fta}</td>
+        <td>${oreb}</td>
+        <td>${dreb}</td>
+        <td>${reb}</td>
+        <td>${ast}</td>
+        <td>${stl}</td>
+        <td>${blk}</td>
+        <td>${turnover}</td>
+        <td>${pf}</td>
+        <td>${pts}</td>
+        <td>${fgPct}</td>
+        <td>${fg3Pct}</td>
+        <td>${ftPct}</td>
+        </tr>`;
+        // return playerStatsTableRow;
+        playerStatsShow.insertAdjacentHTML('beforeend', playerStatsTableRow);
+      });
+    })
+
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+export function generatePlayerStatisticsTable(playerID) {
+  const playerStatsShow = document.querySelector('#player-stats-show');
+  const tableStart = `
+  <tr>
+  <th>Sezon</th>
+  <th>Gier</th>
+  <th>Minut</th>
+  <th>fgm</th>
+  <th>fga</th>
+  <th>fg3m</th>
+  <th>fg3a</th>
+  <th>ftm</th>
+  <th>fta</th>
+  <th>oreb</th>
+  <th>dreb</th>
+  <th>reb</th>
+  <th>ast</th>
+  <th>stl</th>
+  <th>blk</th>
+  <th>turnover</th>
+  <th>pf</th>
+  <th>pts</th>
+  <th>fgPct</th>
+  <th>fg3Pct</th>
+  <th>ftPct</th>
+  </tr>`;
+  playerStatsShow.insertAdjacentHTML('beforeend', tableStart);
+  for (let i = 2019; i >= 2010; i--) {
+    setTimeout(playerStatisticsInSeason(i, playerID), 100); // aby roczniki wykonały się po sobie
+  }
 }

@@ -1,4 +1,6 @@
 import $ from 'jquery';
+
+import crossroads from 'crossroads';
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
@@ -7,9 +9,9 @@ import { generateGamesSeasonsSelect, generateGamesTeamsSelect } from './views/to
 
 import { firebaseLayer } from './views/firebase';
 
-import { nbaGameView, paginationView, gamesSearchEngine } from './views/nba-games';
-import { nbaPlayerView, playersSearchEngine, nbaPlayersSelectView, playerStatsSearchEngine } from './views/nba-players';
-import { nbaTeamView, nbaAllTeamsView } from './views/nba-teams';
+import { nbaGameView, gamesSearchEngine } from './views/nba-games';
+import { nbaPlayerView, playersSearchEngine, nbaPlayersSelectView, generatePlayerStatisticsTable } from './views/nba-players';
+import { nbaTeamView, nbaAllTeamsView, nbaTeamPlayers, nbaTeamPlayersFull } from './views/nba-teams';
 
 function enableRouting() {
   function setRoute() {
@@ -28,15 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
   nbaPlayersSelectView();
   nbaGameView();
   gamesSearchEngine();
-  paginationView();
+  // paginationView();
   nbaPlayerView(179);
   playersSearchEngine();
   nbaTeamView();
   nbaAllTeamsView();
+  nbaTeamPlayers();
+  nbaTeamPlayersFull();
   generateGamesSeasonsSelect();
   generateGamesTeamsSelect();
-  playerStatsSearchEngine();
+
   firebaseLayer();
   enableRouting();
+  generatePlayerStatisticsTable(237);
 
+  crossroads.addRoute('foo');
+  crossroads.addRoute('lorem/ipsum');
+  crossroads.routed.add(console.log, console); // log all routes
 });

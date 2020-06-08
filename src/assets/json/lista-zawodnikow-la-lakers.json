@@ -1,0 +1,311 @@
+{
+  "data":[
+  {
+            "id": 16,
+            "first_name": "Kostas",
+            "height_feet": 6,
+            "height_inches": 10,
+            "last_name": "Antetokounmpo",
+            "position": "F",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 200
+        },
+		{
+            "id": 59,
+            "first_name": "Avery",
+            "height_feet": 6,
+            "height_inches": 2,
+            "last_name": "Bradley",
+            "position": "G",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 180
+        },
+		{
+            "id": 666486,
+            "first_name": "Devontae",
+            "height_feet": null,
+            "height_inches": null,
+            "last_name": "Cacok",
+            "position": "F-C",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": null
+        },
+		{
+            "id": 81,
+            "first_name": "Kentavious",
+            "height_feet": 6,
+            "height_inches": 5,
+            "last_name": "Caldwell-Pope",
+            "position": "G",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 205
+        },
+		{
+            "id": 89,
+            "first_name": "Alex",
+            "height_feet": 6,
+            "height_inches": 5,
+            "last_name": "Caruso",
+            "position": "G",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 186
+        },
+		{
+            "id": 106,
+            "first_name": "Quinn",
+            "height_feet": 6,
+            "height_inches": 2,
+            "last_name": "Cook",
+            "position": "G",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 179
+        },
+		{
+            "id": 117,
+            "first_name": "Anthony",
+            "height_feet": 6,
+            "height_inches": 10,
+            "last_name": "Davis",
+            "position": "F-C",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 253
+        },
+		{
+            "id": 138,
+            "first_name": "Jared",
+            "height_feet": 6,
+            "height_inches": 7,
+            "last_name": "Dudley",
+            "position": "F",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 237
+        },
+		{
+            "id": 184,
+            "first_name": "Danny",
+            "height_feet": 6,
+            "height_inches": 6,
+            "last_name": "Green",
+            "position": "G-F",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 215
+        },
+		{
+            "id": 666650,
+            "first_name": "Talen",
+            "height_feet": null,
+            "height_inches": null,
+            "last_name": "Horton-Tucker",
+            "position": "G",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": null
+        },
+		{
+            "id": 220,
+            "first_name": "Dwight",
+            "height_feet": 6,
+            "height_inches": 11,
+            "last_name": "Howard",
+            "position": "C",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 265
+        },
+		{
+            "id": 237,
+            "first_name": "LeBron",
+            "height_feet": 6,
+            "height_inches": 8,
+            "last_name": "James",
+            "position": "F",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 250
+        },
+		{
+            "id": 265,
+            "first_name": "Kyle",
+            "height_feet": 6,
+            "height_inches": 9,
+            "last_name": "Kuzma",
+            "position": "F",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 220
+        },
+		{
+            "id": 306,
+            "first_name": "JaVale",
+            "height_feet": 7,
+            "height_inches": 0,
+            "last_name": "McGee",
+            "position": "C",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 270
+        },
+		{
+            "id": 329,
+            "first_name": "Markieff",
+            "height_feet": null,
+            "height_inches": null,
+            "last_name": "Morris",
+            "position": "F",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": null
+        },
+		{
+            "id": 400,
+            "first_name": "Rajon",
+            "height_feet": 6,
+            "height_inches": 1,
+            "last_name": "Rondo",
+            "position": "G",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 186
+        },
+		{
+            "id": 463,
+            "first_name": "Dion",
+            "height_feet": 6,
+            "height_inches": 4,
+            "last_name": "Waiters",
+            "position": "G",
+            "team": {
+                "id": 14,
+                "abbreviation": "LAL",
+                "city": "Los Angeles",
+                "conference": "West",
+                "division": "Pacific",
+                "full_name": "Los Angeles Lakers",
+                "name": "Lakers"
+            },
+            "weight_pounds": 215
+        }
+    
+ ]
+}
