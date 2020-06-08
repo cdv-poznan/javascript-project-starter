@@ -163,6 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     playSynth('sawtooth');
   });
+  // add default tempo
+  document.querySelector('#bpmInput').value = 120;
   // enable tooltip
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
@@ -204,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // showCloseButton: true,
       confirmButtonText: 'Ok',
       backdrop: `
-    rgba(0,0,123,0.1)
+    rgba(0,0,100,0.1)
     url("/images/nyan-cat.gif")
     left top
     no-repeat
