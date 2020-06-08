@@ -1,6 +1,7 @@
 // import lodash from 'lodash';
 import Tone from 'tone';
 import $ from 'jquery';
+import Swal from 'sweetalert2';
 // import Transport from 'tone/transport';
 // import Transport from 'tone/Tone/core/Transport';
 
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let isSawtoothPlayed = false;
   const styles = document.querySelector('#styles');
   document.querySelector('#styleChanger').addEventListener('click', () => styles.classList.toggle('hidden'));
-  // TECHNO
+  // LET'S MAKE SOME BANGER!
   function technoSequencer(state) {
     // creating samples buffers
     const technoKick = new Tone.Buffer('./assets/samples/techno/technoKick.wav');
@@ -166,4 +167,55 @@ document.addEventListener('DOMContentLoaded', () => {
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
+  // headphones modal and cookie
+  function setCookie(name, val, days, secure) {
+    if (navigator.cookieEnabled) {
+      const cookieName = encodeURIComponent(name);
+      const cookieVal = encodeURIComponent(val);
+      let cookieText = cookieName + '=' + cookieVal;
+
+      if (typeof days === 'number') {
+        const data = new Date();
+        data.setTime(data.getTime() + days * 24 * 60 * 60 * 1000);
+        cookieText += '; expires=' + data.toGMTString();
+      }
+
+      if (secure) {
+        cookieText += '; secure';
+      }
+
+      document.cookie = cookieText;
+    }
+  }
+  function fireModal() {
+    Swal.fire({
+      // title: 'Sweet!',
+      text: 'Go get your headphones now.',
+      width: 400,
+      background: 'black',
+      imageUrl: './src/assets/img/headphones.png',
+      imageWidth: 200,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: 'btn btn-outline-secondary',
+      },
+      // showCloseButton: true,
+      confirmButtonText: 'Ok',
+      backdrop: `
+    rgba(0,0,123,0.1)
+    url("/images/nyan-cat.gif")
+    left top
+    no-repeat
+  `,
+    });
+  }
+  function headphonesCookie() {
+    if (!document.cookie.includes('headsetCookie=true')) {
+      fireModal();
+      setCookie('headsetCookie', 'true', 30, true);
+    }
+  }
+  headphonesCookie();
 });
