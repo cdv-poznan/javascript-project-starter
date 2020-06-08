@@ -3,9 +3,101 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CDV</title>
+    <title>Prosty asystent turystyczny ver0.0.01</title>
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <p>No Witam...!</p>
+    </header>
+    <main>
+      <!-- To Do list Section -->
+      <section>
+        <label class="title-section" for="item">Spakuj też!</label>
+          <form id="itemForm">
+            <input type="text" class="form-control" id="item" placeholder="Podaj przedmiot">
+            <button type="submit" class="btn btn-primary">Dodaj przedmiot</button>
+          </form>
+          <div class="item-box"></div>
+            <ul id="items" class="item-list"></ul>
+          </div>
+          <button id="clear" class="btn cleari-items">Olej i nie bierz nic</button> 
+
+
+      </section>
+      <!-- Wether Aside  -->
+      <aside>
+        <input type="text" class="search-box" placeholder="Wpisz miasto..." />
+          <div class="today">
+            <div class="location">
+              <div class="city">Najpierw podaj miasto</div>
+              <div class="date">-</div>
+            </div>
+            <div class="current">
+              <div class="temp">-<span>°c</span></div>
+              <div class="weather">-</div>
+              <div class="hi-low">-°c / -°c</div>
+            </div>
+          </div>
+          <!-- To jest zakomentowane ponieważ OpeanWheather nie chce z darmo udostęnić pogody na najbliższe dni - pracuje nad przepięciem tego na inne Api. 
+            <div class="next-day">
+            <div class="day">
+              <ul class="tomowrrow">
+                <li>Jutro</li>
+                <li class="temp">15<span>°c</span></li>
+                <li class="weather">Słońce</li>
+                <li class="hi-low">13°c / 16°c</li>
+              </ul>
+            </div>
+            <div class="day">
+              <ul class="after-tomowrrow">
+                <li>Pojutrze</li>
+                <li class="temp">15<span>°c</span></li>
+                <li class="weather">Słońce</li>
+                <li class="hi-low">13°c / 16°c</li>
+              </ul>
+            </div>
+            <div class="day">
+              <ul class="three-days">
+                <li>Za trzy dni</li>
+                <li class="temp">15<span>°c</span></li>
+                <li class="weather">Słońce</li>
+                <li class="hi-low">13°c / 16°c</li>
+              </ul>
+            </div>
+            <div class="day">
+              <ul class="four-days">
+                <li>Za cztery dni</li>
+                <li class="temp">15<span>°c</span></li>
+                <li class="weather">Słońce</li>
+                <li class="hi-low">13°c / 16°c</li>
+              </ul>
+            </div>
+            <div class="day">
+              <ul class="five-days">
+                <li>Za pięć dni</li>
+                <li class="temp">15<span>°c</span></li>
+                <li class="weather">Słońce</li>
+                <li class="hi-low">13°c / 16°c</li>
+              </ul>
+            </div>
+            <div class="day">
+              <ul class="six-days">
+                <li>Za sześć dni</li>
+                <li class="temp">15<span>°c</span></li>
+                <li class="weather">Słońce</li>
+                <li class="hi-low">13°c / 16°c</li>
+              </ul>
+            </div>
+            <div class="day">
+              <ul class="seven-days">
+                <li>Za siedem dni</p>
+                <li class="temp">15<span>°c</span></li>
+                <li class="weather">Słońce</li>
+                <li class="hi-low">13°c / 16°c</li>
+              </ul>
+            </div>
+          </div> -->
+      </aside>
+    </main>
   </body>
 </html>
