@@ -81,6 +81,7 @@ const createPokeImg = (res, url) => {
   if (res.sprites.front_default != null) {
     img.setAttribute('src', res.sprites.front_default);
   }
+  // console.log(res.sprites);
   img.style.width = '120px';
   img.addEventListener('click', () => onCLickListener(img, url));
 };
