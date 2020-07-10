@@ -134,12 +134,16 @@ export function generatePlayerRow(playerFirstName, playerLastName, playerTeamFul
 export function generatePlayerShortRow(playerFirstName, playerLastName, playerTeamFullName, playerPosition, playerID) {
   const playerRow = `
   <div class="playerBoxShort align-items-center row">
-  <div class="col-12 col-md-6">
-    <a href="/#players/${playerID}">
+  <div class="col-12 col-md-4">
+  <a href="#players/${playerID}"><img src="./assets/players-img/small/${playerID}-${playerFirstName}-${playerLastName}.png" class="img-responsive" /></a>
+    
+  </div>          
+  <div class="col-10 col-md-6 text-left">
+  <a href="/#players/${playerID}">
             <h2>${playerFirstName} ${playerLastName}</h2>
             </a>
-  </div>          
-  <div class="col-10 col-md-4 text-left">Drużyna: ${playerTeamFullName}<br>Pozycja: ${playerPosition}</div>
+            <hr>
+  Drużyna: ${playerTeamFullName}<br>Pozycja: ${playerPosition}</div>
   <div class="col-2 col-md-2"><a href="/#players/${playerID}"><i class="far fa-address-card fa-3x"></i></a></div>
    </div>
   `;

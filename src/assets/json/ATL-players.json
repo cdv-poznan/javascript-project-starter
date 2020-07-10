@@ -1,0 +1,292 @@
+{
+	"data":[
+		{
+            "id": 42,
+            "first_name": "DeAndre'",
+            "height_feet": 6,
+            "height_inches": 6,
+            "last_name": "Bembry",
+            "position": "F",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 210
+        },
+		{
+            "id": 666474,
+            "first_name": "Charles",
+            "height_feet": null,
+            "height_inches": null,
+            "last_name": "Brown",
+            "position": "G",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": null
+        },
+		{
+            "id": 83,
+            "first_name": "Clint",
+            "height_feet": 6,
+            "height_inches": 10,
+            "last_name": "Capela",
+            "position": "C",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 240
+        },
+		{
+            "id": 88,
+            "first_name": "Vince",
+            "height_feet": 6,
+            "height_inches": 6,
+            "last_name": "Carter",
+            "position": "F-G",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 220
+        },
+		{
+            "id": 101,
+            "first_name": "John",
+            "height_feet": 6,
+            "height_inches": 10,
+            "last_name": "Collins",
+            "position": "F-C",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 235
+        },
+		{
+            "id": 120,
+            "first_name": "Dewayne",
+            "height_feet": 7,
+            "height_inches": 0,
+            "last_name": "Dedmon",
+            "position": "C",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 245
+        },
+		{
+            "id": 666564,
+            "first_name": "Bruno",
+            "height_feet": null,
+            "height_inches": null,
+            "last_name": "Fernando",
+            "position": "F",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": null
+        },
+		{
+            "id": 3091,
+            "first_name": "Brandon",
+            "height_feet": 6,
+            "height_inches": 2,
+            "last_name": "Goodwin",
+            "position": "",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 180
+        },
+		 {
+            "id": 181,
+            "first_name": "Treveon",
+            "height_feet": 6,
+            "height_inches": 5,
+            "last_name": "Graham",
+            "position": "F",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 225
+        },
+		{
+            "id": 221,
+            "first_name": "Kevin",
+            "height_feet": 6,
+            "height_inches": 7,
+            "last_name": "Huerter",
+            "position": "G",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 190
+        },
+		{
+            "id": 666656,
+            "first_name": "De'Andre",
+            "height_feet": null,
+            "height_inches": null,
+            "last_name": "Hunter",
+            "position": "F",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": null
+        },
+		{
+            "id": 248,
+            "first_name": "Damian",
+            "height_feet": 7,
+            "height_inches": 0,
+            "last_name": "Jones",
+            "position": "C",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 245
+        },
+		{
+            "id": 266,
+            "first_name": "Skal",
+            "height_feet": 6,
+            "height_inches": 11,
+            "last_name": "Labissiere",
+            "position": "F",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 235
+        },
+		{
+            "id": 666860,
+            "first_name": "Cameron",
+            "height_feet": null,
+            "height_inches": null,
+            "last_name": "Reddish",
+            "position": "F-G",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": null
+        },
+		{
+            "id": 435,
+            "first_name": "Jeff",
+            "height_feet": 6,
+            "height_inches": 2,
+            "last_name": "Teague",
+            "position": "G",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 195
+        },
+		{
+            "id": 490,
+            "first_name": "Trae",
+            "height_feet": 6,
+            "height_inches": 2,
+            "last_name": "Young",
+            "position": "G",
+            "team": {
+                "id": 1,
+                "abbreviation": "ATL",
+                "city": "Atlanta",
+                "conference": "East",
+                "division": "Southeast",
+                "full_name": "Atlanta Hawks",
+                "name": "Hawks"
+            },
+            "weight_pounds": 180
+        },
+	]
+}
