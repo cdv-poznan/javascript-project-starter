@@ -1,11 +1,228 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CDV</title>
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchannge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'
+        integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
+    <script src="https://kit.fontawesome.com/6c38cd2cdc.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <div class="logo-item logo-item-1">Curr</div>
+                <div class="logo-item logo-item-2">&euro;</div>
+                <div class="logo-item logo-item-3">ncies</div>
+                <div class="logo-item logo-item-4">online</div>
+            </div>
+            <div class="menu">
+                <div><a href="#converter">Converter</a></div>
+                <div><a href="#rates">Rates</a></div>
+                <div><a href="#about">About</a></div>
+                <div><a href="#currencies">Currencies</a></div>
+            </div>
+        </div>
+
+    </header>
+
+    <div id="converter" class="converterWrapper">
+
+        <div class="converter">
+            <h2>Currency converter</h2>
+            <div id="converter" class="test">
+                <div id="currencyFrom" class="currencyFrom">
+                    <div id="currencyFromWrapper" class="currencyWrapper">
+                        <div class="flag">
+                            <img src="./assets/img/PLN.png" alt="Polish flag">
+                        </div>
+                        <div class="code">PLN</div>
+                        <div class="currency">Polish Zloty</div>
+                    </div>
+                    <div id="searchFrom" class="search" contenteditable="true"></div>
+                    <div id="currenciesList" class="currenciesList"></div>
+                </div>
+                <div id="changePosition" class="changePosition">&#8644;</div>
+                <div id="currencyTo" class="currencyTo">
+                    <div id="currencyToWrapper" class="currencyWrapper">
+                        <div class="flag">
+                            <img src="/assets/img/USD.png" alt="United_States_flag">
+                        </div>
+                        <div class="code">USD</div>
+                        <div class="currency">US Dollar</div>
+                    </div>
+                    <div id="searchTo" class="search" contenteditable="true"></div>
+                    <div id="currenciesToList" class="currenciesList"></div>
+                </div>
+                <div id="ammount" class="ammount" contenteditable="true">100</div>
+                <div id="convert" class="convert">&gt;</div>
+                <div id="yourExchange" class="exchange"></div>
+                <div id="rate" class="rate"></div>
+            </div>
+        </div>
+        <div id="rates" class="converterTable">
+            <div class="convertTable table-item item-0">
+                <div id="change-button" class="change-button"><i class="fas fa-exchange-alt"></i></div>
+            </div>
+
+            <div class="convertTable table-item item-1">
+                <div class="img">
+                    <img src="/assets/img/EUR.png" alt="EU's flag">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/Euro" target="_blank">EUR</a>
+                </div>
+            </div>
+
+            <div class="convertTable table-item item-2">
+                <div class="img">
+                    <img src="/assets/img/USD.png" alt="US's flag">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/United_States_dollar" target="_blank">USD</a>
+                </div>
+            </div>
+
+            <div class="convertTable table-item item-3">
+                <div class="img">
+                    <img src="/assets/img/GBP.png" alt="UK's flag">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/Pound_sterling" target="_blank">GBP</a>
+                </div>
+            </div>
+
+            <div class="convertTable table-item item-4">
+                <div class="img">
+                    <img src="/assets/img/CHF.png" alt="">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/Swiss_franc" target="_blank">CHF</a>
+                </div>
+            </div>
+
+            <div class="convertTable table-item item-5">
+                <div class="img">
+                    <img src="/assets/img/PLN.png" alt="Poland flag">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/Polish_z%C5%82oty" target="_blank">PLN</a>
+                </div>
+            </div>
+            <div class="convertTable table-item item-6">
+                <div class="img">
+                    <img src="/assets/img/PLN.png" alt="Polish flag">
+                </div>
+                <div class="link-code">
+                    <a href="https://en.wikipedia.org/wiki/Polish_z%C5%82oty" target="_blank">1 PLN</a>
+                </div>
+            </div>
+            <div class="convertTable table-item item-7">
+                <div id="plnEur"></div>
+            </div>
+            <div class="convertTable table-item item-8">
+                <div id="plnUsd"></div>
+            </div>
+            <div class="convertTable table-item item-9">
+                <div id="plnGbp"></div>
+            </div>
+            <div class="convertTable table-item item-10">
+                <div id="plnChf"></div>
+            </div>
+            <div class="convertTable table-item item-11">
+                <div id="plnPln">1</div>
+            </div>
+        </div>
+
+        <div id="newConverterTable"> <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque quidem,
+                dignissimos animi repellendus cupiditate rem. Hic cum, quia saepe voluptas vero dignissimos, sint
+                facilis porro corporis itaque perferendis ea corrupti?</span></div>
+
+        <div class="converterTable convertTableButton ">
+            <div class="convertTable table-item item-0">
+                <div id="newCurrency">
+                    <div id="addCurrency" class="addButton"><i class="fas fa-plus-circle"></i> ADD</div>
+                    <div id="newCurrencyList"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="about" class="about">
+        <div id="info" class="about-item">
+            <h2><span><i class="fas fa-users"></i></span></h2>
+            <h3>Who we are</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque ut error soluta quas accusamus, dolorem
+                facere deserunt temporibus enim similique exercitationem ex maiores cumque officia animi recusandae
+                totam quam placeat.</p>
+        </div>
+        <div id="profile" class="about-item">
+            <h2><span><i class="fas fa-cogs"></i></span></h2>
+            <h3>What we do</h3>
+            <ul>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li>Neque ut error soluta quas accusamus.</li>
+                <li>Dolorem facere deserunt temporibus enim similique exercitationem ex maiores cumque officia animi
+                    recusandae totam quam placeat.</li>
+            </ul>
+        </div>
+        <div id="security" class="about-item">
+            <h2><span><i class="fas fa-shield-alt"></i></span></h2>
+            <h3>Security</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque ut error soluta quas accusamus, dolorem
+                facere deserunt temporibus enim similique exercitationem ex maiores cumque officia animi recusandae
+                totam quam placeat.</p>
+        </div>
+        <div id="contact" class="about-item">
+            <h2><span><i class="far fa-envelope-open"></i></span></h2>
+            <h3>Contact</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque ut error soluta quas accusamus, dolorem
+                facere deserunt temporibus enim similique exercitationem ex maiores cumque officia animi recusandae
+                totam quam placeat.</p>
+            <ul>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li>Neque ut error soluta quas accusamus.</li>
+                <li>Dolorem facere deserunt temporibus enim similique exercitationem ex maiores cumque officia animi
+                    recusandae totam quam placeat.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="currencies" class="midnightblue">
+        <h2>Avaiable currencies</h2>
+        <div id="availableCurrencies" class="allCurrencies"></div>
+    </div>
+    <footer>
+        <div>
+            <h2>CURRENCIES ONLINE</h2>
+            <a href="#">About us</a>
+            <a href="#">Legal</a>
+            <a href="#">Career</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div>
+            <span><a href=""><i class="fab fa-facebook-square"></i></a></span>
+            <span><a href=""><i class="fab fa-linkedin"></i></a></span>
+            <span><a href=""><i class="fab fa-twitter-square"></i></a></span>
+        </div>
+        <div>
+            <a href="#">FAQ</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookie Policy</a>
+        </div>
+
+        <div>
+            <h3><a href="https://cdv.pl/studia-podyplomowe/poznan/biznesowe/it/frontend-developer/"
+                    target="_blank">Collegium Da Vinci - Frontend Developer</a>
+            </h3>
+            <p>&copy; 2020 Krzysztof Fechner</p>
+        </div>
+    </footer>
+    <button id="scrollToTop" class="scrollBtn"><i class="fas fa-angle-double-up"></i></button>
+</body>
+
 </html>
