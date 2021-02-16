@@ -1,0 +1,14 @@
+@import "./store.scss";
+
+header {
+    background-color: $main-color;
+    box-shadow: 0 3px 12px 2px $shadow-color;
+    min-width: 300px;
+    .page-title {
+        color: $secondary-color;
+        text-align: center;
+        font-weight: bold;
+        font-size: 3.5rem;
+        cursor: pointer;
+    }
+}

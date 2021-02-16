@@ -1,5 +1,5 @@
 {
-  "name": "javascript-project-starter",
+  "name": "pokedex",
   "description": "Starter for JavaScript project",
   "version": "1.0.0",
   "scripts": {
@@ -7,7 +7,7 @@
     "production": "webpack --mode=production"
   },
   "keywords": [],
-  "author": "Adrian Juszczak <adrian.juszczak@cdv.pl>",
+  "author": "Jacek Olszowski <jacek.olszowski1@gmail.com>",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -38,17 +38,11 @@
     "sass-loader": "^8.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
+    "webpack-dev-server": "^3.11.0",
     "webpackbar": "^4.0.0"
   },
-  "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Juszczak/cdv-project-starter.git"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Juszczak/cdv-project-starter/issues"
-  },
-  "homepage": "https://github.com/Juszczak/cdv-project-starter#readme"
+  "dependencies": {
+    "@loadingio/loading-bar": "^0.1.1",
+    "animate.css": "^4.1.0"
+  }
 }

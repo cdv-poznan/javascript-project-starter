@@ -1,0 +1,54 @@
+.control-section {
+    display: flex;
+    align-items: center;
+    .filter {
+
+        .filter-label {
+            margin: 0;
+            height: 100%;
+            color: whitesmoke;
+            padding-right: 10px;
+        }
+        .select {
+            background-color: transparent;
+            color: whitesmoke;
+            border: 2px solid whitesmoke;
+            option{
+                background-color: $main-color;
+            }
+        }
+    }
+    .btn {
+        background-color: $secondary-color;
+        color: whitesmoke;
+        margin: 2px 2px;
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 5px 1px whitesmoke;
+        }
+    }
+    .pagination-box {
+        
+        .pagination-buttons {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 2px;
+        }
+    }
+
+}
+
+.pagination-remove {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .control-section {
+        flex-direction: column;
+        .filter {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+    }
+}

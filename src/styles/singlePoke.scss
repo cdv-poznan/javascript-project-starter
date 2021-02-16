@@ -1,0 +1,65 @@
+.poke-photo {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        height: 300px;
+    }
+}
+.poke-describe {
+    color: whitesmoke;
+    .poke-name {
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+    }
+    .poke-details {
+        .pokemon-type {
+            display: flex;      
+            padding: 10px;
+            p {
+                width: 20%;
+            }
+            .type-span {
+                font-weight: bold;
+                align-self: center;
+                margin-left: 30px;
+            }
+        }  
+    }
+    
+}
+
+.poke-statistic {
+    margin: 10px auto;
+    padding: 10px;
+    .simple-stat {
+        display: flex;
+        align-items: center;
+        p {
+            width: 20%;
+        }
+        .bar {
+            width: 80%;
+            height: 22px;
+            border: 1px solid lightgray;
+            margin-left: 30px;
+            .progress-bar {
+                background-color: $secondary-color;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .simple-stat .bar {
+        width: 65% !important;
+    }
+}
+
+ @media (max-width: 860px) {
+     .poke-photo img {
+         height: 200px;
+     }
+ } 
