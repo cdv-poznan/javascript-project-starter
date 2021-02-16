@@ -1,0 +1,39 @@
+<div class="container-fluid mx-0 px-0 py-5 featured-movie">
+    <div id="featured-carousel" class="carousel slide">
+        <div class="carousel-inner">
+            {{# each movies}}
+            <div class="carousel-item {{#if @first}}active{{/if}}">
+                <div class="row justify-content-center ">
+                    <div class="col-auto d-none d-sm-block  featured-movie__poster">
+                        <a href="/movie/{{{this.id}}}">
+                        <img src="{{#if this.poster_path}}{{../apiImagesUrl}}/w342{{this.poster_path}}{{else}}https://fakeimg.pl/500x750/?text=No%20poster{{/if}}"
+                            class="card-img-top" alt=" poster">
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <div class='embed-container'>
+                            <iframe width="704" height="396"
+                                src="https://www.youtube.com/embed/{{this.videoKey}}?controls=0" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe></div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <a class="carousel-control-prev" href="#featured-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#featured-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<div class="container mt-5">
+    <h2>Now Playing Movies</h2>
+    {{> ./carouselTemplate.handlebars nowPlayingMoviesCarouselContext apiImagesUrl=apiImagesUrl }}
+    <h2 class="mt-3">Currently Airing TV Shows</h2>
+    {{> ./carouselTemplate.handlebars nowPlayingTvCarouselContext apiImagesUrl=apiImagesUrl}}
+</div>

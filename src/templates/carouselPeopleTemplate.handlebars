@@ -1,0 +1,34 @@
+{{#if results}}
+    <div class="glide mt-3" id="{{type}}">
+        <div data-glide-el="track" class="glide__track">
+            <ul class="glide__slides">
+                {{#each results}}
+                    <li class="glide__slide text-center">
+                        <a href="/person/{{{this.id}}}" class="link">
+                            <img class="carousel__image"
+                                src=
+                                    {{#if this.profile_path}}
+                                        "{{../apiImagesUrl}}/w185{{this.profile_path}}"
+                                    {{else}}
+                                        "https://fakeimg.pl/185x278/?text=No%20photo"
+                                    {{/if}}>
+                            <p class="carousel__title mt-2">{{this.name}}</p>
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class=" glide__arrows d-none d-md-block" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                <i class="fas fa-chevron-left"></i>
+            </button> 
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+{{else}}
+    <div class="text-center px-3">
+        <p>No results</p> 
+    </div>
+{{/if}}

@@ -1,0 +1,8 @@
+<div class="container mt-5">
+    <h2>Now Playing</h2>
+    {{> ./carouselTemplate.handlebars nowPlayingCarouselContext apiImagesUrl=apiImagesUrl  }}
+    <h2 class="mt-2">Popular</h2>
+    {{> ./carouselTemplate.handlebars popularCarouselContext apiImagesUrl=apiImagesUrl}}
+    <h2 class="mt-2">Top Rated</h2>
+    {{> ./carouselTemplate.handlebars topRatedCarouselContext apiImagesUrl=apiImagesUrl}}
+</div>

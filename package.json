@@ -1,10 +1,11 @@
 {
-  "name": "javascript-project-starter",
-  "description": "Starter for JavaScript project",
+  "name": "filmeo",
+  "description": "Filmeo",
   "version": "1.0.0",
   "scripts": {
     "start": "webpack-dev-server",
-    "production": "webpack --mode=production"
+    "production": "webpack --mode=production",
+    "deploy": "webpack --mode=production && firebase deploy"
   },
   "keywords": [],
   "author": "Adrian Juszczak <adrian.juszczak@cdv.pl>",
@@ -41,7 +42,20 @@
     "webpack-dev-server": "^3.10.3",
     "webpackbar": "^4.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "@glidejs/glide": "^3.4.1",
+    "bootstrap": "^4.5.0",
+    "handlebars": "^4.7.6",
+    "handlebars-helpers": "^0.10.0",
+    "handlebars-loader": "^1.7.1",
+    "handlebars-utils": "^1.0.6",
+    "jquery": "^3.5.1",
+    "normalize.css": "^8.0.1",
+    "popper.js": "^1.16.1",
+    "shave": "^2.5.9",
+    "vanilla-router": "^1.2.8"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Juszczak/cdv-project-starter.git"

@@ -1,0 +1,54 @@
+<div class="jumbotron jumbotron-fluid movie__header"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{apiImagesUrl}}/original{{resultsMovie.backdrop_path}});"
+    >
+
+    <div class="container movie__header__heading ">
+        <div class="row">
+            <div class="col-12 col-md-5 col-lg-3 px-5 px-md-0 text-center">
+                <img src=
+                        {{#if resultsMovie.poster_path}}
+                            "{{apiImagesUrl}}/w500{{resultsMovie.poster_path}}"
+                        {{else}}
+                            "https://fakeimg.pl/500x750/?text=No%20poster"
+                        {{/if}}
+                    class="card-img-top movie__header__poster" 
+                    alt="{{resultsMovie.title}} poster">
+            </div>
+            <div class="col-12 col-md mt-3 mt-md-0 px-3 px-sm-5 ">
+                <h1 class="display-4 movie__header__heading__title">
+                    {{resultsMovie.title}}
+                </h1>
+                <p class="mb-3">
+                    {{resultsMovie.runtime}} min | 
+                    {{#each resultsMovie.genres}}
+                        {{#if @index}}
+                            , {{this.name}}
+                        {{else}}
+                            {{this.name}}   
+                        {{/if}}
+                    {{/each}}     
+                </p>
+                <p class="lead">
+                    {{resultsMovie.overview}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="movie container mx-auto">
+    <div class="row">
+        <div class="col-12 col-lg-3">
+            <h2 class="my-2 ">Details</h2>
+            <p><b>Budget:</b> ${{resultsMovie.budget}}</p>
+            <p><b>Revenue:</b> ${{resultsMovie.revenue}}</p>
+            <p><b>Users rating:</b> {{resultsMovie.vote_average}}/10</p>
+        </div>
+        <div class="col mt-4">
+            <h2>Cast</h2>
+            {{> ./carouselPeopleTemplate.handlebars castCarouselContext apiImagesUrl=apiImagesUrl}}
+            <h2 class="mt-4">Similar movies</h2>
+            {{> ./carouselTemplate.handlebars similarCarouselContext apiImagesUrl=apiImagesUrl}}
+        </div>
+    </div>
+
+</div>

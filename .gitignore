@@ -1,2 +1,7 @@
 node_modules
 dist
+src/apiConfig.js
+.firebase/hosting.ZGlzdA.cache
+.firebaserc
+firebase.json
+

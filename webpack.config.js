@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { resolve } = require('path');
@@ -10,8 +11,14 @@ const config = {
     main: ['@babel/polyfill', resolve(__dirname, './src/main.js'), resolve(__dirname, './src/style.scss')],
   },
   output: {
+    publicPath: '/',
     path: resolve(__dirname, './dist'),
     filename: 'main.js',
+  },
+  devServer: {
+    historyApiFallback: true,
+    hot: false,
+    inline: false,
   },
   resolve: {
     extensions: ['.js', '.html', '.scss'],
@@ -57,6 +64,10 @@ const config = {
         ],
       },
       {
+        test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        loader: 'file-loader?name=[name].[ext]', // <-- retain original file name
+      },
+      {
         test: /\.(svg|eot|woff|woff2|ttf)$/,
         loaders: [
           {
@@ -67,17 +78,24 @@ const config = {
           },
         ],
       },
+      { test: /\.handlebars$/, loader: 'handlebars-loader' },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve(__dirname, './src/index.html'),
+      favicon: './src/favicon.ico',
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
       chunkFilename: '[id].css',
     }),
     new WebpackBar(),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+    }),
     new CopyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),
   ],
   watchOptions: {
